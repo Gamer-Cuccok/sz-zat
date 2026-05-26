@@ -1,13 +1,12 @@
-// Copy this file to assets/js/config.js and paste your Firebase web app config.
-// Never commit real private tokens. Firebase web config is not a secret, but rules matter.
 window.APP_CONFIG = {
   firebase: {
-    apiKey: "",
-    authDomain: "",
-    databaseURL: "",
-    projectId: "",
-    storageBucket: "",
-    messagingSenderId: "",
-    appId: ""
+    apiKey: "AIzaSyCtiUNrXIHDyjAdUkyCBf0m8GqCpq9F-Ik",
+    authDomain: "szozat-5e894.firebaseapp.com",
+    databaseURL: "https://szozat-5e894-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "szozat-5e894",
+    storageBucket: "szozat-5e894.firebasestorage.app",
+    messagingSenderId: "488521051421",
+    appId: "1:488521051421:web:952cc9a3e6f402d95485f4",
+    measurementId: "G-M7Y48RWB4Z"
   }
 };
