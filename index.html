@@ -92,7 +92,7 @@
             <label>Időlimit / kör, mp <input id="settingTimeLimit" type="number" min="0" step="10" value="0"></label>
             <label>Végjáték timer, mp <input id="settingFailoverTimer" type="number" min="10" step="10" value="300"></label>
             <label class="check-row"><input id="settingLongWords" type="checkbox"> Hosszú szavak engedélyezése</label>
-            <label class="check-row"><input id="settingHostWords" type="checkbox" checked> Host gyors szó hozzáadás</label>
+            <label class="check-row"><input id="settingHostWords" type="checkbox" checked> Játék közbeni szó hozzáadás</label>
             
           </form>
         </div>
@@ -122,10 +122,13 @@
           <h3>Másik játékos</h3>
           <div id="opponentPanel" class="opponent-panel"><p class="hint">Várakozás a másik játékosra…</p></div>
           <div id="hostQuickAdd" class="quick-add hidden">
-            <h3>Gyors szó hozzáadás</h3>
-            <input id="quickWordInput" class="text-input" placeholder="új szó" />
-            <p class="hint">A hozzáadott szó azonnal tippelhető mindkét játékosnak, de a jelenlegi megfejtést nem cseréli le.</p>
-            <button id="quickAddButton" class="secondary-btn">Szó bedobása</button>
+            <h3>Szó javaslat</h3>
+            <div class="quick-word-line">
+              <input id="quickWordInput" class="text-input" placeholder="új szó" autocomplete="off" />
+              <button id="quickAddButton" class="secondary-btn">Javaslat</button>
+            </div>
+            <p class="hint">Mindkét játékos javasolhat szót. Az ellenfél jóváhagyása után azonnal tippelhető, és a mostani megfejtést nem cseréli le.</p>
+            <div id="wordRequestList" class="word-request-list"></div>
           </div>
           <div class="audio-panel">
             <h3>Hang</h3>

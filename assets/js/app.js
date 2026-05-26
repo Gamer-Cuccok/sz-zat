@@ -24,7 +24,7 @@
       "settingAttempts", "settingRounds", "settingTargetScore", "settingTimeLimit", "settingFailoverTimer", "settingLongWords",
       "settingHostWords", "roundLabel", "wordLengthLabel", "timerLabel", "failoverLabel", "attemptsLabel",
       "scoreLabel", "levelLabel", "xpLabel", "xpBar", "opponentPanel", "hostQuickAdd", "quickWordInput",
-      "quickAddButton", "duelBoardWrap", "gameBoard", "boardTitle", "inputPreview",
+      "quickAddButton", "wordRequestList", "duelBoardWrap", "gameBoard", "boardTitle", "inputPreview",
       "keyboard", "partyBoards", "partyOwnBoard", "partyOtherBoard", "partyCentralBoard", "roundModal",
       "roundModalEyebrow", "roundModalTitle", "answerReveal", "roundModalText", "backToLobbyButton", "profileButton",
       "profileMenu", "matchResultTitle", "matchSummary", "rematchButton", "resultLobbyButton"
@@ -179,6 +179,37 @@
     return rows.join("");
   }
 
+  function renderWordRequests(room) {
+    if (!els.wordRequestList || !state.profile) return;
+    const requests = Object.entries((room && room.wordRequests) || {})
+      .map(([id, req]) => ({ id, ...req }))
+      .filter(req => req && req.word)
+      .sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0))
+      .slice(0, 5);
+
+    if (!requests.length) {
+      els.wordRequestList.innerHTML = '<p class="hint tight">Nincs függő szó. Írj be egyet, az ellenfél pedig jóváhagyja.</p>';
+      return;
+    }
+
+    els.wordRequestList.innerHTML = requests.map(req => {
+      const mine = req.requestedBy === state.profile.userId;
+      const status = req.status || "pending";
+      let actions = "";
+      if (status === "pending" && !mine) {
+        actions = `<div class="request-actions"><button class="secondary-btn tiny-btn" data-word-action="approve" data-request-id="${escapeHTML(req.id)}">OK</button><button class="ghost-btn tiny-btn" data-word-action="reject" data-request-id="${escapeHTML(req.id)}">Nem</button></div>`;
+      } else if (status === "pending" && mine) {
+        actions = '<span class="request-pill wait">Vár az ellenfélre</span>';
+      } else if (status === "approved") {
+        actions = '<span class="request-pill ok">Elfogadva</span>';
+      } else {
+        actions = '<span class="request-pill no">Elutasítva</span>';
+      }
+      const by = mine ? "te" : escapeHTML(req.requestedByName || "ellenfél");
+      return `<div class="word-request ${status}"><div><strong>${escapeHTML(req.word)}</strong><small>${by} javasolta</small></div>${actions}</div>`;
+    }).join("");
+  }
+
   function formatTime(seconds) {
     const s = Math.max(0, Number(seconds) || 0);
     const m = Math.floor(s / 60);
@@ -305,7 +336,8 @@
     }
     renderScore(room);
     renderOpponentPanel(room);
-    els.hostQuickAdd.classList.toggle("hidden", !(isHost() && room.settings.allowHostWords));
+    renderWordRequests(room);
+    els.hostQuickAdd.classList.toggle("hidden", !room.settings.allowHostWords);
     els.duelBoardWrap.classList.toggle("hidden", mode === "party");
     els.partyBoards.classList.toggle("hidden", mode !== "party");
     if (mode === "party") renderPartyBoards(room);
@@ -378,10 +410,21 @@
 
   function maybeShowWordAddedNotice(room) {
     const evt = room && room.lastWordAdded;
-    if (!evt || !evt.id || state.lastWordNoticeId === evt.id) return;
+    if (!evt || !evt.id) return;
+    if (evt.word && window.SPWordService && window.SPWordService.addLocalWord) {
+      window.SPWordService.addLocalWord({
+        word: evt.word,
+        addedBy: evt.addedBy,
+        addedByName: evt.addedByName,
+        addedAt: evt.addedAt,
+        source: "room-approved"
+      });
+    }
+    if (state.lastWordNoticeId === evt.id) return;
     state.lastWordNoticeId = evt.id;
-    if (state.profile && evt.addedBy === state.profile.userId) return;
-    toast(`${evt.addedByName || "A host"} új szót dobott be: ${evt.word}. Már ebben a körben tippelhető.`, "ok");
+    const mine = state.profile && evt.addedBy === state.profile.userId;
+    const who = mine ? "A szavad jóvá lett hagyva" : `${evt.addedByName || "A másik játékos"} új szava jóváhagyva`;
+    toast(`${who}: ${evt.word}. Mostantól tippelhető, és következő köröktől megfejtés is lehet.`, "ok");
   }
 
   function subscribeRoom(roomCode) {
@@ -499,10 +542,14 @@
       displayName: state.profile.displayName
     };
 
-    await window.SPRooms.submitGuess(state.roomCode, state.profile.userId, payload);
-    feedback.forEach(item => { state.keyStates[item.letter] = window.SPGameEngine.mergeKeyState(state.keyStates[item.letter], item.state); });
+    // Clear local input before the Firebase write can re-render the board.
+    // Otherwise the submitted word may briefly appear again in the next row.
     state.currentInput = "";
     els.inputPreview.textContent = "";
+    renderGame(state.room);
+
+    await window.SPRooms.submitGuess(state.roomCode, state.profile.userId, payload);
+    feedback.forEach(item => { state.keyStates[item.letter] = window.SPGameEngine.mergeKeyState(state.keyStates[item.letter], item.state); });
     window.SPAudio.play(solved ? "correct" : "reveal");
 
     if (solved) {
@@ -646,18 +693,44 @@
   }
 
   async function quickAddWord() {
-    if (!isHost()) return;
+    if (!state.room || !state.room.settings.allowHostWords) return toast("Ebben a szobában nincs játék közbeni szó hozzáadás.", "error");
     try {
-      const word = els.quickWordInput.value;
-      const entry = await window.SPWordService.addDynamicWord({
-        word,
+      const entry = window.SPWordService.prepareWordEntry(els.quickWordInput.value, {
         addedBy: state.profile.userId,
         addedByName: state.profile.displayName,
-        source: "host-quick-add"
+        source: "player-proposal"
       });
+      if (window.SPWordService.isAccepted(entry.word)) {
+        els.quickWordInput.value = "";
+        return toast("Ez a szó már benne van a szótárban.", "ok");
+      }
+      const pending = Object.values((state.room && state.room.wordRequests) || {})
+        .find(req => req.word === entry.word && req.status === "pending");
+      if (pending) return toast("Erre a szóra már vár egy jóváhagyás.", "error");
+      await window.SPRooms.proposeWord(state.roomCode, entry, state.profile);
       els.quickWordInput.value = "";
-      await window.SPRooms.announceWordAdded(state.roomCode, entry, state.profile);
-      toast(`Hozzáadva: ${entry.word}. Tippelhető most, megfejtés lehet a következő körtől.`, "ok");
+      toast(`Javaslat elküldve: ${entry.word}. Az ellenfélnek el kell fogadnia.`, "ok");
+    } catch (err) { toast(err.message, "error"); }
+  }
+
+  async function respondToWordRequest(requestId, approved) {
+    const req = state.room && state.room.wordRequests && state.room.wordRequests[requestId];
+    if (!req || req.status !== "pending") return;
+    if (req.requestedBy === state.profile.userId) return toast("A saját szavadat az ellenfélnek kell elfogadnia.", "error");
+    try {
+      if (approved) {
+        await window.SPRooms.approveWordRequest(state.roomCode, requestId, state.profile);
+        window.SPWordService.addLocalWord({
+          word: req.word,
+          addedBy: req.requestedBy,
+          addedByName: req.requestedByName,
+          addedAt: Date.now(),
+          source: "approved-room"
+        });
+      } else {
+        await window.SPRooms.rejectWordRequest(state.roomCode, requestId, state.profile);
+        toast(`Elutasítva: ${req.word}.`, "");
+      }
     } catch (err) { toast(err.message, "error"); }
   }
 
@@ -696,6 +769,17 @@
     els.resultLobbyButton.addEventListener("click", backToLobby);
     els.rematchButton.addEventListener("click", rematch);
     els.quickAddButton.addEventListener("click", quickAddWord);
+    els.quickWordInput.addEventListener("keydown", ev => {
+      if (ev.key === "Enter") {
+        ev.preventDefault();
+        quickAddWord();
+      }
+    });
+    els.wordRequestList.addEventListener("click", ev => {
+      const button = ev.target.closest("[data-word-action]");
+      if (!button) return;
+      respondToWordRequest(button.dataset.requestId, button.dataset.wordAction === "approve");
+    });
     els.profileButton.addEventListener("click", () => els.profileMenu.classList.toggle("hidden"));
     els.settingsForm.querySelectorAll("input, select").forEach(el => el.addEventListener("change", updateSettingsDebounced));
     document.addEventListener("keydown", ev => {

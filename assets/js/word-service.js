@@ -92,25 +92,37 @@
     return pool[Math.floor(Math.random() * pool.length)];
   }
 
-  async function addDynamicWord({ word, addedBy = "unknown", addedByName = "Host", source = "host-quick-add" }) {
-    const normalized = engine().normalizeWord(word);
+  function prepareWordEntry(rawWord, defaults = {}) {
+    const normalized = engine().normalizeWord(rawWord);
     if (!engine().isValidHungarianWordShape(normalized)) throw new Error("Csak magyar betűket használj.");
     if (Array.from(normalized).length < 3) throw new Error("Legalább 3 betűs szó kell.");
-    const existed = wordMeta.has(normalized);
-    const entry = {
+    return {
       word: normalized,
       length: Array.from(normalized).length,
       enabled: true,
-      addedBy,
-      addedByName,
-      addedAt: Date.now(),
-      source
+      addedBy: defaults.addedBy || "unknown",
+      addedByName: defaults.addedByName || "Játékos",
+      addedAt: defaults.addedAt || Date.now(),
+      source: defaults.source || "player-added"
     };
-    mergeEntry({ ...entry, source: "dynamic" });
+  }
+
+  function addLocalWord(rawEntry) {
+    const entry = normalizeEntry(typeof rawEntry === "string" ? { word: rawEntry } : rawEntry, { source: "room-approved" });
+    if (!entry) return null;
+    const existed = wordMeta.has(entry.word);
+    mergeEntry({ ...entry, source: entry.source || "room-approved" });
     rebuildArray();
     updateWordCount();
+    return { ...entry, existed };
+  }
+
+  async function addDynamicWord({ word, addedBy = "unknown", addedByName = "Játékos", source = "approved-room" }) {
+    const entry = prepareWordEntry(word, { addedBy, addedByName, source });
+    const existed = wordMeta.has(entry.word);
+    addLocalWord({ ...entry, source: "dynamic" });
     if (window.SPFirebase && window.SPFirebase.configured) {
-      const id = normalized.replace(/[.#$\/\[\]]/g, "_");
+      const id = entry.word.replace(/[.#$\/\[\]]/g, "_");
       await window.SPFirebase.set(`words/dynamic/${id}`, entry);
     }
     return { ...entry, existed };
@@ -121,5 +133,5 @@
   function getAnswerWords() { return getWords(); }
   function getAcceptedWords() { return getWords(); }
 
-  window.SPWordService = { init, isAccepted, randomAnswer, addDynamicWord, getAll, getWords, getAnswerWords, getAcceptedWords };
+  window.SPWordService = { init, isAccepted, randomAnswer, prepareWordEntry, addLocalWord, addDynamicWord, getAll, getWords, getAnswerWords, getAcceptedWords };
 })();

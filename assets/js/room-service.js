@@ -291,6 +291,78 @@
     });
   }
 
+  async function proposeWord(roomCode, entry, profile) {
+    requireFirebase();
+    if (!roomCode || !entry || !entry.word) throw new Error("Nincs szó megadva.");
+    const key = await window.SPFirebase.push(`${roomPath(roomCode)}/wordRequests`, {
+      word: entry.word,
+      length: entry.length,
+      status: "pending",
+      requestedBy: profile && profile.userId,
+      requestedByName: profile && profile.displayName,
+      createdAt: Date.now(),
+      source: "player-proposal"
+    });
+    await window.SPFirebase.update(roomPath(roomCode), { updatedAt: window.SPFirebase.serverTimestamp() });
+    return key;
+  }
+
+  async function approveWordRequest(roomCode, requestId, profile) {
+    requireFirebase();
+    const reqPath = `${roomPath(roomCode)}/wordRequests/${requestId}`;
+    const req = await window.SPFirebase.get(reqPath);
+    if (!req || req.status !== "pending") throw new Error("Ez a szókérelem már nem aktív.");
+    if (profile && req.requestedBy === profile.userId) throw new Error("A saját szavadat az ellenfélnek kell elfogadnia.");
+    const entry = {
+      word: req.word,
+      length: req.length,
+      enabled: true,
+      addedBy: req.requestedBy,
+      addedByName: req.requestedByName,
+      addedAt: Date.now(),
+      approvedBy: profile && profile.userId,
+      approvedByName: profile && profile.displayName,
+      source: "approved-player-word"
+    };
+    const safeId = String(entry.word).replace(/[.#$\/\[\]]/g, "_");
+    await window.SPFirebase.set(`words/dynamic/${safeId}`, entry);
+    await window.SPFirebase.update(reqPath, {
+      status: "approved",
+      respondedBy: profile && profile.userId,
+      respondedByName: profile && profile.displayName,
+      respondedAt: Date.now()
+    });
+    await window.SPFirebase.update(roomPath(roomCode), {
+      lastWordAdded: {
+        id: `${entry.word}_${Date.now()}`,
+        word: entry.word,
+        length: entry.length,
+        addedBy: entry.addedBy,
+        addedByName: entry.addedByName,
+        approvedBy: entry.approvedBy,
+        approvedByName: entry.approvedByName,
+        addedAt: entry.addedAt
+      },
+      updatedAt: window.SPFirebase.serverTimestamp()
+    });
+    return entry;
+  }
+
+  async function rejectWordRequest(roomCode, requestId, profile) {
+    requireFirebase();
+    const reqPath = `${roomPath(roomCode)}/wordRequests/${requestId}`;
+    const req = await window.SPFirebase.get(reqPath);
+    if (!req || req.status !== "pending") throw new Error("Ez a szókérelem már nem aktív.");
+    if (profile && req.requestedBy === profile.userId) throw new Error("A saját szavadat az ellenfélnek kell elutasítania vagy elfogadnia.");
+    await window.SPFirebase.update(reqPath, {
+      status: "rejected",
+      respondedBy: profile && profile.userId,
+      respondedByName: profile && profile.displayName,
+      respondedAt: Date.now()
+    });
+    await window.SPFirebase.update(roomPath(roomCode), { updatedAt: window.SPFirebase.serverTimestamp() });
+  }
+
   window.SPRooms = {
     DEFAULT_SETTINGS,
     createRoom,
@@ -308,6 +380,9 @@
     startFailureTimer,
     endRound,
     addScore,
-    announceWordAdded
+    announceWordAdded,
+    proposeWord,
+    approveWordRequest,
+    rejectWordRequest
   };
 })();
