@@ -1,7 +1,7 @@
 (function () {
   const $ = id => document.getElementById(id);
   const engine = () => window.SPGameEngine;
-  const state = { words: new Map(), githubSha: null, busy: false };
+  const state = { words: new Map(), githubSha: null, busy: false, recentWords: [], firebaseDynamicCount: 0 };
 
   function toast(message, type = "") {
     const host = $("toastHost");
@@ -77,7 +77,9 @@
       word,
       length,
       enabled: obj.enabled !== false,
-      source: obj.source || defaults.source || "admin"
+      source: obj.source || defaults.source || "admin",
+      addedAt: obj.addedAt || defaults.addedAt || null,
+      addedBy: obj.addedBy || defaults.addedBy || null
     };
   }
 
@@ -88,7 +90,9 @@
       word: entry.word,
       length: entry.length,
       enabled: entry.enabled !== false,
-      source: entry.source || prev.source || "admin"
+      source: entry.source || prev.source || "admin",
+      addedAt: entry.addedAt || prev.addedAt || null,
+      addedBy: entry.addedBy || prev.addedBy || null
     });
     return true;
   }
@@ -187,13 +191,40 @@
     return count;
   }
 
-  async function loadLocal() {
+  async function loadFirebaseDynamic(options = {}) {
+    const silent = !!options.silent;
+    state.firebaseDynamicCount = 0;
+    if (!window.SPFirebase || !window.SPFirebase.configured) {
+      if (!silent) toast("Firebase nincs beállítva, online szavak nem tölthetők be.", "warn");
+      return 0;
+    }
+    const data = await window.SPFirebase.get("words/dynamic");
+    let count = 0;
+    Object.values(data || {}).forEach(raw => {
+      const entry = normalizeEntry(raw, { source: "firebase" });
+      if (entry && upsert({ ...entry, source: "firebase" })) count += 1;
+    });
+    state.firebaseDynamicCount = count;
+    if (!silent) toast(`${count} Firebase-ben élesített szó behúzva az admin listába.`, "ok");
+    return count;
+  }
+
+  async function loadLocal(options = {}) {
+    const silent = !!options.silent;
     try {
       state.words.clear();
+      state.recentWords = [];
       const count = await loadJson("data/words.json");
+      let onlineCount = 0;
+      try {
+        onlineCount = await loadFirebaseDynamic({ silent: true });
+      } catch (err) {
+        if (!silent) toast(`Firebase online szavak betöltése nem sikerült: ${err.message}`, "warn");
+      }
       render();
-      toast(`${count} szó betöltve a közös words.json fájlból.`, "ok");
-    } catch (err) { toast(err.message, "error"); }
+      if (!silent) toast(`${count} helyi szó + ${onlineCount} online Firebase szó betöltve.`, "ok");
+      return { localCount: count, onlineCount };
+    } catch (err) { toast(err.message, "error"); return { localCount: 0, onlineCount: 0 }; }
   }
 
   function githubHeaders(token) {
@@ -213,9 +244,12 @@
       const text = decodeURIComponent(escape(atob(data.content.replace(/\n/g, ""))));
       const json = JSON.parse(text);
       state.words.clear();
+      state.recentWords = [];
       (Array.isArray(json) ? json : (json.words || [])).forEach(raw => upsert(normalizeEntry(raw, { source: "github" })));
+      let onlineCount = 0;
+      try { onlineCount = await loadFirebaseDynamic({ silent: true }); } catch {}
       render();
-      toast("GitHub words.json betöltve.", "ok");
+      toast(`GitHub words.json betöltve${onlineCount ? ` + ${onlineCount} Firebase szó behúzva` : ""}.`, "ok");
     } catch (err) { toast(err.message, "error"); }
   }
 
@@ -327,6 +361,7 @@
 
       setBusy(true, "Szavak feldolgozása...");
       const batch = await applyWordBatch(rawWords);
+      state.recentWords = batch.changedEntries.map(w => w.word).slice(0, 180);
       render();
 
       let firebaseResult = { ok: true, count: 0, message: "Nem volt új szó Firebase-be küldve" };
@@ -334,6 +369,7 @@
 
       if (batch.publishEntries.length) {
         firebaseResult = await pushEntriesToFirebase(batch.publishEntries);
+        if (firebaseResult.ok) state.firebaseDynamicCount = Math.max(state.firebaseDynamicCount, 0) + batch.publishEntries.length;
         if (githubIsReady()) {
           setBusy(true, "GitHub mentés...");
           githubResult = await saveGithub({ silent: true });
@@ -412,21 +448,33 @@
     const all = Array.from(state.words.values());
     const enabled = all.filter(w => w.enabled !== false);
     const byLength = enabled.reduce((acc, w) => { acc[w.length] = (acc[w.length] || 0) + 1; return acc; }, {});
+    const firebaseCount = all.filter(w => w.source === "firebase").length;
     $("wordStats").innerHTML = `
       <span>Összes: <strong>${all.length}</strong></span>
       <span>Aktív: <strong>${enabled.length}</strong></span>
       <span>Tiltott: <strong>${all.length - enabled.length}</strong></span>
+      <span>Firebase-ből behúzva: <strong>${firebaseCount}</strong></span>
       <span>Hosszak: <strong>${Object.entries(byLength).sort((a,b)=>a[0]-b[0]).map(([l,c]) => `${l}:${c}`).join(" • ")}</strong></span>
     `;
   }
 
   function renderTable() {
-    const rows = filteredWords().slice(0, 600);
-    $("wordTable").innerHTML = rows.map(w => `
-      <div class="word-row-admin ${w.enabled === false ? "disabled-word" : ""}">
+    const filtered = filteredWords();
+    const recentSet = new Set(state.recentWords || []);
+    const recentRows = (state.recentWords || [])
+      .map(word => state.words.get(word))
+      .filter(Boolean)
+      .filter(w => filtered.some(item => item.word === w.word));
+    const normalRows = filtered.filter(w => !recentSet.has(w.word));
+    const rows = [...recentRows, ...normalRows].slice(0, 800);
+    const info = rows.length < filtered.length
+      ? `<div class="word-table-info">${rows.length} / ${filtered.length} szó látszik. Használd a keresőt, vagy a frissen hozzáadott szavak automatikusan felül jelennek meg.</div>`
+      : `<div class="word-table-info">${rows.length} szó látszik${recentRows.length ? " • frissen hozzáadottak felül" : ""}.</div>`;
+    $("wordTable").innerHTML = info + rows.map(w => `
+      <div class="word-row-admin ${w.enabled === false ? "disabled-word" : ""} ${recentSet.has(w.word) ? "recent-word" : ""}">
         <strong>${escapeHTML(w.word)}</strong>
         <span class="tag">${w.length} betű</span>
-        <span class="tag">${w.enabled === false ? "tiltott" : "közös szó"}</span>
+        <span class="tag">${w.enabled === false ? "tiltott" : (w.source === "firebase" ? "online szó" : "közös szó")}</span>
         <button class="${w.enabled === false ? "secondary-btn" : "ghost-btn"} small" data-${w.enabled === false ? "restore" : "remove"}="${escapeHTML(w.word)}">${w.enabled === false ? "Vissza" : "Tilt"}</button>
       </div>
     `).join("");
@@ -456,6 +504,14 @@
   function bind() {
     $("loadLocalButton").addEventListener("click", loadLocal);
     $("loadGithubButton").addEventListener("click", loadGithub);
+    $("syncFirebaseButton").addEventListener("click", async () => {
+      try {
+        const count = await loadFirebaseDynamic();
+        render();
+        if (count) state.recentWords = Array.from(state.words.values()).filter(w => w.source === "firebase").sort((a, b) => (b.addedAt || 0) - (a.addedAt || 0)).slice(0, 80).map(w => w.word);
+        render();
+      } catch (err) { toast(err.message, "error"); }
+    });
     $("saveGithubButton").addEventListener("click", () => saveGithub());
     $("addEverywhereButton").addEventListener("click", addEverywhere);
     $("singleWordInput").addEventListener("keydown", event => {
@@ -480,7 +536,7 @@
     restoreSettings();
     bind();
     updateSelectedFileInfo();
-    await loadLocal();
+    await loadLocal({ silent: true });
   }
 
   document.addEventListener("DOMContentLoaded", init);
