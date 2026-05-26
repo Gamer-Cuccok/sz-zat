@@ -45,7 +45,9 @@
   function showView(name) {
     [els.landingView, els.lobbyView, els.gameView, els.resultView].forEach(v => v && v.classList.remove("active"));
     if (els[name]) els[name].classList.add("active");
-    document.body.classList.toggle("is-game-screen", name === "gameView");
+    const isGame = name === "gameView";
+    document.body.classList.toggle("is-game-screen", isGame);
+    if (window.SPAudio && window.SPAudio.setGameActive) window.SPAudio.setGameActive(isGame);
   }
 
   function isHost() {
@@ -270,6 +272,43 @@
     return JSON.stringify({ answerLength, maxAttempts, guesses: stableGuesses });
   }
 
+  function buildInputHints(guesses, answerLength) {
+    const greenAt = Array.from({ length: answerLength }, () => new Set());
+    const yellowAt = Array.from({ length: answerLength }, () => new Set());
+    const present = new Set();
+    const graySeen = new Set();
+
+    (guesses || []).forEach(guess => {
+      (guess.feedback || []).forEach((fb, index) => {
+        const letter = fb && fb.letter;
+        if (!letter) return;
+        if (fb.state === "green") {
+          greenAt[index] && greenAt[index].add(letter);
+          present.add(letter);
+        } else if (fb.state === "yellow") {
+          yellowAt[index] && yellowAt[index].add(letter);
+          present.add(letter);
+        } else if (fb.state === "gray") {
+          graySeen.add(letter);
+        }
+      });
+    });
+
+    const absent = new Set([...graySeen].filter(letter => !present.has(letter)));
+    return { greenAt, yellowAt, present, absent };
+  }
+
+  function inputHintClass(letter, index, hints) {
+    if (!letter || !hints) return "";
+    const locked = hints.greenAt[index] && hints.greenAt[index].size > 0;
+    if (hints.greenAt[index] && hints.greenAt[index].has(letter)) return " hint-green";
+    if (locked) return " hint-red";
+    if (hints.absent.has(letter)) return " hint-red";
+    if (hints.yellowAt[index] && hints.yellowAt[index].has(letter)) return " hint-yellow";
+    if (hints.present.has(letter)) return " hint-yellow";
+    return "";
+  }
+
   function renderBoard(container, guesses, input, answerLength, maxAttempts, reveal = false) {
     if (!container) return;
     const safeGuesses = guesses || [];
@@ -302,11 +341,12 @@
       container.dataset.boardSignature = signature;
     }
 
-    updateActiveInputRow(container, safeGuesses.length, input, answerLength, maxAttempts);
+    updateActiveInputRow(container, safeGuesses.length, input, answerLength, maxAttempts, safeGuesses);
   }
 
-  function updateActiveInputRow(container, activeRowIndex, input, answerLength, maxAttempts) {
+  function updateActiveInputRow(container, activeRowIndex, input, answerLength, maxAttempts, guesses = []) {
     const inputLetters = Array.from(input || "");
+    const hints = buildInputHints(guesses, answerLength);
     for (let r = 0; r < maxAttempts; r += 1) {
       const row = container.querySelector(`.word-row[data-row="${r}"]`);
       if (!row) continue;
@@ -314,7 +354,7 @@
       if (isSubmittedRow) continue;
       row.querySelectorAll(".tile").forEach((tile, c) => {
         const letter = r === activeRowIndex ? (inputLetters[c] || "") : "";
-        const nextClass = letter ? "tile live-filled" : "tile";
+        const nextClass = letter ? `tile live-filled${inputHintClass(letter, c, hints)}` : "tile";
         if (tile.textContent !== letter) tile.textContent = letter;
         if (tile.className !== nextClass) tile.className = nextClass;
         tile.style.animationDelay = "0ms";
@@ -334,6 +374,8 @@
   }
 
   function renderKeyboard() {
+    const signature = JSON.stringify(state.keyStates || {});
+    if (els.keyboard.dataset.keyboardSignature === signature && els.keyboard.children.length) return;
     els.keyboard.innerHTML = window.SPGameEngine.KEYBOARD_ROWS.map(row => `
       <div class="key-row">
         ${row.map(key => {
@@ -344,7 +386,19 @@
         }).join("")}
       </div>
     `).join("");
-    els.keyboard.querySelectorAll("button").forEach(btn => btn.addEventListener("click", () => handleKey(btn.dataset.key)));
+    els.keyboard.dataset.keyboardSignature = signature;
+  }
+
+  function updateCurrentInputVisuals() {
+    if (!state.room || !state.room.currentRound) return;
+    const round = state.room.currentRound;
+    const maxAttempts = round.maxAttempts || state.room.settings.maxAttempts;
+    els.inputPreview.textContent = state.currentInput.toLocaleUpperCase("hu-HU");
+    if (state.room.settings.mode === "party") {
+      renderBoard(els.partyOwnBoard, guessesForUser(state.profile.userId, state.room), state.currentInput, round.answerLength, maxAttempts, true);
+    } else {
+      renderBoard(els.gameBoard, ownGuesses(state.room), state.currentInput, round.answerLength, maxAttempts, true);
+    }
   }
 
   function resetLocalRoundState() {
@@ -488,6 +542,7 @@
   }
 
   async function startSoloGame() {
+    if (window.SPAudio && window.SPAudio.wake) window.SPAudio.wake();
     try {
       const profile = await ensureProfile();
       const settings = { ...window.SPRooms.DEFAULT_SETTINGS, mode: "solo", rounds: 5, targetScore: 0 };
@@ -529,6 +584,7 @@
   }
 
   async function startMatch() {
+    if (window.SPAudio && window.SPAudio.wake) window.SPAudio.wake();
     if (!isHost()) return toast("Csak a host indíthatja el a játékot.", "error");
     const players = playersArray();
     try {
@@ -546,6 +602,7 @@
   }
 
   async function handleKey(key) {
+    if (window.SPAudio && window.SPAudio.wake) window.SPAudio.wake();
     if (!canInput()) return;
     const round = state.room.currentRound;
     const answerLength = round.answerLength;
@@ -563,8 +620,7 @@
       state.currentInput += normalized;
       window.SPAudio.play("key");
     }
-    els.inputPreview.textContent = state.currentInput.toLocaleUpperCase("hu-HU");
-    renderGame(state.room);
+    updateCurrentInputVisuals();
     setTypingSoon();
   }
 
@@ -607,11 +663,11 @@
     // Clear local input before the Firebase write can re-render the board.
     // Otherwise the submitted word may briefly appear again in the next row.
     state.currentInput = "";
-    els.inputPreview.textContent = "";
-    renderGame(state.room);
+    updateCurrentInputVisuals();
 
     await window.SPRooms.submitGuess(state.roomCode, state.profile.userId, payload);
     feedback.forEach(item => { state.keyStates[item.letter] = window.SPGameEngine.mergeKeyState(state.keyStates[item.letter], item.state); });
+    renderKeyboard();
     window.SPAudio.play(solved ? "correct" : "reveal");
 
     if (solved) {
@@ -842,6 +898,10 @@
     els.resultLobbyButton.addEventListener("click", backToLobby);
     els.rematchButton.addEventListener("click", rematch);
     els.quickAddButton.addEventListener("click", quickAddWord);
+    els.keyboard.addEventListener("click", ev => {
+      const btn = ev.target.closest("button[data-key]");
+      if (btn) handleKey(btn.dataset.key);
+    });
     els.quickWordInput.addEventListener("keydown", ev => {
       if (ev.key === "Enter") {
         ev.preventDefault();

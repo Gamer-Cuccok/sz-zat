@@ -184,3 +184,13 @@ A `assets/sounds/` mappában vannak alap wav fájlok. A hangok kikapcsolhatók, 
 ## Fontos biztonsági megjegyzés
 
 Ez statikus frontend. Nincs saját szerver. A Firebase szabályokkal lehet szigorítani, hogy ki írhat adatot. A teszt rules nyitott, éles oldalon nem ideális.
+
+## v11 frissítés
+
+- Játék közben alapból bekapcsolt, WebAudio alapú synth háttérzene indul. Böngészőkorlátozás miatt az első kattintás vagy billentyűleütés után indul el biztosan.
+- Gépelés közben a jelenlegi sor kap segítő körvonalakat a már beadott tippek alapján:
+  - zöld körvonal: az adott betű korábban ugyanott zöld volt,
+  - sárga körvonal: a betűről már tudható, hogy szerepel a szóban,
+  - piros körvonal: a betűről a korábbi tippek alapján tudható, hogy nem jó vagy a pozíció már más betűvel zárva van.
+- A segítő körvonal nem kapcsolható ki, mert a játékmechanika része.
+- Gépeléskor már nem renderelődik újra a teljes játékfelület és billentyűzet, csak az aktív sor frissül.

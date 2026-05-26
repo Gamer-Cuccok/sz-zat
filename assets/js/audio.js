@@ -1,6 +1,6 @@
 (function () {
   const STORE_KEY = "szoparbaj.audio";
-  const DEFAULTS = { muted: false, sfx: true, music: false, volume: 0.6 };
+  const DEFAULTS = { muted: false, sfx: true, music: true, volume: 0.6 };
   const SOUND_FILES = {
     key: "assets/sounds/key.wav",
     reveal: "assets/sounds/reveal.wav",
@@ -16,6 +16,10 @@
   const cache = new Map();
   let ctx = null;
   let music = null;
+  let gameActive = false;
+  let beatTimer = null;
+  let beatStep = 0;
+  let noiseBuffer = null;
 
   function loadPrefs() {
     try { return { ...DEFAULTS, ...JSON.parse(localStorage.getItem(STORE_KEY) || "{}") }; }
@@ -42,6 +46,104 @@
     } catch (err) {}
   }
 
+  function ensureContext() {
+    try {
+      ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
+      if (ctx.state === "suspended") ctx.resume().catch(() => {});
+      return ctx;
+    } catch (err) { return null; }
+  }
+
+  function playTone(freq, duration, type = "sine", gainValue = 0.04, when = 0) {
+    const audioCtx = ensureContext();
+    if (!audioCtx) return;
+    const start = audioCtx.currentTime + when;
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = type;
+    osc.frequency.setValueAtTime(freq, start);
+    gain.gain.setValueAtTime(Math.max(0.0001, gainValue * prefs.volume), start);
+    gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
+    osc.connect(gain).connect(audioCtx.destination);
+    osc.start(start);
+    osc.stop(start + duration + 0.03);
+  }
+
+  function playKick() {
+    const audioCtx = ensureContext();
+    if (!audioCtx) return;
+    const start = audioCtx.currentTime;
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(118, start);
+    osc.frequency.exponentialRampToValueAtTime(42, start + 0.13);
+    gain.gain.setValueAtTime(0.13 * prefs.volume, start);
+    gain.gain.exponentialRampToValueAtTime(0.0001, start + 0.17);
+    osc.connect(gain).connect(audioCtx.destination);
+    osc.start(start);
+    osc.stop(start + 0.2);
+  }
+
+  function getNoiseBuffer() {
+    const audioCtx = ensureContext();
+    if (!audioCtx) return null;
+    if (noiseBuffer) return noiseBuffer;
+    const size = audioCtx.sampleRate * 0.16;
+    noiseBuffer = audioCtx.createBuffer(1, size, audioCtx.sampleRate);
+    const data = noiseBuffer.getChannelData(0);
+    for (let i = 0; i < size; i += 1) data[i] = Math.random() * 2 - 1;
+    return noiseBuffer;
+  }
+
+  function playHat(volume = 0.025) {
+    const audioCtx = ensureContext();
+    const buffer = getNoiseBuffer();
+    if (!audioCtx || !buffer) return;
+    const source = audioCtx.createBufferSource();
+    const filter = audioCtx.createBiquadFilter();
+    const gain = audioCtx.createGain();
+    filter.type = "highpass";
+    filter.frequency.value = 5200;
+    gain.gain.setValueAtTime(volume * prefs.volume, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.055);
+    source.buffer = buffer;
+    source.connect(filter).connect(gain).connect(audioCtx.destination);
+    source.start();
+    source.stop(audioCtx.currentTime + 0.065);
+  }
+
+  function playSnare() {
+    playHat(0.055);
+    playTone(178, 0.075, "triangle", 0.035);
+  }
+
+  function stepSynthBeat() {
+    if (prefs.muted || !prefs.music || !gameActive) return;
+    const step = beatStep % 16;
+    const bass = [55, 0, 82, 0, 65, 0, 98, 0, 55, 0, 110, 0, 73, 0, 98, 0];
+    const lead = [440, 0, 523.25, 659.25, 0, 587.33, 0, 784, 659.25, 0, 523.25, 0, 880, 0, 784, 0];
+    if ([0, 4, 8, 12].includes(step)) playKick();
+    if ([4, 12].includes(step)) playSnare();
+    if (step % 2 === 1) playHat(0.018);
+    if (bass[step]) playTone(bass[step], 0.12, "sawtooth", 0.035);
+    if (lead[step] && beatStep % 32 >= 16) playTone(lead[step], 0.07, "square", 0.018);
+    beatStep += 1;
+  }
+
+  function startSynthMusic() {
+    if (beatTimer || prefs.muted || !prefs.music || !gameActive) return;
+    if (!ensureContext()) return;
+    beatStep = beatStep || 0;
+    stepSynthBeat();
+    beatTimer = setInterval(stepSynthBeat, 105);
+  }
+
+  function stopSynthMusic() {
+    if (beatTimer) clearInterval(beatTimer);
+    beatTimer = null;
+  }
+
   function getAudio(name) {
     if (!cache.has(name)) {
       const a = new Audio(SOUND_FILES[name]);
@@ -65,14 +167,27 @@
   }
 
   function updateMusic() {
-    if (!music) {
-      music = new Audio(SOUND_FILES.music);
-      music.loop = true;
-      music.preload = "auto";
+    if (!gameActive) {
+      stopSynthMusic();
+      if (music) music.pause();
+      return;
     }
-    music.volume = prefs.volume * 0.35;
-    if (!prefs.muted && prefs.music) music.play().catch(() => {});
-    else music.pause();
+    if (!prefs.muted && prefs.music) {
+      startSynthMusic();
+    } else {
+      stopSynthMusic();
+      if (music) music.pause();
+    }
+  }
+
+  function setGameActive(active) {
+    gameActive = !!active;
+    updateMusic();
+  }
+
+  function wake() {
+    ensureContext();
+    updateMusic();
   }
 
   function setPrefs(next) {
@@ -100,13 +215,13 @@
     const sfxToggle = document.getElementById("sfxToggle");
     const musicToggle = document.getElementById("musicToggle");
     const volumeSlider = document.getElementById("volumeSlider");
-    if (audioToggle) audioToggle.addEventListener("click", () => setPrefs({ muted: !prefs.muted }));
+    if (audioToggle) audioToggle.addEventListener("click", () => { wake(); setPrefs({ muted: !prefs.muted }); });
     if (sfxToggle) sfxToggle.addEventListener("change", () => setPrefs({ sfx: sfxToggle.checked }));
-    if (musicToggle) musicToggle.addEventListener("change", () => setPrefs({ music: musicToggle.checked }));
+    if (musicToggle) musicToggle.addEventListener("change", () => { wake(); setPrefs({ music: musicToggle.checked }); });
     if (volumeSlider) volumeSlider.addEventListener("input", () => setPrefs({ volume: Number(volumeSlider.value) }));
     renderControls();
     updateMusic();
   }
 
-  window.SPAudio = { play, bindControls, setPrefs, getPrefs };
+  window.SPAudio = { play, bindControls, setPrefs, getPrefs, setGameActive, wake };
 })();
