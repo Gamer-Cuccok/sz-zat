@@ -1,1008 +1,13 @@
 {
   "version": 3,
   "language": "hu",
-  "description": "Canonical unified SzóPárbaj word list. Every enabled word is both an accepted guess and a possible answer. Do not maintain separate starter/accepted files.",
+  "description": "Canonical unified SzóPárbaj word list. Every enabled word is both an accepted guess and a possible answer.",
   "policy": "single-list-all-enabled-words-are-guesses-and-answers",
-  "updatedAt": "2026-05-26",
+  "updatedAt": "2026-05-26T17:56:48.492Z",
   "words": [
     {
-      "word": "apa",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "arc",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "bab",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "bal",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "bőr",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "dió",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "dél",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "erő",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "eső",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "fal",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "fej",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "fiú",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "fog",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "fut",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "fül",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "főz",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "gép",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "haj",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "hal",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "has",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "hoz",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "hát",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "ház",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "híd",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "hús",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "idő",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "ing",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "itt",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "juh",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "jön",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "kap",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "kék",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "kép",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "kér",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "kéz",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "köd",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "kör",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "kút",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "láb",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "lát",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "mos",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "mák",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "méh",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "nap",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "nem",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "néz",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "orr",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "ott",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "pók",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "rak",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "szó",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "sál",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "sín",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "sír",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "tea",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "tej",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "tud",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "tél",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "tér",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "tök",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "tűz",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "ujj",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "vaj",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "vár",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "vér",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "víz",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "zár",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "ágy",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "áll",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "óra",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "ősz",
-      "length": 3,
-      "enabled": true
-    },
-    {
-      "word": "ajtó",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "akar",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "alma",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "anya",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "autó",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "baba",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "betű",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "bika",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "bolt",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "bors",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "béka",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "cica",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "cipő",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "daru",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "deka",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "domb",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "dugó",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "egér",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "elad",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "elég",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "elöl",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "emel",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "eper",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "erdő",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "erős",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "esik",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "este",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "fagy",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "falu",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "fent",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "fiók",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "fogó",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "fény",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "fésű",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "föld",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "gomb",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "gyík",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "hajó",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "hall",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "hegy",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "hiba",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "hisz",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "hold",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "háló",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "hűtő",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "igen",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "ital",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "jobb",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "kapu",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "kell",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "kert",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "kezd",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "késő",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "lent",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "liba",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "lila",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "lány",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "légy",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "megy",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "mező",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "mond",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "most",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "mozi",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "móka",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "nagy",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "nyak",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "nyit",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "nyár",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "nyúl",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "néha",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "néni",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "okos",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "olaj",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "olló",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "papa",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "park",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "part",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "perc",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "piac",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "polc",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "pont",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "póló",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "rajz",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "rizs",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "ruha",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "régi",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "répa",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "róka",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "sajt",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "siet",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "sima",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "soha",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "szem",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "száj",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "szék",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "szél",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "szép",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "szív",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "süti",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "tele",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "tesz",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "tető",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "tipp",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "toll",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "tyúk",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "térd",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "ugat",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "utak",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "utca",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "vesz",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "visz",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "váll",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "zene",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "zseb",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "zöld",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "álom",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "áram",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "árny",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "átad",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "ének",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "épít",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "évad",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "írás",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "öreg",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "újra",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "üres",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "üveg",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "üzen",
-      "length": 4,
-      "enabled": true
-    },
-    {
-      "word": "őriz",
-      "length": 4,
+      "word": "abbahagy",
+      "length": 8,
       "enabled": true
     },
     {
@@ -1011,8 +16,183 @@
       "enabled": true
     },
     {
+      "word": "ablakban",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "ablakok",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "ablakos",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "ablaktörlő",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "adatok",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "adomány",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "áfonya",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "aggodalom",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "ágy",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "ágytakaró",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "ajándék",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "ajtó",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "ajtókilincs",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "akadály",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "akadályok",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "akar",
+      "length": 4,
+      "enabled": true
+    },
+    {
       "word": "akkor",
       "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "alacsony",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "alakok",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "alapszabály",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "alatta",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "áldozat",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "alkalmazkodás",
+      "length": 13,
+      "enabled": true
+    },
+    {
+      "word": "alkonyat",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "alkonyatok",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "áll",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "állatkert",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "állóképesség",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "állomás",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "állomások",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "állvány",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "alma",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "almából",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "álom",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "alszik",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "aludni",
+      "length": 6,
       "enabled": true
     },
     {
@@ -1021,8 +201,38 @@
       "enabled": true
     },
     {
+      "word": "ámbár",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "amulett",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "anya",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "anyakönyvezés",
+      "length": 13,
+      "enabled": true
+    },
+    {
+      "word": "anyanyelv",
+      "length": 9,
+      "enabled": true
+    },
+    {
       "word": "annyi",
       "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "apa",
+      "length": 3,
       "enabled": true
     },
     {
@@ -1031,8 +241,38 @@
       "enabled": true
     },
     {
+      "word": "apróhirdetés",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "apróság",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "áram",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "áramszünet",
+      "length": 10,
+      "enabled": true
+    },
+    {
       "word": "arany",
       "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "aranyból",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "aranyhal",
+      "length": 8,
       "enabled": true
     },
     {
@@ -1041,12 +281,162 @@
       "enabled": true
     },
     {
+      "word": "arc",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "árkok",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "árny",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "árnyék",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "ásítás",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "aszfalt",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "asszony",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "asztal",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "asztalon",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "asztalterítő",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "átad",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "átjáró",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "átlag",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "átmenet",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "áttekinthető",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "átver",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "autó",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "autóbusz",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "bab",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "baba",
+      "length": 4,
+      "enabled": true
+    },
+    {
       "word": "babér",
       "length": 5,
       "enabled": true
     },
     {
+      "word": "bábjáték",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "bábjátékok",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "babona",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "bácsi",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "bajnok",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "bakancs",
+      "length": 7,
+      "enabled": true
+    },
+    {
       "word": "bakok",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "bal",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "balatoni",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "baleset",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "bálna",
       "length": 5,
       "enabled": true
     },
@@ -1056,8 +446,23 @@
       "enabled": true
     },
     {
-      "word": "barna",
-      "length": 5,
+      "word": "bankár",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "bányászat",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "barack",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "barackos",
+      "length": 8,
       "enabled": true
     },
     {
@@ -1066,8 +471,88 @@
       "enabled": true
     },
     {
+      "word": "barlang",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "barlangok",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "barna",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "bársony",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "bátorság",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "bátrak",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "befőtt",
+      "length": 6,
+      "enabled": true
+    },
+    {
       "word": "bejár",
       "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "bejáratosság",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "béka",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "békében",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "békés",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "békesség",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "beláthatatlan",
+      "length": 13,
+      "enabled": true
+    },
+    {
+      "word": "belépőkód",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "bemegy",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "bemutató",
+      "length": 8,
       "enabled": true
     },
     {
@@ -1076,8 +561,58 @@
       "enabled": true
     },
     {
+      "word": "bérszámfejtés",
+      "length": 13,
+      "enabled": true
+    },
+    {
+      "word": "beszéd",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "beszédek",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "beszél",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "beszélgetés",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "beszélő",
+      "length": 7,
+      "enabled": true
+    },
+    {
       "word": "beteg",
       "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "betű",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "bevásárlás",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "bika",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "billentyű",
+      "length": 9,
       "enabled": true
     },
     {
@@ -1086,8 +621,78 @@
       "enabled": true
     },
     {
+      "word": "birodalom",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "bírók",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "bizalmak",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "bizalom",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "biztat",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "biztonság",
+      "length": 9,
+      "enabled": true
+    },
+    {
       "word": "bogár",
       "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "bogrács",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "bográcsok",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "boldogság",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "bolt",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "boltos",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "bontás",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "boríték",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "borítékos",
+      "length": 9,
       "enabled": true
     },
     {
@@ -1101,6 +706,21 @@
       "enabled": true
     },
     {
+      "word": "borostyán",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "borostyánok",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "bors",
+      "length": 4,
+      "enabled": true
+    },
+    {
       "word": "borsó",
       "length": 5,
       "enabled": true
@@ -1111,32 +731,37 @@
       "enabled": true
     },
     {
-      "word": "bukás",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "bácsi",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "bálna",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "békés",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "bírók",
-      "length": 5,
+      "word": "botrány",
+      "length": 7,
       "enabled": true
     },
     {
       "word": "bögre",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "bögrék",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "bölcsesség",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "bölcsességek",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "bőr",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "bőrök",
       "length": 5,
       "enabled": true
     },
@@ -1146,12 +771,37 @@
       "enabled": true
     },
     {
+      "word": "bukás",
+      "length": 5,
+      "enabled": true
+    },
+    {
       "word": "bútor",
       "length": 5,
       "enabled": true
     },
     {
-      "word": "bőrök",
+      "word": "bútorbolt",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "búvóhely",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "búvóhelyek",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "cápák",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "célok",
       "length": 5,
       "enabled": true
     },
@@ -1161,8 +811,113 @@
       "enabled": true
     },
     {
+      "word": "ceruza",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "cica",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "cipő",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "cipőfűző",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "citrom",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "cukor",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "cukrászda",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "csákány",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "család",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "csapat",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "csapatban",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "csapatmunka",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "csapatszellem",
+      "length": 13,
+      "enabled": true
+    },
+    {
+      "word": "csatahajó",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "csavar",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "csemegebolt",
+      "length": 11,
+      "enabled": true
+    },
+    {
       "word": "csend",
       "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "csendes",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "csendháborítás",
+      "length": 14,
+      "enabled": true
+    },
+    {
+      "word": "cseresznye",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "cseresznyék",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "csésze",
+      "length": 6,
       "enabled": true
     },
     {
@@ -1176,8 +931,88 @@
       "enabled": true
     },
     {
+      "word": "csillag",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "csillagfény",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "csillagos",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "csillagvizsgáló",
+      "length": 15,
+      "enabled": true
+    },
+    {
+      "word": "csillogás",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "csillogások",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "csípős",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "csizma",
+      "length": 6,
+      "enabled": true
+    },
+    {
       "word": "csoda",
       "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "csokoládé",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "csokor",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "csomag",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "csomagolás",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "csomagoló",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "csomagtartó",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "csomópont",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "csomópontok",
+      "length": 11,
       "enabled": true
     },
     {
@@ -1186,18 +1021,13 @@
       "enabled": true
     },
     {
-      "word": "cukor",
-      "length": 5,
+      "word": "csöpög",
+      "length": 6,
       "enabled": true
     },
     {
-      "word": "cápák",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "célok",
-      "length": 5,
+      "word": "csúnya",
+      "length": 6,
       "enabled": true
     },
     {
@@ -1216,8 +1046,33 @@
       "enabled": true
     },
     {
+      "word": "darázs",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "daru",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "deka",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "dél",
+      "length": 3,
+      "enabled": true
+    },
+    {
       "word": "derék",
       "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "derengés",
+      "length": 8,
       "enabled": true
     },
     {
@@ -1231,7 +1086,42 @@
       "enabled": true
     },
     {
+      "word": "díjak",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "dinnye",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "dió",
+      "length": 3,
+      "enabled": true
+    },
+    {
       "word": "diófa",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "díszlet",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "díszletek",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "disznó",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "dobás",
       "length": 5,
       "enabled": true
     },
@@ -1246,8 +1136,28 @@
       "enabled": true
     },
     {
-      "word": "dobás",
-      "length": 5,
+      "word": "dobozban",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "dobverő",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "dobverők",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "doktor",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "dolgozik",
+      "length": 8,
       "enabled": true
     },
     {
@@ -1256,8 +1166,18 @@
       "enabled": true
     },
     {
-      "word": "díjak",
-      "length": 5,
+      "word": "domb",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "döntés",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "döntésképtelen",
+      "length": 14,
       "enabled": true
     },
     {
@@ -1266,8 +1186,163 @@
       "enabled": true
     },
     {
+      "word": "dugó",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "dühöngő",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "ebédlő",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "ébred",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "ébresztőóra",
+      "length": 11,
+      "enabled": true
+    },
+    {
       "word": "ecset",
       "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "édeskés",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "egér",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "egerek",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "egyezség",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "egyezségek",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "együtt",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "éhesen",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "éjjel",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "éjszaka",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "ékezet",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "ékszer",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "elad",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "elég",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "élelmiszer",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "élelmiszerbolt",
+      "length": 14,
+      "enabled": true
+    },
+    {
+      "word": "elhanyagolhatatlan",
+      "length": 18,
+      "enabled": true
+    },
+    {
+      "word": "elhivatottság",
+      "length": 13,
+      "enabled": true
+    },
+    {
+      "word": "elkerülhetetlen",
+      "length": 15,
+      "enabled": true
+    },
+    {
+      "word": "ellenfél",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "ellenőrizhető",
+      "length": 13,
+      "enabled": true
+    },
+    {
+      "word": "elmélet",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "elméletek",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "elöl",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "elővigyázatosság",
+      "length": 16,
+      "enabled": true
+    },
+    {
+      "word": "elragadtatás",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "elrendezés",
+      "length": 10,
       "enabled": true
     },
     {
@@ -1276,8 +1351,23 @@
       "enabled": true
     },
     {
+      "word": "emel",
+      "length": 4,
+      "enabled": true
+    },
+    {
       "word": "emlék",
       "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "emlékezet",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "ének",
+      "length": 4,
       "enabled": true
     },
     {
@@ -1286,8 +1376,83 @@
       "enabled": true
     },
     {
+      "word": "eper",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "épít",
+      "length": 4,
+      "enabled": true
+    },
+    {
       "word": "erdei",
       "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "erdészeti",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "erdő",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "erdőben",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "érint",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "erő",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "erőnlét",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "erős",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "esélyes",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "esernyő",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "esik",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "eső",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "esőkabát",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "este",
+      "length": 4,
       "enabled": true
     },
     {
@@ -1296,13 +1461,68 @@
       "enabled": true
     },
     {
+      "word": "évad",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "évszak",
+      "length": 6,
+      "enabled": true
+    },
+    {
       "word": "ezüst",
       "length": 5,
       "enabled": true
     },
     {
+      "word": "fagy",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "fájdalom",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "fal",
+      "length": 3,
+      "enabled": true
+    },
+    {
       "word": "falak",
       "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "falióra",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "falu",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "fárad",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "fáradtság",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "faragó",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "farkas",
+      "length": 6,
       "enabled": true
     },
     {
@@ -1321,8 +1541,28 @@
       "enabled": true
     },
     {
+      "word": "fej",
+      "length": 3,
+      "enabled": true
+    },
+    {
       "word": "fejek",
       "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "fejtörő",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "fekete",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "feladat",
+      "length": 7,
       "enabled": true
     },
     {
@@ -1331,8 +1571,48 @@
       "enabled": true
     },
     {
+      "word": "félelem",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "félelmek",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "felelősség",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "felelősségek",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "felelősségteljes",
+      "length": 16,
+      "enabled": true
+    },
+    {
+      "word": "felfedezés",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "felhasználó",
+      "length": 11,
+      "enabled": true
+    },
+    {
       "word": "felhő",
       "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "felhőkarcoló",
+      "length": 12,
       "enabled": true
     },
     {
@@ -1341,33 +1621,53 @@
       "enabled": true
     },
     {
+      "word": "felirat",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "feliratok",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "felnőtt",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "felülvizsgálat",
+      "length": 14,
+      "enabled": true
+    },
+    {
+      "word": "fent",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "fény",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "fényképező",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "fényképezőgép",
+      "length": 13,
+      "enabled": true
+    },
+    {
       "word": "fenyő",
       "length": 5,
       "enabled": true
     },
     {
-      "word": "fogak",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "folyó",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "forog",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "friss",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "fárad",
-      "length": 5,
+      "word": "fenyves",
+      "length": 7,
       "enabled": true
     },
     {
@@ -1376,8 +1676,178 @@
       "enabled": true
     },
     {
+      "word": "festék",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "fésű",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "fésűvel",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "feszültség",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "feszültségek",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "fiatal",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "figyelem",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "figyelemreméltó",
+      "length": 15,
+      "enabled": true
+    },
+    {
+      "word": "figyelmeztetés",
+      "length": 14,
+      "enabled": true
+    },
+    {
+      "word": "fiók",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "fiú",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "fog",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "fogadalom",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "fogak",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "fogaskerék",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "fogó",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "fokhagyma",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "folyó",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "folyóban",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "forgalom",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "forog",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "forrás",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "forrásból",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "föld",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "főnökség",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "főszereplő",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "főz",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "friss",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "fúrógép",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "fut",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "függöny",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "függvény",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "fül",
+      "length": 3,
+      "enabled": true
+    },
+    {
       "word": "fülek",
       "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "fülhallgató",
+      "length": 11,
       "enabled": true
     },
     {
@@ -1386,13 +1856,48 @@
       "enabled": true
     },
     {
+      "word": "fűnyíró",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "fűszer",
+      "length": 6,
+      "enabled": true
+    },
+    {
       "word": "füzet",
       "length": 5,
       "enabled": true
     },
     {
+      "word": "füzetlap",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "füzetlapok",
+      "length": 10,
+      "enabled": true
+    },
+    {
       "word": "gagyi",
       "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "galamb",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "garázs",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "garázskapu",
+      "length": 10,
       "enabled": true
     },
     {
@@ -1406,23 +1911,8 @@
       "enabled": true
     },
     {
-      "word": "gomba",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "gurul",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "gyors",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "gyűrű",
-      "length": 5,
+      "word": "gép",
+      "length": 3,
       "enabled": true
     },
     {
@@ -1436,7 +1926,167 @@
       "enabled": true
     },
     {
+      "word": "gomb",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "gomba",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "gombok",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "gondol",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "gondolat",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "gondoskodás",
+      "length": 11,
+      "enabled": true
+    },
+    {
       "word": "gödör",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "görkorcsolya",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "gurul",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "gyakorlat",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "gyakorlatok",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "gyakorlottság",
+      "length": 13,
+      "enabled": true
+    },
+    {
+      "word": "gyalog",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "gyalogos",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "gyapjú",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "gyenge",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "gyerek",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "gyerekek",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "gyereknek",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "gyertya",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "gyertyafény",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "gyertyák",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "gyík",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "gyógyítás",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "gyógyítások",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "gyors",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "gyorsaság",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "gyökér",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "gyöngy",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "győzelem",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "győzelmek",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "gyümölcsös",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "gyűrű",
       "length": 5,
       "enabled": true
     },
@@ -1446,8 +2096,63 @@
       "enabled": true
     },
     {
+      "word": "hagyma",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "haj",
+      "length": 3,
+      "enabled": true
+    },
+    {
       "word": "hajak",
       "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "hajkefe",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "hajlékonyság",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "hajnal",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "hajó",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "hajóállomás",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "hajszálpontos",
+      "length": 13,
+      "enabled": true
+    },
+    {
+      "word": "hal",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "hall",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "háló",
+      "length": 4,
       "enabled": true
     },
     {
@@ -1461,38 +2166,113 @@
       "enabled": true
     },
     {
+      "word": "hangos",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "hangszóró",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "hangulat",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "harang",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "haranggal",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "harangtorony",
+      "length": 12,
+      "enabled": true
+    },
+    {
       "word": "harap",
       "length": 5,
       "enabled": true
     },
     {
-      "word": "hibás",
-      "length": 5,
+      "word": "harcos",
+      "length": 6,
       "enabled": true
     },
     {
-      "word": "hideg",
-      "length": 5,
+      "word": "has",
+      "length": 3,
       "enabled": true
     },
     {
-      "word": "hintó",
-      "length": 5,
+      "word": "használhatatlan",
+      "length": 15,
       "enabled": true
     },
     {
-      "word": "homok",
-      "length": 5,
+      "word": "hasznosítás",
+      "length": 11,
       "enabled": true
     },
     {
-      "word": "huzat",
-      "length": 5,
+      "word": "hát",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "hatalom",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "határidő",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "határidők",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "határozatlan",
+      "length": 12,
       "enabled": true
     },
     {
       "word": "hátul",
       "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "ház",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "háztartás",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "hegedű",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "hegy",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "hegyvidék",
+      "length": 9,
       "enabled": true
     },
     {
@@ -1506,7 +2286,127 @@
       "enabled": true
     },
     {
+      "word": "hétköznap",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "hétköznapok",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "hétpróbás",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "hiba",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "hibás",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "híd",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "hideg",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "hídépítés",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "hintó",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "hírlevél",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "hisz",
+      "length": 4,
+      "enabled": true
+    },
+    {
       "word": "hívás",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "hold",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "holnap",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "homok",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "hópehely",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "horgony",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "hosszan",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "hosszú",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "hóvihar",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "hoz",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "hozzászokott",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "hőmérséklet",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "hús",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "huzat",
       "length": 5,
       "enabled": true
     },
@@ -1516,8 +2416,78 @@
       "enabled": true
     },
     {
+      "word": "hűtő",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "hűtőszekrény",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "ibolya",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "idegen",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "idő",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "időjárás",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "időszerű",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "időzítő",
+      "length": 7,
+      "enabled": true
+    },
+    {
       "word": "igazi",
       "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "igazolvány",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "igazolványok",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "igazság",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "igazságtalan",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "igen",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "ijedelem",
+      "length": 8,
       "enabled": true
     },
     {
@@ -1536,8 +2506,38 @@
       "enabled": true
     },
     {
+      "word": "ing",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "iránytű",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "iránytűk",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "írás",
+      "length": 4,
+      "enabled": true
+    },
+    {
       "word": "irigy",
       "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "iskola",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "ismeretterjesztő",
+      "length": 16,
       "enabled": true
     },
     {
@@ -1546,8 +2546,13 @@
       "enabled": true
     },
     {
-      "word": "jeges",
-      "length": 5,
+      "word": "ital",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "itt",
+      "length": 3,
       "enabled": true
     },
     {
@@ -1556,7 +2561,147 @@
       "enabled": true
     },
     {
+      "word": "játékok",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "játékos",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "játékszabály",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "játékszer",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "játékszerek",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "játszik",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "játszma",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "játszótér",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "javasol",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "javíthatatlan",
+      "length": 13,
+      "enabled": true
+    },
+    {
+      "word": "jeges",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "jegesedik",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "jégkása",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "jégkocka",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "jegyzet",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "jegyzetben",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "jegyzetfüzet",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "jelentés",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "jelentések",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "jobb",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "jótékonyság",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "jön",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "jönnek",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "juh",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "kabala",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "kabalák",
+      "length": 7,
+      "enabled": true
+    },
+    {
       "word": "kabát",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "kabátok",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "kábel",
       "length": 5,
       "enabled": true
     },
@@ -1576,1232 +2721,7 @@
       "enabled": true
     },
     {
-      "word": "kalap",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "kalóz",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "kamra",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "kapar",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "karok",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "kazán",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "keres",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "kerék",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "kicsi",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "kifli",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "kijár",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "kinéz",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "kirak",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "kirúg",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "kitép",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "kocka",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "kopog",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "kosár",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "kréta",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "kutya",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "kábel",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "kékes",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "kések",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "kígyó",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "kóbor",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "ködös",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "könyv",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "körte",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "körök",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "kötél",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "követ",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "kövér",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "külön",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "labda",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "lakat",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "lakás",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "lapát",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "lassú",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "lehet",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "lemez",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "lesik",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "leves",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "levél",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "liget",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "liszt",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "lábak",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "lábos",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "lámpa",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "látás",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "lúgos",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "lőpor",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "madár",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "magas",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "majom",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "medve",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "meggy",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "meleg",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "mesék",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "morog",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "munka",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "málna",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "másik",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "méhek",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "méret",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "mézes",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "mókus",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "műsor",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "nagyi",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "nehéz",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "nevet",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "nyelv",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "nyolc",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "olcsó",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "olvas",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "orvos",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "padló",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "pajzs",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "papok",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "papír",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "patak",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "perec",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "pihen",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "piros",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "pofon",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "pohár",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "polip",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "poros",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "posta",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "próba",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "puska",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "puszi",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "párna",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "pékek",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "pörög",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "rabol",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "radír",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "ragad",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "robot",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "rohan",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "rossz",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "ruhák",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "rádió",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "rétes",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "rímes",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "rövid",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "sapka",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "sebek",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "seprű",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "siker",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "sikít",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "sokat",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "sonka",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "sorok",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "sport",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "szoba",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "szóró",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "szőlő",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "sárga",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "sáros",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "sírok",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "sötét",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "sütés",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "talál",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "talán",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "tanul",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "taraj",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "tehén",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "teker",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "titok",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "tojás",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "tolat",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "torta",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "tudás",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "tábla",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "táska",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "téved",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "töltő",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "török",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "töröl",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "túlél",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "tükör",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "udvar",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "vakar",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "varjú",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "veréb",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "vezet",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "vidám",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "vihar",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "világ",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "virág",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "vizes",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "vonal",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "vonat",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "vágás",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "város",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "végek",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "végez",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "völgy",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "zabál",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "zenék",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "zokni",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "zárak",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "zúgás",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "ámbár",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "árkok",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "átlag",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "átver",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "ébred",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "éjjel",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "érint",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "óceán",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "óriás",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "óvoda",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "öltöz",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "úszik",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "ünnep",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "őzike",
-      "length": 5,
-      "enabled": true
-    },
-    {
-      "word": "adatok",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "alakok",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "alatta",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "alszik",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "aludni",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "asztal",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "babona",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "bajnok",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "bankár",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "barack",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "befőtt",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "bemegy",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "beszéd",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "beszél",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "biztat",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "boltos",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "bontás",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "bátrak",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "bögrék",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "ceruza",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "citrom",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "család",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "csapat",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "csavar",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "csizma",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "csokor",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "csomag",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "csésze",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "csípős",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "csöpög",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "csúnya",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "darázs",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "dinnye",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "disznó",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "doktor",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "döntés",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "ebédlő",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "egerek",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "együtt",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "faragó",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "farkas",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "fekete",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "festék",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "fiatal",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "forrás",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "fűszer",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "galamb",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "garázs",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "gombok",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "gondol",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "gyalog",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "gyapjú",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "gyenge",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "gyerek",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "gyökér",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "gyöngy",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "hagyma",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "hajnal",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "hangos",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "harang",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "harcos",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "hegedű",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "holnap",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "hosszú",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "ibolya",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "idegen",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "iskola",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "jönnek",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "kabala",
+      "word": "kalács",
       "length": 6,
       "enabled": true
     },
@@ -2811,8 +2731,28 @@
       "enabled": true
     },
     {
-      "word": "kalács",
-      "length": 6,
+      "word": "kalandor",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "kalandorok",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "kalap",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "kalapban",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "kalóz",
+      "length": 5,
       "enabled": true
     },
     {
@@ -2826,8 +2766,58 @@
       "enabled": true
     },
     {
+      "word": "kamra",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "kap",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "kapar",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "kapitányság",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "káposzta",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "kapu",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "karakteres",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "karbantartás",
+      "length": 12,
+      "enabled": true
+    },
+    {
       "word": "karika",
       "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "karok",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "kastély",
+      "length": 7,
       "enabled": true
     },
     {
@@ -2836,13 +2826,48 @@
       "enabled": true
     },
     {
+      "word": "kávéscsésze",
+      "length": 11,
+      "enabled": true
+    },
+    {
       "word": "kavics",
       "length": 6,
       "enabled": true
     },
     {
+      "word": "kazán",
+      "length": 5,
+      "enabled": true
+    },
+    {
       "word": "kecske",
       "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "kedvenc",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "kedvesség",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "kék",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "kékes",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "kell",
+      "length": 4,
       "enabled": true
     },
     {
@@ -2856,1388 +2881,13 @@
       "enabled": true
     },
     {
-      "word": "kioszk",
-      "length": 6,
+      "word": "kenyérből",
+      "length": 9,
       "enabled": true
     },
     {
-      "word": "király",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "konyha",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "koszos",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "képlet",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "kérdés",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "készül",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "kókusz",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "könnyű",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "könyök",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "kötény",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "laptop",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "levegő",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "leírás",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "lóhere",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "macska",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "makacs",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "milyen",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "mindig",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "molnár",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "mosoly",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "mérges",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "mérnök",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "nadrág",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "nyerek",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "nyilas",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "nyitás",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "nyugis",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "névnap",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "növény",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "olajfa",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "olvasó",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "ország",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "otthon",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "pecsét",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "pihenő",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "pincér",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "pislog",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "plakát",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "puding",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "péntek",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "rajzok",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "reggel",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "remény",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "rendek",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "rendőr",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "repülő",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "részeg",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "saláta",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "sebész",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "szabad",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "szalad",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "szalag",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "szamár",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "szavak",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "szedés",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "szerda",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "szeret",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "sziget",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "szigor",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "szilva",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "szobor",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "szokás",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "székek",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "szépít",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "szürke",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "sétány",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "sólyom",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "tavasz",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "tegnap",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "teknős",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "teljes",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "tenger",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "tigris",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "tiltás",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "tiszta",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "titkos",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "torony",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "táncok",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "távcső",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "térkép",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "tüskés",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "uborka",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "utazás",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "vakond",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "varázs",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "vendég",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "veszít",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "villám",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "vágyik",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "válasz",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "vándor",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "zebrás",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "zsemle",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "zsiráf",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "áfonya",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "árnyék",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "ásítás",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "átjáró",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "éhesen",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "ékezet",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "ékszer",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "évszak",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "őrszem",
-      "length": 6,
-      "enabled": true
-    },
-    {
-      "word": "ablakok",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "ablakos",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "adomány",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "ajándék",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "akadály",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "almából",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "amulett",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "apróság",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "asszony",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "aszfalt",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "bakancs",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "baleset",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "barlang",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "beszélő",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "bizalom",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "bogrács",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "boríték",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "botrány",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "bársony",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "békében",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "csendes",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "csillag",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "csákány",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "dobverő",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "díszlet",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "dühöngő",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "elmélet",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "erdőben",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "erőnlét",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "esernyő",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "esélyes",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "falióra",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "fejtörő",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "feladat",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "felirat",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "felnőtt",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "fenyves",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "félelem",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "fésűvel",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "fúrógép",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "függöny",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "fűnyíró",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "gyertya",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "hajkefe",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "hatalom",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "horgony",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "hosszan",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "hóvihar",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "időzítő",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "igazság",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "iránytű",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "javasol",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "jegyzet",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "játszik",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "játszma",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "játékok",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "játékos",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "jégkása",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "kabalák",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "kabátok",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "kastély",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "kedvenc",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "kesztyű",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "kimarad",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "kirakós",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "krumpli",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "költség",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "könyvek",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "lakóház",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "látomás",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "mandula",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "minőség",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "mogyoró",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "monitor",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "mosógép",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "nagyobb",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "narancs",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "nevetés",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "olvasók",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "paprika",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "parancs",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "patkány",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "pihenés",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "pihenők",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "pogácsa",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "program",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "példány",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "repülők",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "sikeres",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "sorozat",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "szabály",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "szappan",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "szarvas",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "szilánk",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "színház",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "szúnyog",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "szőnyeg",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "sárkány",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "takarék",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "takarít",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "telefon",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "templom",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "testvér",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "türelem",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "vereség",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "veszély",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "világos",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "virágos",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "vonalzó",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "védelem",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "zsebóra",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "zsúfolt",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "zöldség",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "áldozat",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "állomás",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "állvány",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "átmenet",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "édeskés",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "éjszaka",
-      "length": 7,
-      "enabled": true
-    },
-    {
-      "word": "abbahagy",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "ablakban",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "alacsony",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "alkonyat",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "aranyból",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "aranyhal",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "asztalon",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "autóbusz",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "balatoni",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "barackos",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "bemutató",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "beszédek",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "bizalmak",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "bábjáték",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "bátorság",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "békesség",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "búvóhely",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "cipőfűző",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "derengés",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "dobozban",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "dobverők",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "dolgozik",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "egyezség",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "ellenfél",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "esőkabát",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "figyelem",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "folyóban",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "forgalom",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "fájdalom",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "félelmek",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "függvény",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "füzetlap",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "főnökség",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "gondolat",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "gyalogos",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "gyerekek",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "gyertyák",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "győzelem",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "hangulat",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "határidő",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "hírlevél",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "hópehely",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "időjárás",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "időszerű",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "ijedelem",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "iránytűk",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "jelentés",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "jégkocka",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "kalandor",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "kalapban",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "kesztyűk",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "kockázat",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "kukorica",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "káposzta",
-      "length": 8,
+      "word": "kép",
+      "length": 3,
       "enabled": true
     },
     {
@@ -4256,6 +2906,11 @@
       "enabled": true
     },
     {
+      "word": "képlet",
+      "length": 6,
+      "enabled": true
+    },
+    {
       "word": "képletek",
       "length": 8,
       "enabled": true
@@ -4266,13 +2921,178 @@
       "enabled": true
     },
     {
+      "word": "kér",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "kérdés",
+      "length": 6,
+      "enabled": true
+    },
+    {
       "word": "kérdésre",
       "length": 8,
       "enabled": true
     },
     {
+      "word": "kerék",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "kerékpárút",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "keres",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "kereskedő",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "kereskedők",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "kert",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "kések",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "késő",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "kesztyű",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "kesztyűk",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "készül",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "kéz",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "kezd",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "kicsi",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "kiegyensúlyozott",
+      "length": 16,
+      "enabled": true
+    },
+    {
+      "word": "kiemelkedően",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "kifli",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "kígyó",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "kijár",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "kimarad",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "kinéz",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "kioszk",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "kirak",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "kirakós",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "kirakósok",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "király",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "kirándulás",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "kirúg",
+      "length": 5,
+      "enabled": true
+    },
+    {
       "word": "kísérlet",
       "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "kísérletek",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "kísérletezés",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "kitép",
+      "length": 5,
       "enabled": true
     },
     {
@@ -4286,567 +3106,42 @@
       "enabled": true
     },
     {
-      "word": "könyvben",
+      "word": "kívánságok",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "kóbor",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "kocka",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "kockázat",
       "length": 8,
       "enabled": true
     },
     {
-      "word": "levélben",
-      "length": 8,
+      "word": "kockázatok",
+      "length": 10,
       "enabled": true
     },
     {
-      "word": "leírások",
-      "length": 8,
+      "word": "kókusz",
+      "length": 6,
       "enabled": true
     },
     {
-      "word": "lábtörlő",
-      "length": 8,
+      "word": "konyha",
+      "length": 6,
       "enabled": true
     },
     {
-      "word": "lámpával",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "megbízás",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "megoldás",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "mozdulat",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "mulatság",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "munkanap",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "mérnökök",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "napernyő",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "napsütés",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "nehézség",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "nyomozás",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "nyugalom",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "országok",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "országút",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "panaszos",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "pillanat",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "pillangó",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "pogácsák",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "pontszám",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "porszívó",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "pénteken",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "pótkerék",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "ragyogás",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "rejtvény",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "rendőrök",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "rádióadó",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "sebesség",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "segédlet",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "segítség",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "selyemút",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "sugárzás",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "szalonna",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "szekrény",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "szemafor",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "szemüveg",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "szobában",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "szálloda",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "szélvédő",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "szökőkút",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "szőlőből",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "sötétség",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "tábornok",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "térképen",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "történet",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "türelmek",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "vasárnap",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "vendégek",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "villamos",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "virradat",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "vonatban",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "vándorok",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "zarándok",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "zsebórák",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "zsákutca",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "zúzmarás",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "újságíró",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "útmutató",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "őrszemek",
-      "length": 8,
-      "enabled": true
-    },
-    {
-      "word": "aggodalom",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "akadályok",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "anyanyelv",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "barlangok",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "belépőkód",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "billentyű",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "birodalom",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "biztonság",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "bográcsok",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "boldogság",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "borostyán",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "borítékos",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "bányászat",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "bútorbolt",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "csapatban",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "csatahajó",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "csillagos",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "csillogás",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "csokoládé",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "csomagoló",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "csomópont",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "cukrászda",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "díszletek",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "elméletek",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "emlékezet",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "erdészeti",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "feliratok",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "fogadalom",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "fokhagyma",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "forrásból",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "fáradtság",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "gyakorlat",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "gyereknek",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "gyorsaság",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "gyógyítás",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "győzelmek",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "hangszóró",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "haranggal",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "határidők",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "hegyvidék",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "háztartás",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "hétköznap",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "hétpróbás",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "hídépítés",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "jegesedik",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "játszótér",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "játékszer",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "kedvesség",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "kenyérből",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "kereskedő",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "kirakósok",
+      "word": "konyhában",
       "length": 9,
       "enabled": true
     },
@@ -4856,8 +3151,33 @@
       "enabled": true
     },
     {
-      "word": "konyhában",
-      "length": 9,
+      "word": "kopog",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "kosár",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "koszos",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "köd",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "ködös",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "költség",
+      "length": 7,
       "enabled": true
     },
     {
@@ -4866,12 +3186,227 @@
       "enabled": true
     },
     {
+      "word": "könnyű",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "könyök",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "könyv",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "könyvben",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "könyvek",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "könyvespolc",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "kör",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "környezetbarát",
+      "length": 14,
+      "enabled": true
+    },
+    {
+      "word": "körök",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "körte",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "kötél",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "kötény",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "kövér",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "követ",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "közösségépítés",
+      "length": 14,
+      "enabled": true
+    },
+    {
+      "word": "kréta",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "krumpli",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "kukorica",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "kulcscsomó",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "kút",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "kutya",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "külön",
+      "length": 5,
+      "enabled": true
+    },
+    {
       "word": "különbség",
       "length": 9,
       "enabled": true
     },
     {
+      "word": "különlegesség",
+      "length": 13,
+      "enabled": true
+    },
+    {
+      "word": "láb",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "lábak",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "labda",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "labirintus",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "lábos",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "lábtörlő",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "lakás",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "lakat",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "lakóház",
+      "length": 7,
+      "enabled": true
+    },
+    {
       "word": "lakótelep",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "lámpa",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "lámpával",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "lány",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "lapát",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "laptop",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "lassú",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "lát",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "látás",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "láthatatlan",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "látomás",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "látomások",
       "length": 9,
       "enabled": true
     },
@@ -4881,423 +3416,18 @@
       "enabled": true
     },
     {
-      "word": "lehetőség",
-      "length": 9,
+      "word": "legmegmagyarázhatatlanabb",
+      "length": 25,
       "enabled": true
     },
     {
-      "word": "lopakodik",
-      "length": 9,
+      "word": "légy",
+      "length": 4,
       "enabled": true
     },
     {
-      "word": "látomások",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "megfejtés",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "menetrend",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "mosógépek",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "munkahely",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "narancsos",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "nevetések",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "nyugalmak",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "növényzet",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "parancsok",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "pillangós",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "példányok",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "pénztárca",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "rendőrség",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "repülőtér",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "rózsakert",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "rózsaszín",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "sorozatok",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "szendvics",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "szerencse",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "szigetben",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "szilánkok",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "szolgálat",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "szállodák",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "szélvihar",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "színházak",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "szókirakó",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "sárkányos",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "takarékok",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "tanácsadó",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "telefonok",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "tengerben",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "teáskanna",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "toronyban",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "toronyóra",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "távcsövek",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "varázslat",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "visszhang",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "vizsgálat",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "választás",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "választék",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "várakozás",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "zseblámpa",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "zöldséges",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "zöldséget",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "ágytakaró",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "állatkert",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "állomások",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "önállóság",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "útmutatók",
-      "length": 9,
-      "enabled": true
-    },
-    {
-      "word": "ablaktörlő",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "alkonyatok",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "bevásárlás",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "bábjátékok",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "bölcsesség",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "búvóhelyek",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "cseresznye",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "csomagolás",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "egyezségek",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "elrendezés",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "felelősség",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "felfedezés",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "feszültség",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "fogaskerék",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "fényképező",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "füzetlapok",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "főszereplő",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "garázskapu",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "gyümölcsös",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "igazolvány",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "jegyzetben",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "jelentések",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "kalandorok",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "karakteres",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "kereskedők",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "kerékpárút",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "kirándulás",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "kockázatok",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "kulcscsomó",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "kísérletek",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "kívánságok",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "labirintus",
-      "length": 10,
+      "word": "lehet",
+      "length": 5,
       "enabled": true
     },
     {
@@ -5306,12 +3436,187 @@
       "enabled": true
     },
     {
+      "word": "lehetőség",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "lehetőségek",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "leírás",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "leírások",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "leleményesség",
+      "length": 13,
+      "enabled": true
+    },
+    {
+      "word": "lemez",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "lent",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "lesik",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "levegő",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "levegőztetés",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "levél",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "levélben",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "leves",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "liba",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "liget",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "lila",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "liszt",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "lóhere",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "lopakodik",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "lőpor",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "lúgos",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "macska",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "madár",
+      "length": 5,
+      "enabled": true
+    },
+    {
       "word": "magabiztos",
       "length": 10,
       "enabled": true
     },
     {
+      "word": "magas",
+      "length": 5,
+      "enabled": true
+    },
+    {
       "word": "magyarázat",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "magyarázatok",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "majom",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "mák",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "makacs",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "málna",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "mandula",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "másik",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "medve",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "megállapodás",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "megbízás",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "megbízások",
       "length": 10,
       "enabled": true
     },
@@ -5321,8 +3626,33 @@
       "enabled": true
     },
     {
-      "word": "megbízások",
-      "length": 10,
+      "word": "megbocsátás",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "megfejtés",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "meghökkentő",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "megkerülhetetlen",
+      "length": 16,
+      "enabled": true
+    },
+    {
+      "word": "megközelítés",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "megkülönböztetés",
+      "length": 16,
       "enabled": true
     },
     {
@@ -5331,333 +3661,33 @@
       "enabled": true
     },
     {
-      "word": "mulatságok",
-      "length": 10,
+      "word": "megmagyarázható",
+      "length": 15,
       "enabled": true
     },
     {
-      "word": "oldalirány",
-      "length": 10,
+      "word": "megoldás",
+      "length": 8,
       "enabled": true
     },
     {
-      "word": "palacsinta",
-      "length": 10,
+      "word": "megszentségtelenít",
+      "length": 18,
       "enabled": true
     },
     {
-      "word": "paradicsom",
-      "length": 10,
+      "word": "megszokhatatlan",
+      "length": 15,
       "enabled": true
     },
     {
-      "word": "pillanatok",
-      "length": 10,
+      "word": "megy",
+      "length": 4,
       "enabled": true
     },
     {
-      "word": "pontszámok",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "pályaudvar",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "ragyogások",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "rejtvények",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "rendezvény",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "segítségek",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "sugárzások",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "szemüvegek",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "szenvedély",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "szerelvény",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "szerencsék",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "szivárvány",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "szobafestő",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "számítógép",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "szókirakók",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "szökőkutak",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "teherbírás",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "templomban",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "tengerpart",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "teremtmény",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "tisztesség",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "tábornokok",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "táncművész",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "térfigyelő",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "történetek",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "virradatok",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "védőbeszéd",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "vízforraló",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "zarándokok",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "áramszünet",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "élelmiszer",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "újrakezdés",
-      "length": 10,
-      "enabled": true
-    },
-    {
-      "word": "ajtókilincs",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "alapszabály",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "beszélgetés",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "borostyánok",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "csapatmunka",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "csemegebolt",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "cseresznyék",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "csillagfény",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "csillogások",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "csomagtartó",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "csomópontok",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "felhasználó",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "fülhallgató",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "gondoskodás",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "gyakorlatok",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "gyertyafény",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "gyógyítások",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "hajóállomás",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "hasznosítás",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "hétköznapok",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "hőmérséklet",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "játékszerek",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "jótékonyság",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "kapitányság",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "kávéscsésze",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "könyvespolc",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "lehetőségek",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "láthatatlan",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "megbocsátás",
-      "length": 11,
+      "word": "meggy",
+      "length": 5,
       "enabled": true
     },
     {
@@ -5666,8 +3696,18 @@
       "enabled": true
     },
     {
-      "word": "meghökkentő",
-      "length": 11,
+      "word": "méh",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "méhek",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "meleg",
+      "length": 5,
       "enabled": true
     },
     {
@@ -5681,8 +3721,103 @@
       "enabled": true
     },
     {
+      "word": "menetrend",
+      "length": 9,
+      "enabled": true
+    },
+    {
       "word": "menetrendek",
       "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "méret",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "mérges",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "mérnök",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "mérnökök",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "mesék",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "mézes",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "mező",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "milyen",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "mindig",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "minőség",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "mogyoró",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "móka",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "mókus",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "molnár",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "mond",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "monitor",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "morog",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "mos",
+      "length": 3,
       "enabled": true
     },
     {
@@ -5691,258 +3826,63 @@
       "enabled": true
     },
     {
+      "word": "mosógép",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "mosógépek",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "mosoly",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "most",
+      "length": 4,
+      "enabled": true
+    },
+    {
       "word": "motorcsónak",
       "length": 11,
       "enabled": true
     },
     {
-      "word": "napszemüveg",
-      "length": 11,
+      "word": "mozdulat",
+      "length": 8,
       "enabled": true
     },
     {
-      "word": "növényzetek",
-      "length": 11,
+      "word": "mozi",
+      "length": 4,
       "enabled": true
     },
     {
-      "word": "olvasólámpa",
-      "length": 11,
+      "word": "mulatság",
+      "length": 8,
       "enabled": true
     },
     {
-      "word": "pajzsmirigy",
-      "length": 11,
+      "word": "mulatságok",
+      "length": 10,
       "enabled": true
     },
     {
-      "word": "palacsintás",
-      "length": 11,
+      "word": "munka",
+      "length": 5,
       "enabled": true
     },
     {
-      "word": "papírrepülő",
-      "length": 11,
+      "word": "munkahely",
+      "length": 9,
       "enabled": true
     },
     {
-      "word": "porszívóval",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "rózsakertek",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "szaloncukor",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "szerepjáték",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "szigetvilág",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "szolgálatok",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "szélviharok",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "sárgadinnye",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "talpraesett",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "testvériség",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "tájékozódás",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "törzsvendég",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "varázslatok",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "viharjelzés",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "vizsgálatok",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "választékok",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "zavarbaejtő",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "zöldterület",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "ébresztőóra",
-      "length": 11,
-      "enabled": true
-    },
-    {
-      "word": "apróhirdetés",
-      "length": 12,
-      "enabled": true
-    },
-    {
-      "word": "asztalterítő",
-      "length": 12,
-      "enabled": true
-    },
-    {
-      "word": "bejáratosság",
-      "length": 12,
-      "enabled": true
-    },
-    {
-      "word": "bölcsességek",
-      "length": 12,
-      "enabled": true
-    },
-    {
-      "word": "elragadtatás",
-      "length": 12,
-      "enabled": true
-    },
-    {
-      "word": "felelősségek",
-      "length": 12,
-      "enabled": true
-    },
-    {
-      "word": "felhőkarcoló",
-      "length": 12,
-      "enabled": true
-    },
-    {
-      "word": "feszültségek",
-      "length": 12,
-      "enabled": true
-    },
-    {
-      "word": "görkorcsolya",
-      "length": 12,
-      "enabled": true
-    },
-    {
-      "word": "hajlékonyság",
-      "length": 12,
-      "enabled": true
-    },
-    {
-      "word": "harangtorony",
-      "length": 12,
-      "enabled": true
-    },
-    {
-      "word": "határozatlan",
-      "length": 12,
-      "enabled": true
-    },
-    {
-      "word": "hozzászokott",
-      "length": 12,
-      "enabled": true
-    },
-    {
-      "word": "hűtőszekrény",
-      "length": 12,
-      "enabled": true
-    },
-    {
-      "word": "igazolványok",
-      "length": 12,
-      "enabled": true
-    },
-    {
-      "word": "igazságtalan",
-      "length": 12,
-      "enabled": true
-    },
-    {
-      "word": "jegyzetfüzet",
-      "length": 12,
-      "enabled": true
-    },
-    {
-      "word": "játékszabály",
-      "length": 12,
-      "enabled": true
-    },
-    {
-      "word": "karbantartás",
-      "length": 12,
-      "enabled": true
-    },
-    {
-      "word": "kiemelkedően",
-      "length": 12,
-      "enabled": true
-    },
-    {
-      "word": "kísérletezés",
-      "length": 12,
-      "enabled": true
-    },
-    {
-      "word": "levegőztetés",
-      "length": 12,
-      "enabled": true
-    },
-    {
-      "word": "magyarázatok",
-      "length": 12,
-      "enabled": true
-    },
-    {
-      "word": "megközelítés",
-      "length": 12,
-      "enabled": true
-    },
-    {
-      "word": "megállapodás",
-      "length": 12,
+      "word": "munkanap",
+      "length": 8,
       "enabled": true
     },
     {
@@ -5951,133 +3891,68 @@
       "enabled": true
     },
     {
-      "word": "nyugtalanság",
-      "length": 12,
+      "word": "műsor",
+      "length": 5,
       "enabled": true
     },
     {
-      "word": "paradicsomos",
-      "length": 12,
+      "word": "nadrág",
+      "length": 6,
       "enabled": true
     },
     {
-      "word": "példamutatás",
-      "length": 12,
+      "word": "nagy",
+      "length": 4,
       "enabled": true
     },
     {
-      "word": "sebességmérő",
-      "length": 12,
+      "word": "nagyi",
+      "length": 5,
       "enabled": true
     },
     {
-      "word": "szivárványok",
-      "length": 12,
+      "word": "nagyobb",
+      "length": 7,
       "enabled": true
     },
     {
-      "word": "szolgáltatás",
-      "length": 12,
+      "word": "nap",
+      "length": 3,
       "enabled": true
     },
     {
-      "word": "szótalálgató",
-      "length": 12,
+      "word": "napernyő",
+      "length": 8,
       "enabled": true
     },
     {
-      "word": "teremtmények",
-      "length": 12,
+      "word": "napsütés",
+      "length": 8,
       "enabled": true
     },
     {
-      "word": "vasútállomás",
-      "length": 12,
+      "word": "napszemüveg",
+      "length": 11,
       "enabled": true
     },
     {
-      "word": "villanykörte",
-      "length": 12,
+      "word": "narancs",
+      "length": 7,
       "enabled": true
     },
     {
-      "word": "visszafogott",
-      "length": 12,
+      "word": "narancsos",
+      "length": 9,
       "enabled": true
     },
     {
-      "word": "állóképesség",
-      "length": 12,
+      "word": "néha",
+      "length": 4,
       "enabled": true
     },
     {
-      "word": "áttekinthető",
-      "length": 12,
-      "enabled": true
-    },
-    {
-      "word": "alkalmazkodás",
-      "length": 13,
-      "enabled": true
-    },
-    {
-      "word": "anyakönyvezés",
-      "length": 13,
-      "enabled": true
-    },
-    {
-      "word": "beláthatatlan",
-      "length": 13,
-      "enabled": true
-    },
-    {
-      "word": "bérszámfejtés",
-      "length": 13,
-      "enabled": true
-    },
-    {
-      "word": "csapatszellem",
-      "length": 13,
-      "enabled": true
-    },
-    {
-      "word": "elhivatottság",
-      "length": 13,
-      "enabled": true
-    },
-    {
-      "word": "ellenőrizhető",
-      "length": 13,
-      "enabled": true
-    },
-    {
-      "word": "fényképezőgép",
-      "length": 13,
-      "enabled": true
-    },
-    {
-      "word": "gyakorlottság",
-      "length": 13,
-      "enabled": true
-    },
-    {
-      "word": "hajszálpontos",
-      "length": 13,
-      "enabled": true
-    },
-    {
-      "word": "javíthatatlan",
-      "length": 13,
-      "enabled": true
-    },
-    {
-      "word": "különlegesség",
-      "length": 13,
-      "enabled": true
-    },
-    {
-      "word": "leleményesség",
-      "length": 13,
+      "word": "nehéz",
+      "length": 5,
       "enabled": true
     },
     {
@@ -6086,78 +3961,73 @@
       "enabled": true
     },
     {
-      "word": "pótolhatatlan",
-      "length": 13,
+      "word": "nehézség",
+      "length": 8,
       "enabled": true
     },
     {
-      "word": "rendszeresség",
-      "length": 13,
+      "word": "nem",
+      "length": 3,
       "enabled": true
     },
     {
-      "word": "sikertörténet",
-      "length": 13,
+      "word": "néni",
+      "length": 4,
       "enabled": true
     },
     {
-      "word": "szigetvilágok",
-      "length": 13,
+      "word": "nevet",
+      "length": 5,
       "enabled": true
     },
     {
-      "word": "szóösszetétel",
-      "length": 13,
+      "word": "nevetés",
+      "length": 7,
       "enabled": true
     },
     {
-      "word": "villámgyorsan",
-      "length": 13,
+      "word": "nevetések",
+      "length": 9,
       "enabled": true
     },
     {
-      "word": "változatosság",
-      "length": 13,
+      "word": "névnap",
+      "length": 6,
       "enabled": true
     },
     {
-      "word": "zenehallgatás",
-      "length": 13,
+      "word": "néz",
+      "length": 3,
       "enabled": true
     },
     {
-      "word": "összefoglalás",
-      "length": 13,
+      "word": "növény",
+      "length": 6,
       "enabled": true
     },
     {
-      "word": "csendháborítás",
-      "length": 14,
+      "word": "növényzet",
+      "length": 9,
       "enabled": true
     },
     {
-      "word": "döntésképtelen",
-      "length": 14,
+      "word": "növényzetek",
+      "length": 11,
       "enabled": true
     },
     {
-      "word": "felülvizsgálat",
-      "length": 14,
+      "word": "nyak",
+      "length": 4,
       "enabled": true
     },
     {
-      "word": "figyelmeztetés",
-      "length": 14,
+      "word": "nyár",
+      "length": 4,
       "enabled": true
     },
     {
-      "word": "környezetbarát",
-      "length": 14,
-      "enabled": true
-    },
-    {
-      "word": "közösségépítés",
-      "length": 14,
+      "word": "nyelv",
+      "length": 5,
       "enabled": true
     },
     {
@@ -6166,133 +4036,198 @@
       "enabled": true
     },
     {
-      "word": "papírzsebkendő",
-      "length": 14,
+      "word": "nyerek",
+      "length": 6,
       "enabled": true
     },
     {
-      "word": "szellemeskedés",
-      "length": 14,
+      "word": "nyilas",
+      "length": 6,
       "enabled": true
     },
     {
-      "word": "szerethetetlen",
-      "length": 14,
+      "word": "nyit",
+      "length": 4,
       "enabled": true
     },
     {
-      "word": "távolságtartás",
-      "length": 14,
+      "word": "nyitás",
+      "length": 6,
       "enabled": true
     },
     {
-      "word": "türelmetlenség",
-      "length": 14,
+      "word": "nyolc",
+      "length": 5,
       "enabled": true
     },
     {
-      "word": "visszatekintés",
-      "length": 14,
+      "word": "nyomozás",
+      "length": 8,
       "enabled": true
     },
     {
-      "word": "élelmiszerbolt",
-      "length": 14,
+      "word": "nyugalmak",
+      "length": 9,
       "enabled": true
     },
     {
-      "word": "csillagvizsgáló",
-      "length": 15,
+      "word": "nyugalom",
+      "length": 8,
       "enabled": true
     },
     {
-      "word": "elkerülhetetlen",
-      "length": 15,
+      "word": "nyugis",
+      "length": 6,
       "enabled": true
     },
     {
-      "word": "figyelemreméltó",
-      "length": 15,
+      "word": "nyugtalanság",
+      "length": 12,
       "enabled": true
     },
     {
-      "word": "használhatatlan",
-      "length": 15,
+      "word": "nyúl",
+      "length": 4,
       "enabled": true
     },
     {
-      "word": "megmagyarázható",
-      "length": 15,
+      "word": "óceán",
+      "length": 5,
       "enabled": true
     },
     {
-      "word": "megszokhatatlan",
-      "length": 15,
+      "word": "okos",
+      "length": 4,
       "enabled": true
     },
     {
-      "word": "tömegközlekedés",
-      "length": 15,
+      "word": "olaj",
+      "length": 4,
       "enabled": true
     },
     {
-      "word": "villamosmegálló",
-      "length": 15,
+      "word": "olajfa",
+      "length": 6,
       "enabled": true
     },
     {
-      "word": "összehasonlítás",
-      "length": 15,
+      "word": "olcsó",
+      "length": 5,
       "enabled": true
     },
     {
-      "word": "elővigyázatosság",
-      "length": 16,
+      "word": "oldalirány",
+      "length": 10,
       "enabled": true
     },
     {
-      "word": "felelősségteljes",
-      "length": 16,
+      "word": "olló",
+      "length": 4,
       "enabled": true
     },
     {
-      "word": "ismeretterjesztő",
-      "length": 16,
+      "word": "olvas",
+      "length": 5,
       "enabled": true
     },
     {
-      "word": "kiegyensúlyozott",
-      "length": 16,
+      "word": "olvasó",
+      "length": 6,
       "enabled": true
     },
     {
-      "word": "megkerülhetetlen",
-      "length": 16,
+      "word": "olvasók",
+      "length": 7,
       "enabled": true
     },
     {
-      "word": "megkülönböztetés",
-      "length": 16,
+      "word": "olvasólámpa",
+      "length": 11,
       "enabled": true
     },
     {
-      "word": "vízvezetékszerelő",
-      "length": 17,
+      "word": "óra",
+      "length": 3,
       "enabled": true
     },
     {
-      "word": "elhanyagolhatatlan",
-      "length": 18,
+      "word": "óriás",
+      "length": 5,
       "enabled": true
     },
     {
-      "word": "megszentségtelenít",
-      "length": 18,
+      "word": "orr",
+      "length": 3,
       "enabled": true
     },
     {
-      "word": "visszafordíthatatlan",
-      "length": 20,
+      "word": "ország",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "országok",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "országút",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "orvos",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "ott",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "otthon",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "óvoda",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "öltöz",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "önállóság",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "öreg",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "őriz",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "őrszem",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "őrszemek",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "ősz",
+      "length": 3,
       "enabled": true
     },
     {
@@ -6301,8 +4236,2073 @@
       "enabled": true
     },
     {
-      "word": "legmegmagyarázhatatlanabb",
-      "length": 25,
+      "word": "összefoglalás",
+      "length": 13,
+      "enabled": true
+    },
+    {
+      "word": "összehasonlítás",
+      "length": 15,
+      "enabled": true
+    },
+    {
+      "word": "őzike",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "padló",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "pajzs",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "pajzsmirigy",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "palacsinta",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "palacsintás",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "pályaudvar",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "panaszos",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "papa",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "papír",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "papírrepülő",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "papírzsebkendő",
+      "length": 14,
+      "enabled": true
+    },
+    {
+      "word": "papok",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "paprika",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "paradicsom",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "paradicsomos",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "parancs",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "parancsok",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "park",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "párna",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "part",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "patak",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "patkány",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "pecsét",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "pékek",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "példamutatás",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "példány",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "példányok",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "péntek",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "pénteken",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "pénztárca",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "perc",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "perec",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "piac",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "pihen",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "pihenés",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "pihenő",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "pihenők",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "pillanat",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "pillanatok",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "pillangó",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "pillangós",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "pincér",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "piros",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "pislog",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "plakát",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "pofon",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "pogácsa",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "pogácsák",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "pohár",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "pók",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "polc",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "polip",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "póló",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "pont",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "pontszám",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "pontszámok",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "poros",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "porszívó",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "porszívóval",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "posta",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "pótkerék",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "pótolhatatlan",
+      "length": 13,
+      "enabled": true
+    },
+    {
+      "word": "pörög",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "próba",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "program",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "puding",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "puska",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "puszi",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "rabol",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "rádió",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "rádióadó",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "radír",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "ragad",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "ragyogás",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "ragyogások",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "rajz",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "rajzok",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "rak",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "reggel",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "régi",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "rejtvény",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "rejtvények",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "remény",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "rendek",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "rendezvény",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "rendőr",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "rendőrök",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "rendőrség",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "rendszeresség",
+      "length": 13,
+      "enabled": true
+    },
+    {
+      "word": "répa",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "repülő",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "repülők",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "repülőtér",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "részeg",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "rétes",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "rímes",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "rizs",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "robot",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "rohan",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "róka",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "rossz",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "rózsakert",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "rózsakertek",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "rózsaszín",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "rövid",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "ruha",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "ruhák",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "sajt",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "sál",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "saláta",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "sapka",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "sárga",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "sárgadinnye",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "sárkány",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "sárkányos",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "sáros",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "sebek",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "sebesség",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "sebességmérő",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "sebész",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "segédlet",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "segítség",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "segítségek",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "selyemút",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "seprű",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "sétány",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "siet",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "siker",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "sikeres",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "sikertörténet",
+      "length": 13,
+      "enabled": true
+    },
+    {
+      "word": "sikít",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "sima",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "sín",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "sír",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "sírok",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "soha",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "sokat",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "sólyom",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "sonka",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "sorok",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "sorozat",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "sorozatok",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "sötét",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "sötétség",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "sport",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "sugárzás",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "sugárzások",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "sütés",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "süti",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "szabad",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "szabály",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "száj",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "szalad",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "szalag",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "szálloda",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "szállodák",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "szaloncukor",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "szalonna",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "szamár",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "számítógép",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "szappan",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "szarvas",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "szavak",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "szedés",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "szék",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "székek",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "szekrény",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "szél",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "szellemeskedés",
+      "length": 14,
+      "enabled": true
+    },
+    {
+      "word": "szélvédő",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "szélvihar",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "szélviharok",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "szem",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "szemafor",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "szemüveg",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "szemüvegek",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "szendvics",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "szenvedély",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "szép",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "szépít",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "szerda",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "szerelvény",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "szerencse",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "szerencsék",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "szerepjáték",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "szeret",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "szerethetetlen",
+      "length": 14,
+      "enabled": true
+    },
+    {
+      "word": "sziget",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "szigetben",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "szigetvilág",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "szigetvilágok",
+      "length": 13,
+      "enabled": true
+    },
+    {
+      "word": "szigor",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "szilánk",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "szilánkok",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "szilva",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "színház",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "színházak",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "szív",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "szivárvány",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "szivárványok",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "szó",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "szoba",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "szobában",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "szobafestő",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "szobor",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "szokás",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "szókirakó",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "szókirakók",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "szolgálat",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "szolgálatok",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "szolgáltatás",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "szóösszetétel",
+      "length": 13,
+      "enabled": true
+    },
+    {
+      "word": "szóró",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "szótalálgató",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "szökőkút",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "szökőkutak",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "szőlő",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "szőlőből",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "szőnyeg",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "szúnyog",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "szürke",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "tábla",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "tábornok",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "tábornokok",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "tájékozódás",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "takarék",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "takarékok",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "takarít",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "talál",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "talán",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "talpraesett",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "tanácsadó",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "táncművész",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "táncok",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "tanul",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "taraj",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "táska",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "tavasz",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "távcső",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "távcsövek",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "távolságtartás",
+      "length": 14,
+      "enabled": true
+    },
+    {
+      "word": "tea",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "teáskanna",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "tegnap",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "tehén",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "teherbírás",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "tej",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "teker",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "teknős",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "tél",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "tele",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "telefon",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "telefonok",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "teljes",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "templom",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "templomban",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "tenger",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "tengerben",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "tengerpart",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "tér",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "térd",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "teremtmény",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "teremtmények",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "térfigyelő",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "térkép",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "térképen",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "testvér",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "testvériség",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "tesz",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "tető",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "téved",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "tigris",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "tiltás",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "tipp",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "tiszta",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "tisztesség",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "titkos",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "titok",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "tojás",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "tolat",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "toll",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "torony",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "toronyban",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "toronyóra",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "torta",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "tök",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "töltő",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "tömegközlekedés",
+      "length": 15,
+      "enabled": true
+    },
+    {
+      "word": "török",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "töröl",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "történet",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "történetek",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "törzsvendég",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "tud",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "tudás",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "túlél",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "tükör",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "türelem",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "türelmek",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "türelmetlenség",
+      "length": 14,
+      "enabled": true
+    },
+    {
+      "word": "tüskés",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "tűz",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "tyúk",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "uborka",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "udvar",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "ugat",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "ujj",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "újra",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "újrakezdés",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "újságíró",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "úszik",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "utak",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "utazás",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "utca",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "útmutató",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "útmutatók",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "ünnep",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "üres",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "üveg",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "üzen",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "vágás",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "vágyik",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "vaj",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "vakar",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "vakond",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "válasz",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "választás",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "választék",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "választékok",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "váll",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "változatosság",
+      "length": 13,
+      "enabled": true
+    },
+    {
+      "word": "vándor",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "vándorok",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "vár",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "várakozás",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "varázs",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "varázslat",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "varázslatok",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "varjú",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "város",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "vasárnap",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "vasútállomás",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "védelem",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "védőbeszéd",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "végek",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "végez",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "vendég",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "vendégek",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "vér",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "veréb",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "vereség",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "vesz",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "veszély",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "veszít",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "vezet",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "vidám",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "vihar",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "viharjelzés",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "világ",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "világos",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "villám",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "villámgyorsan",
+      "length": 13,
+      "enabled": true
+    },
+    {
+      "word": "villamos",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "villamosmegálló",
+      "length": 15,
+      "enabled": true
+    },
+    {
+      "word": "villanykörte",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "virág",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "virágos",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "virradat",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "virradatok",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "visz",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "visszafogott",
+      "length": 12,
+      "enabled": true
+    },
+    {
+      "word": "visszafordíthatatlan",
+      "length": 20,
+      "enabled": true
+    },
+    {
+      "word": "visszatekintés",
+      "length": 14,
+      "enabled": true
+    },
+    {
+      "word": "visszhang",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "víz",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "vizes",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "vízforraló",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "vízvezetékszerelő",
+      "length": 17,
+      "enabled": true
+    },
+    {
+      "word": "vizsgálat",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "vizsgálatok",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "vonal",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "vonalzó",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "vonat",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "vonatban",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "völgy",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "zabál",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "zár",
+      "length": 3,
+      "enabled": true
+    },
+    {
+      "word": "zárak",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "zarándok",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "zarándokok",
+      "length": 10,
+      "enabled": true
+    },
+    {
+      "word": "zavarbaejtő",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "zebrás",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "zene",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "zenehallgatás",
+      "length": 13,
+      "enabled": true
+    },
+    {
+      "word": "zenék",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "zokni",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "zöld",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "zöldség",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "zöldséges",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "zöldséget",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "zöldterület",
+      "length": 11,
+      "enabled": true
+    },
+    {
+      "word": "zúgás",
+      "length": 5,
+      "enabled": true
+    },
+    {
+      "word": "zúzmarás",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "zsákutca",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "zseb",
+      "length": 4,
+      "enabled": true
+    },
+    {
+      "word": "zseblámpa",
+      "length": 9,
+      "enabled": true
+    },
+    {
+      "word": "zsebóra",
+      "length": 7,
+      "enabled": true
+    },
+    {
+      "word": "zsebórák",
+      "length": 8,
+      "enabled": true
+    },
+    {
+      "word": "zsemle",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "zsiráf",
+      "length": 6,
+      "enabled": true
+    },
+    {
+      "word": "zsúfolt",
+      "length": 7,
       "enabled": true
     }
   ]
