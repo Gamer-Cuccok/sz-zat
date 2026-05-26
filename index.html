@@ -147,9 +147,18 @@
           </div>
 
           <div id="partyBoards" class="party-boards hidden">
-            <div><h3>Saját tábla</h3><div id="partyOwnBoard" class="word-board compact-board"></div></div>
-            <div><h3>Másik játékos</h3><div id="partyOtherBoard" class="word-board compact-board"></div></div>
-            <div class="central-board"><h3>Közös tábla</h3><div id="partyCentralBoard" class="word-board compact-board"></div></div>
+            <div class="central-board party-main-board">
+              <h3>Közös fő tábla</h3>
+              <div id="partyCentralBoard" class="word-board compact-board"></div>
+            </div>
+            <div class="party-player-board">
+              <h3>Saját tippjeid</h3>
+              <div id="partyOwnBoard" class="word-board compact-board"></div>
+            </div>
+            <div class="party-player-board">
+              <h3>Party társad élő táblája</h3>
+              <div id="partyOtherBoard" class="word-board compact-board"></div>
+            </div>
           </div>
 
           <div id="inputPreview" class="input-preview"></div>

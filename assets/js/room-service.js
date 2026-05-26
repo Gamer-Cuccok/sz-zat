@@ -214,6 +214,7 @@
       failed: !payload.solved && payload.isFinalAttempt,
       elapsedMs: payload.elapsedMs,
       typing: false,
+      currentInput: "",
       updatedAt: Date.now()
     };
     if (payload.partyMode) {
@@ -222,16 +223,20 @@
         displayName: payload.displayName,
         guess: payload.guess,
         feedback: payload.feedback,
-        attemptNumber: payload.attemptNumber,
-        elapsedMs: payload.elapsedMs
+        attemptNumber: payload.centralAttemptNumber || payload.attemptNumber,
+        playerAttemptNumber: payload.attemptNumber,
+        elapsedMs: payload.elapsedMs,
+        submittedAt: payload.submittedAt || Date.now()
       };
     }
     await window.SPFirebase.update(roomPath(roomCode), updates);
   }
 
-  async function setTyping(roomCode, userId, typing) {
+  async function setTyping(roomCode, userId, typing, currentInput) {
     if (!window.SPFirebase.configured) return;
-    await window.SPFirebase.update(`${roomPath(roomCode)}/publicProgress/${userId}`, { typing: !!typing, updatedAt: Date.now() }).catch(() => {});
+    const payload = { typing: !!typing, updatedAt: Date.now() };
+    if (typeof currentInput === "string") payload.currentInput = currentInput;
+    await window.SPFirebase.update(`${roomPath(roomCode)}/publicProgress/${userId}`, payload).catch(() => {});
   }
 
   async function startFailureTimer(roomCode, userId) {
