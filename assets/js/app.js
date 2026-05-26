@@ -197,7 +197,7 @@
       const status = req.status || "pending";
       let actions = "";
       if (status === "pending" && !mine) {
-        actions = `<div class="request-actions"><button class="secondary-btn tiny-btn" data-word-action="approve" data-request-id="${escapeHTML(req.id)}">OK</button><button class="ghost-btn tiny-btn" data-word-action="reject" data-request-id="${escapeHTML(req.id)}">Nem</button></div>`;
+        actions = `<div class="request-actions"><button type="button" class="tiny-btn approve-btn" data-word-action="approve" data-request-id="${escapeHTML(req.id)}">Elfogadom</button><button type="button" class="ghost-btn tiny-btn reject-btn" data-word-action="reject" data-request-id="${escapeHTML(req.id)}">Elutasítom</button></div>`;
       } else if (status === "pending" && mine) {
         actions = '<span class="request-pill wait">Vár az ellenfélre</span>';
       } else if (status === "approved") {
