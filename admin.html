@@ -35,24 +35,34 @@
         <div class="button-row wrap">
           <button id="loadLocalButton" class="secondary-btn">Helyi words.json betöltése</button>
           <button id="loadGithubButton" class="secondary-btn">Betöltés GitHubról</button>
-          <button id="saveGithubButton" class="primary-btn">Mentés GitHubra</button>
+          <button id="saveGithubButton" class="secondary-btn">Kézi GitHub mentés</button>
         </div>
         <p class="hint">A GitHub token böngészőben nem való publikus adminhoz. Csak saját gépen, saját használatra add meg.</p>
       </div>
 
       <div class="glass-card">
-        <h2>Szó hozzáadás / import</h2>
+        <h2>Szó hozzáadás</h2>
+        <p class="hint compact-hint">Egy szó, több szó vagy nagy TXT lista is mehet. A <strong>Hozzáadás</strong> egyetlen menetben berakja az admin listába, élesíti Firebase-ben, és ha megadtad a GitHub adatokat, menti a <strong>data/words.json</strong> fájlba is.</p>
+
         <div class="quick-admin-add simple-add">
-          <input id="singleWordInput" class="text-input" placeholder="egy szó" />
-          <button id="addSingleButton" class="primary-btn">Hozzáadás</button>
+          <input id="singleWordInput" class="text-input" placeholder="egy szó, pl. alma" />
         </div>
-        <textarea id="importTextarea" class="import-box" placeholder="Tömeges import: soronként, vesszővel vagy szóközzel elválasztva..."></textarea>
-        <div class="button-row wrap">
-          <button id="importButton" class="secondary-btn">Import közös listába</button>
-          <button id="exportButton" class="secondary-btn">words.json export</button>
-          <button id="pushFirebaseButton" class="primary-btn">Küldés Firebase-be</button>
+
+        <textarea id="importTextarea" class="import-box" placeholder="Tömeges import kisebb listához: soronként, vesszővel vagy szóközzel elválasztva..."></textarea>
+
+        <label class="file-drop">
+          <span class="file-title">TXT fájl feltöltése nagy szólistához</span>
+          <span class="file-sub">.txt fájl, soronként vagy szóközzel elválasztott szavakkal. Így nem fagyasztja meg a textarea-t.</span>
+          <input id="wordFileInput" type="file" accept=".txt,text/plain" multiple />
+        </label>
+        <div id="selectedFileInfo" class="file-info">Nincs kiválasztott TXT fájl.</div>
+
+        <div class="button-row wrap admin-add-actions">
+          <button id="addEverywhereButton" class="primary-btn big-action">Hozzáadás</button>
+          <button id="exportButton" class="secondary-btn">Biztonsági words.json export</button>
         </div>
-        <p class="hint">Import után minden aktív szó ugyanazt jelenti: tippként elfogadott, és megfejtésként is használható.</p>
+        <div id="addReport" class="add-report hidden"></div>
+        <p class="hint">Duplikált szót nem ad hozzá újra. Ha egy szó tiltva volt, újra aktívra állítja. A szóhossz automatikusan számolódik.</p>
       </div>
     </section>
 
