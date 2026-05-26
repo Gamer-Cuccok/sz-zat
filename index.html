@@ -30,8 +30,8 @@
       <div class="hero-card glass-card">
         <div class="hero-copy">
           <p class="eyebrow">1v1 párbaj • party mód • XP • magyar szavak</p>
-          <h1 class="animated-title">Találd ki a szót, mielőtt a másik agytekervény begyújt.</h1>
-          <p class="lead">Hozz létre szobát, hívd be a haverod, és indulhat a magyar Wordle-csata. A host állítja a hosszt, köröket, próbákat és a tempót.</p>
+          <h1 class="animated-title">Szócsata, ahol a tábla nem beszél, csak villan.</h1>
+          <p class="lead">Hozz létre szobát, hívd be a haverod, és indulhat a magyar szócsata. Egy közös szólista van: ami tippelhető, az később megfejtés is lehet.</p>
           <div class="hero-stats">
             <span><strong id="heroWordCount">0</strong><small>helyi szó</small></span>
             <span><strong>3–18+</strong><small>betű támogatás</small></span>
@@ -90,9 +90,10 @@
             <label>Körök száma <input id="settingRounds" type="number" min="1" max="20" value="5"></label>
             <label>Célpontszám <input id="settingTargetScore" type="number" min="0" step="10" value="0"></label>
             <label>Időlimit / kör, mp <input id="settingTimeLimit" type="number" min="0" step="10" value="0"></label>
+            <label>Végjáték timer, mp <input id="settingFailoverTimer" type="number" min="10" step="10" value="300"></label>
             <label class="check-row"><input id="settingLongWords" type="checkbox"> Hosszú szavak engedélyezése</label>
             <label class="check-row"><input id="settingHostWords" type="checkbox" checked> Host gyors szó hozzáadás</label>
-            <label class="check-row"><input id="settingAddedAsAnswer" type="checkbox"> Új szavak válaszok lehetnek következő körtől</label>
+            
           </form>
         </div>
       </div>
@@ -106,6 +107,7 @@
         </div>
         <div class="score-strip">
           <span id="timerLabel">00:00</span>
+          <span id="failoverLabel" class="danger-timer hidden">Végjáték: 05:00</span>
           <span id="attemptsLabel">6 próba</span>
           <span id="scoreLabel">0 : 0</span>
         </div>
@@ -122,9 +124,8 @@
           <div id="hostQuickAdd" class="quick-add hidden">
             <h3>Gyors szó hozzáadás</h3>
             <input id="quickWordInput" class="text-input" placeholder="új szó" />
-            <label class="check-row"><input id="quickAccepted" type="checkbox" checked> elfogadott tipp</label>
-            <label class="check-row"><input id="quickAnswer" type="checkbox"> válasz lehet később</label>
-            <button id="quickAddButton" class="secondary-btn">Hozzáadás</button>
+            <p class="hint">A hozzáadott szó azonnal tippelhető mindkét játékosnak, de a jelenlegi megfejtést nem cseréli le.</p>
+            <button id="quickAddButton" class="secondary-btn">Szó bedobása</button>
           </div>
           <div class="audio-panel">
             <h3>Hang</h3>

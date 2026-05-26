@@ -10,7 +10,8 @@
     roundAwardedKey: null,
     nextRoundTimerKey: null,
     clockTimer: null,
-    typingTimer: null
+    typingTimer: null,
+    lastWordNoticeId: null
   };
 
   const els = {};
@@ -20,10 +21,10 @@
       "landingView", "lobbyView", "gameView", "resultView", "displayNameInput", "roomCodeInput",
       "createRoomButton", "joinRoomButton", "copyRoomCodeButton", "playerList", "modeBadge", "startMatchButton",
       "leaveRoomButton", "lobbyMessage", "settingsForm", "settingMode", "settingMinLength", "settingMaxLength",
-      "settingAttempts", "settingRounds", "settingTargetScore", "settingTimeLimit", "settingLongWords",
-      "settingHostWords", "settingAddedAsAnswer", "roundLabel", "wordLengthLabel", "timerLabel", "attemptsLabel",
+      "settingAttempts", "settingRounds", "settingTargetScore", "settingTimeLimit", "settingFailoverTimer", "settingLongWords",
+      "settingHostWords", "roundLabel", "wordLengthLabel", "timerLabel", "failoverLabel", "attemptsLabel",
       "scoreLabel", "levelLabel", "xpLabel", "xpBar", "opponentPanel", "hostQuickAdd", "quickWordInput",
-      "quickAccepted", "quickAnswer", "quickAddButton", "duelBoardWrap", "gameBoard", "boardTitle", "inputPreview",
+      "quickAddButton", "duelBoardWrap", "gameBoard", "boardTitle", "inputPreview",
       "keyboard", "partyBoards", "partyOwnBoard", "partyOtherBoard", "partyCentralBoard", "roundModal",
       "roundModalEyebrow", "roundModalTitle", "answerReveal", "roundModalText", "backToLobbyButton", "profileButton",
       "profileMenu", "matchResultTitle", "matchSummary", "rematchButton", "resultLobbyButton"
@@ -66,9 +67,9 @@
       rounds: Number(els.settingRounds.value) || 5,
       targetScore: Number(els.settingTargetScore.value) || 0,
       timeLimitSeconds: Number(els.settingTimeLimit.value) || 0,
+      failoverTimerSeconds: Number(els.settingFailoverTimer.value) || 300,
       allowLongWords: !!els.settingLongWords.checked,
-      allowHostWords: !!els.settingHostWords.checked,
-      addedWordsAsAnswers: !!els.settingAddedAsAnswer.checked
+      allowHostWords: !!els.settingHostWords.checked
     };
   }
 
@@ -80,10 +81,10 @@
     els.settingAttempts.value = s.maxAttempts;
     els.settingRounds.value = s.rounds;
     els.settingTargetScore.value = s.targetScore;
-    els.settingTimeLimit.value = s.timeLimitSeconds;
+    els.settingTimeLimit.value = s.timeLimitSeconds || 0;
+    els.settingFailoverTimer.value = s.failoverTimerSeconds || 300;
     els.settingLongWords.checked = !!s.allowLongWords;
     els.settingHostWords.checked = !!s.allowHostWords;
-    els.settingAddedAsAnswer.checked = !!s.addedWordsAsAnswers;
   }
 
   function setSettingsDisabled(disabled) {
@@ -147,18 +148,35 @@
       return;
     }
     const progress = room.publicProgress && room.publicProgress[opp.userId];
-    if (!progress) {
-      panel.innerHTML = `<div class="opponent-row"><span>${escapeHTML(opp.displayName)}</span><strong>${opp.connected ? "készen" : "offline"}</strong></div>`;
-      return;
-    }
-    const time = formatTime(Math.round((progress.elapsedMs || 0) / 1000));
+    const attempts = Object.values((room.publicAttempts && room.publicAttempts[opp.userId]) || {})
+      .sort((a, b) => (a.attemptNumber || 0) - (b.attemptNumber || 0));
+    const time = progress ? formatTime(Math.round((progress.elapsedMs || 0) / 1000)) : "00:00";
+    const round = room.currentRound || {};
     panel.innerHTML = `
-      <div class="opponent-row"><span>${escapeHTML(opp.displayName)}</span><strong>${progress.typing ? "gépel" : "figyel"}</strong></div>
-      <div class="opponent-row"><span>Próbák</span><strong>${progress.attemptCount || 0}</strong></div>
+      <div class="opponent-head">
+        <div><strong>${escapeHTML(opp.displayName)}</strong><small>${progress && progress.typing ? "gépel" : (opp.connected ? "figyel" : "offline")}</small></div>
+        <span class="mini-status">${progress && progress.solved ? "megfejtette" : `${progress ? progress.attemptCount || 0 : 0}/${round.maxAttempts || room.settings.maxAttempts || 0}`}</span>
+      </div>
+      <div class="opponent-mini-board" aria-label="Ellenfél táblája betűk nélkül">${renderOpponentMiniBoard(attempts, round.answerLength || 0, round.maxAttempts || room.settings.maxAttempts || 0)}</div>
       <div class="opponent-row"><span>Idő</span><strong>${time}</strong></div>
-      ${progress.attemptCount ? `<div class="opponent-row"><span>Ellenfél ${progress.attemptCount}. tipp</span><strong>${progress.lastGreenCount || 0} zöld, ${progress.lastYellowCount || 0} sárga</strong></div>` : ""}
-      ${progress.solved ? '<div class="opponent-row"><span>Állapot</span><strong>megfejtette</strong></div>' : ""}
+      ${progress && progress.lastGreenCount !== undefined ? `<div class="opponent-row"><span>Utolsó tipp</span><strong>${progress.lastGreenCount || 0} zöld, ${progress.lastYellowCount || 0} sárga</strong></div>` : ""}
     `;
+  }
+
+  function renderOpponentMiniBoard(attempts, answerLength, maxAttempts) {
+    const rows = [];
+    const len = Math.max(0, Number(answerLength) || 0);
+    const max = Math.max(0, Number(maxAttempts) || 0);
+    for (let r = 0; r < max; r += 1) {
+      const attempt = attempts[r];
+      const cells = [];
+      for (let c = 0; c < len; c += 1) {
+        const stateName = attempt && attempt.states ? attempt.states[c] : "blank";
+        cells.push(`<span class="mini-tile ${stateName || "blank"}"></span>`);
+      }
+      rows.push(`<div class="mini-row" data-length="${len}">${cells.join("")}</div>`);
+    }
+    return rows.join("");
   }
 
   function formatTime(seconds) {
@@ -178,31 +196,65 @@
     return Object.values(branch || {}).sort((a, b) => (a.attemptNumber || 0) - (b.attemptNumber || 0));
   }
 
+  function boardSignature(guesses, answerLength, maxAttempts) {
+    const stableGuesses = (guesses || []).map(g => ({
+      attemptNumber: g.attemptNumber || 0,
+      guess: g.guess || "",
+      states: (g.feedback || []).map(fb => fb.state).join("")
+    }));
+    return JSON.stringify({ answerLength, maxAttempts, guesses: stableGuesses });
+  }
+
   function renderBoard(container, guesses, input, answerLength, maxAttempts, reveal = false) {
     if (!container) return;
-    const rows = [];
+    const safeGuesses = guesses || [];
+    const signature = boardSignature(safeGuesses, answerLength, maxAttempts);
+
+    // Important: do not rebuild the whole board while the player is typing.
+    // Replacing innerHTML on every keypress restarts layout/animations and makes
+    // already submitted words look like they are wobbling. Rebuild only when the
+    // real board state changes, then update just the active input row.
+    if (container.dataset.boardSignature !== signature) {
+      const rows = [];
+      for (let r = 0; r < maxAttempts; r += 1) {
+        const submitted = safeGuesses[r];
+        const cells = [];
+        for (let c = 0; c < answerLength; c += 1) {
+          let letter = "";
+          let cls = "tile";
+          if (submitted) {
+            const fb = submitted.feedback && submitted.feedback[c];
+            letter = fb ? fb.letter : Array.from(submitted.guess || "")[c] || "";
+            cls += ` ${fb ? fb.state : "gray"}`;
+            if (submitted.justSubmitted) cls += " reveal";
+          }
+          cells.push(`<span class="${cls}" data-cell="${c}" style="animation-delay:${submitted ? c * 65 : 0}ms">${escapeHTML(letter)}</span>`);
+        }
+        const longClass = answerLength > 18 ? " long-row" : "";
+        rows.push(`<div class="word-row${longClass}" data-row="${r}" data-length="${answerLength}">${cells.join("")}</div>`);
+      }
+      container.innerHTML = rows.join("");
+      container.dataset.boardSignature = signature;
+    }
+
+    updateActiveInputRow(container, safeGuesses.length, input, answerLength, maxAttempts);
+  }
+
+  function updateActiveInputRow(container, activeRowIndex, input, answerLength, maxAttempts) {
     const inputLetters = Array.from(input || "");
     for (let r = 0; r < maxAttempts; r += 1) {
-      const submitted = guesses[r];
-      const cells = [];
-      for (let c = 0; c < answerLength; c += 1) {
-        let letter = "";
-        let cls = "tile";
-        if (submitted) {
-          const fb = submitted.feedback && submitted.feedback[c];
-          letter = fb ? fb.letter : (submitted.guess || "")[c] || "";
-          cls += ` ${fb ? fb.state : "gray"}`;
-          if (reveal || submitted.justSubmitted) cls += " reveal";
-        } else if (r === guesses.length && inputLetters[c]) {
-          letter = inputLetters[c];
-          cls += " filled";
-        }
-        cells.push(`<span class="${cls}" style="animation-delay:${submitted ? c * 65 : 0}ms">${escapeHTML(letter)}</span>`);
-      }
-      const longClass = answerLength > 18 ? " long-row" : "";
-      rows.push(`<div class="word-row${longClass}" data-length="${answerLength}">${cells.join("")}</div>`);
+      const row = container.querySelector(`.word-row[data-row="${r}"]`);
+      if (!row) continue;
+      const isSubmittedRow = r < activeRowIndex;
+      if (isSubmittedRow) continue;
+      row.querySelectorAll(".tile").forEach((tile, c) => {
+        const letter = r === activeRowIndex ? (inputLetters[c] || "") : "";
+        const nextClass = letter ? "tile live-filled" : "tile";
+        if (tile.textContent !== letter) tile.textContent = letter;
+        if (tile.className !== nextClass) tile.className = nextClass;
+        tile.style.animationDelay = "0ms";
+      });
     }
-    container.innerHTML = rows.join("");
   }
 
   function renderPartyBoards(room) {
@@ -244,6 +296,13 @@
     els.roundLabel.textContent = `${round.roundNumber}. kör`;
     els.wordLengthLabel.textContent = `${round.answerLength} betű`;
     els.attemptsLabel.textContent = `${round.maxAttempts || room.settings.maxAttempts} próba`;
+    if (els.failoverLabel) {
+      els.failoverLabel.classList.toggle("hidden", !round.failureDeadlineAt || round.status !== "active");
+      if (round.failureDeadlineAt && round.status === "active") {
+        const left = Math.max(0, Math.ceil((round.failureDeadlineAt - Date.now()) / 1000));
+        els.failoverLabel.textContent = `Végjáték: ${formatTime(left)}`;
+      }
+    }
     renderScore(room);
     renderOpponentPanel(room);
     els.hostQuickAdd.classList.toggle("hidden", !(isHost() && room.settings.allowHostWords));
@@ -261,12 +320,18 @@
     const end = round.solvedAt || Date.now();
     const elapsed = Math.floor((end - (round.startedAt || Date.now())) / 1000);
     els.timerLabel.textContent = formatTime(elapsed);
-    const limit = Number(state.room.settings.timeLimitSeconds || 0);
-    if (limit > 0 && round.status === "active" && elapsed >= limit) {
-      const guesses = ownGuesses();
-      if (guesses.length >= Number(round.maxAttempts || 0) || isHost()) {
-        maybeEndFailedRound();
+
+    if (els.failoverLabel) {
+      const showFailover = !!round.failureDeadlineAt && round.status === "active";
+      els.failoverLabel.classList.toggle("hidden", !showFailover);
+      if (showFailover) {
+        const left = Math.max(0, Math.ceil((round.failureDeadlineAt - Date.now()) / 1000));
+        els.failoverLabel.textContent = `Végjáték: ${formatTime(left)}`;
       }
+    }
+
+    if (round.status === "active") {
+      maybeEndFailedRound(false);
     }
   }
 
@@ -283,6 +348,7 @@
     }
     const prevRoundId = state.room && state.room.currentRound ? state.room.currentRound.roundNumber : null;
     state.room = room;
+    maybeShowWordAddedNotice(room);
     const currentRoundId = room.currentRound ? room.currentRound.roundNumber : null;
 
     if (prevRoundId !== currentRoundId) resetLocalRoundState();
@@ -308,6 +374,14 @@
       showView("resultView");
       renderMatchResult(room);
     }
+  }
+
+  function maybeShowWordAddedNotice(room) {
+    const evt = room && room.lastWordAdded;
+    if (!evt || !evt.id || state.lastWordNoticeId === evt.id) return;
+    state.lastWordNoticeId = evt.id;
+    if (state.profile && evt.addedBy === state.profile.userId) return;
+    toast(`${evt.addedByName || "A host"} új szót dobott be: ${evt.word}. Már ebben a körben tippelhető.`, "ok");
   }
 
   function subscribeRoom(roomCode) {
@@ -418,6 +492,7 @@
       yellowCount: counts.yellow,
       solved,
       attemptNumber,
+      isFinalAttempt: attemptNumber >= round.maxAttempts,
       elapsedMs,
       submittedAt: Date.now(),
       partyMode: mode === "party",
@@ -448,7 +523,10 @@
     }
 
     if (attemptNumber >= round.maxAttempts) {
-      await maybeEndFailedRound();
+      if (mode === "duel") {
+        await window.SPRooms.ensureFailureTimer(state.roomCode, state.profile.userId, state.room.settings.failoverTimerSeconds || 300);
+      }
+      await maybeEndFailedRound(true);
     }
   }
 
@@ -463,19 +541,35 @@
     }
   }
 
-  async function maybeEndFailedRound() {
+  async function maybeEndFailedRound(fromSubmit = false) {
     if (!state.room || !state.room.currentRound || state.room.currentRound.status !== "active") return;
     const round = state.room.currentRound;
     const players = playersArray();
+    if (!players.length) return;
+
+    const progressFor = userId => (state.room.publicProgress && state.room.publicProgress[userId]) || null;
     const allDone = players.every(p => {
-      const progress = state.room.publicProgress && state.room.publicProgress[p.userId];
+      const progress = progressFor(p.userId);
       return progress && (progress.solved || progress.attemptCount >= round.maxAttempts);
     });
-    const limit = Number(state.room.settings.timeLimitSeconds || 0);
-    const timedOut = limit > 0 && Date.now() - round.startedAt >= limit * 1000;
-    if (allDone || timedOut) {
-      if (isHost()) await window.SPRooms.endRound(state.roomCode, null, Date.now());
-      else toast("Várakozás a másik játékosra…");
+    const someoneSolved = players.some(p => {
+      const progress = progressFor(p.userId);
+      return progress && progress.solved;
+    });
+
+    const regularLimit = Number(state.room.settings.timeLimitSeconds || 0);
+    const regularTimedOut = regularLimit > 0 && Date.now() - round.startedAt >= regularLimit * 1000;
+    const failoverExpired = !!round.failureDeadlineAt && Date.now() >= round.failureDeadlineAt;
+
+    if ((allDone && !someoneSolved) || regularTimedOut || failoverExpired) {
+      await window.SPRooms.endRound(state.roomCode, null, Date.now());
+      return;
+    }
+
+    const myGuesses = ownGuesses();
+    if (myGuesses.length >= round.maxAttempts && !round.failureDeadlineAt && state.room.settings.mode === "duel") {
+      await window.SPRooms.ensureFailureTimer(state.roomCode, state.profile.userId, state.room.settings.failoverTimerSeconds || 300);
+      toast(`Elfogytak a próbáid. Az ellenfélnek ${formatTime(state.room.settings.failoverTimerSeconds || 300)} ideje maradt.`, "");
     }
   }
 
@@ -485,7 +579,7 @@
     const amWinner = round.winnerUserId === state.profile.userId;
     els.roundModal.classList.remove("hidden");
     els.roundModalTitle.textContent = winner ? (amWinner ? "Te nyerted a kört!" : `${winner.displayName} megfejtette!`) : "Kör vége";
-    els.roundModalText.textContent = winner ? "A következő kör mindjárt indul." : "Senki sem fejtette meg időben. Jön a következő kör.";
+    els.roundModalText.textContent = winner ? "A következő kör mindjárt indul." : "Senki sem találta el. A megfejtés megjelent, jön a következő kör.";
     revealAnswer(round.answer, winner && winner.color ? winner.color : "#39d98a");
     window.SPAudio.play(amWinner ? "win" : (winner ? "lose" : "next"));
   }
@@ -557,13 +651,13 @@
       const word = els.quickWordInput.value;
       const entry = await window.SPWordService.addDynamicWord({
         word,
-        isAccepted: els.quickAccepted.checked,
-        isAnswer: els.quickAnswer.checked && state.room.settings.addedWordsAsAnswers,
         addedBy: state.profile.userId,
+        addedByName: state.profile.displayName,
         source: "host-quick-add"
       });
       els.quickWordInput.value = "";
-      toast(`Hozzáadva: ${entry.word}. Mostantól elfogadott tipp.`, "ok");
+      await window.SPRooms.announceWordAdded(state.roomCode, entry, state.profile);
+      toast(`Hozzáadva: ${entry.word}. Tippelhető most, megfejtés lehet a következő körtől.`, "ok");
     } catch (err) { toast(err.message, "error"); }
   }
 

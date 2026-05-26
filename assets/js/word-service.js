@@ -1,102 +1,125 @@
 (function () {
   const engine = () => window.SPGameEngine;
-  let answerWords = [];
-  let acceptedWords = [];
+  let words = [];
   let wordMeta = new Map();
   let dynamicUnsub = null;
 
-  function toEntry(raw, defaults = {}) {
+  function normalizeEntry(raw, defaults = {}) {
     const word = engine().normalizeWord(typeof raw === "string" ? raw : raw.word);
     if (!engine().isValidHungarianWordShape(word)) return null;
     return {
       word,
       length: Array.from(word).length,
-      isAnswer: raw.isAnswer ?? defaults.isAnswer ?? true,
-      isAccepted: raw.isAccepted ?? defaults.isAccepted ?? true,
-      enabled: raw.enabled ?? defaults.enabled ?? true,
-      source: raw.source || defaults.source || "local"
+      enabled: raw.enabled !== false,
+      source: raw.source || defaults.source || "local",
+      addedBy: raw.addedBy || defaults.addedBy || null,
+      addedAt: raw.addedAt || defaults.addedAt || null
     };
   }
 
   function mergeEntry(entry) {
-    if (!entry || !entry.enabled) return;
-    const prev = wordMeta.get(entry.word) || { word: entry.word, length: entry.length, isAnswer: false, isAccepted: false, enabled: true, source: entry.source };
-    prev.isAnswer = !!(prev.isAnswer || entry.isAnswer);
-    prev.isAccepted = !!(prev.isAccepted || entry.isAccepted || entry.isAnswer);
-    prev.enabled = entry.enabled !== false;
-    prev.source = prev.source === "dynamic" || entry.source === "dynamic" ? "dynamic" : prev.source;
-    wordMeta.set(entry.word, prev);
+    if (!entry || entry.enabled === false) return false;
+    const prev = wordMeta.get(entry.word) || {};
+    wordMeta.set(entry.word, {
+      word: entry.word,
+      length: entry.length,
+      enabled: true,
+      source: prev.source === "dynamic" || entry.source === "dynamic" ? "dynamic" : (entry.source || prev.source || "local"),
+      addedBy: entry.addedBy || prev.addedBy || null,
+      addedAt: entry.addedAt || prev.addedAt || null
+    });
+    return true;
   }
 
-  function rebuildArrays() {
-    const all = Array.from(wordMeta.values()).filter(w => w.enabled !== false);
-    answerWords = all.filter(w => w.isAnswer).map(w => w.word);
-    acceptedWords = all.filter(w => w.isAccepted || w.isAnswer).map(w => w.word);
+  function rebuildArray() {
+    words = Array.from(wordMeta.values())
+      .filter(w => w.enabled !== false)
+      .sort((a, b) => a.word.localeCompare(b.word, "hu"));
   }
 
-  async function loadJson(url, defaults) {
+  async function loadJson(url) {
     const res = await fetch(url, { cache: "no-store" });
     if (!res.ok) throw new Error(`Nem sikerült betölteni: ${url}`);
     const json = await res.json();
-    const rawWords = Array.isArray(json) ? json : json.words || [];
-    rawWords.map(x => toEntry(x, defaults)).forEach(mergeEntry);
+    const rawWords = Array.isArray(json) ? json : (json.words || []);
+    rawWords.map(x => normalizeEntry(x, { source: "canonical" })).forEach(mergeEntry);
   }
 
   async function init() {
     wordMeta.clear();
-    await loadJson("data/starter-words.json", { isAnswer: true, isAccepted: true, source: "starter" });
-    await loadJson("data/accepted-words.json", { isAnswer: false, isAccepted: true, source: "accepted" });
-    rebuildArrays();
-    const heroWordCount = document.getElementById("heroWordCount");
-    if (heroWordCount) heroWordCount.textContent = String(acceptedWords.length);
+    await loadJson("data/words.json");
+    rebuildArray();
+    updateWordCount();
     if (window.SPFirebase && window.SPFirebase.configured) subscribeDynamicWords();
+  }
+
+  function updateWordCount() {
+    const heroWordCount = document.getElementById("heroWordCount");
+    if (heroWordCount) heroWordCount.textContent = String(words.length);
   }
 
   function subscribeDynamicWords() {
     if (dynamicUnsub) dynamicUnsub();
     dynamicUnsub = window.SPFirebase.onValue("words/dynamic", data => {
-      Object.values(data || {}).map(x => toEntry({ ...x, source: "dynamic" }, { source: "dynamic" })).forEach(mergeEntry);
-      rebuildArrays();
-      const heroWordCount = document.getElementById("heroWordCount");
-      if (heroWordCount) heroWordCount.textContent = String(acceptedWords.length);
+      Object.values(data || {})
+        .map(x => normalizeEntry({ ...x, source: "dynamic" }, { source: "dynamic" }))
+        .forEach(mergeEntry);
+      rebuildArray();
+      updateWordCount();
     });
   }
 
   function isAccepted(word) {
     const normalized = engine().normalizeWord(word);
     const meta = wordMeta.get(normalized);
-    return !!(meta && meta.enabled !== false && (meta.isAccepted || meta.isAnswer));
+    return !!(meta && meta.enabled !== false);
   }
 
-  function getByLength(minLength, maxLength, allowLong) {
-    const min = Number(minLength) || 3;
-    const max = allowLong ? (Number(maxLength) || 30) : Math.min(Number(maxLength) || 8, 12);
-    return answerWords.filter(w => w.length >= min && w.length <= max);
+  function getPool(settings = {}) {
+    const min = Math.max(3, Number(settings.minLength) || 3);
+    const maxSetting = Number(settings.maxLength) || 30;
+    const max = settings.allowLongWords ? Math.max(min, maxSetting) : Math.min(Math.max(min, maxSetting), 12);
+    return words.map(w => w.word).filter(w => {
+      const len = Array.from(w).length;
+      return len >= min && len <= max;
+    });
   }
 
   function randomAnswer(settings) {
-    let pool = getByLength(settings.minLength, settings.maxLength, settings.allowLongWords);
-    if (!pool.length) pool = answerWords.filter(w => w.length >= 3);
-    if (!pool.length) throw new Error("Nincs használható válasz szó a beállításokhoz.");
+    let pool = getPool(settings);
+    if (!pool.length) pool = words.map(w => w.word).filter(w => Array.from(w).length >= 3);
+    if (!pool.length) throw new Error("Nincs használható szó a beállításokhoz.");
     return pool[Math.floor(Math.random() * pool.length)];
   }
 
-  async function addDynamicWord({ word, isAnswer = false, isAccepted = true, addedBy = "unknown", source = "host-quick-add" }) {
+  async function addDynamicWord({ word, addedBy = "unknown", addedByName = "Host", source = "host-quick-add" }) {
     const normalized = engine().normalizeWord(word);
     if (!engine().isValidHungarianWordShape(normalized)) throw new Error("Csak magyar betűket használj.");
-    const entry = { word: normalized, length: normalized.length, isAnswer: !!isAnswer, isAccepted: !!isAccepted || !!isAnswer, enabled: true, addedBy, addedAt: Date.now(), source };
+    if (Array.from(normalized).length < 3) throw new Error("Legalább 3 betűs szó kell.");
+    const existed = wordMeta.has(normalized);
+    const entry = {
+      word: normalized,
+      length: Array.from(normalized).length,
+      enabled: true,
+      addedBy,
+      addedByName,
+      addedAt: Date.now(),
+      source
+    };
     mergeEntry({ ...entry, source: "dynamic" });
-    rebuildArrays();
+    rebuildArray();
+    updateWordCount();
     if (window.SPFirebase && window.SPFirebase.configured) {
-      const id = normalized.replace(/[.#$\/[\]]/g, "_");
+      const id = normalized.replace(/[.#$\/\[\]]/g, "_");
       await window.SPFirebase.set(`words/dynamic/${id}`, entry);
     }
-    return entry;
+    return { ...entry, existed };
   }
 
-  function getAll() { return Array.from(wordMeta.values()).sort((a, b) => a.word.localeCompare(b.word, "hu")); }
-  function getAnswerWords() { return [...answerWords]; }
-  function getAcceptedWords() { return [...acceptedWords]; }
+  function getAll() { return [...words]; }
+  function getWords() { return words.map(w => w.word); }
+  function getAnswerWords() { return getWords(); }
+  function getAcceptedWords() { return getWords(); }
 
-  window.SPWordService = { init, isAccepted, randomAnswer, addDynamicWord, getAll, getAnswerWords, getAcceptedWords };
+  window.SPWordService = { init, isAccepted, randomAnswer, addDynamicWord, getAll, getWords, getAnswerWords, getAcceptedWords };
 })();

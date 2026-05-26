@@ -1,25 +1,18 @@
-# SzóPárbaj – Magyar multiplayer Wordle
+# SzóPárbaj
 
-Ez egy teljes, statikus, böngészőből futó magyar Wordle-stílusú multiplayer játék. GitHub Pages-re készült, nincs saját backend. A valós idejű szobákhoz, profilokhoz, XP-hez, statisztikához, dinamikus szólistához és meccsállapothoz Firebase Realtime Database-t használ.
+Magyar, böngészőben futó multiplayer Wordle-stílusú szókirakó játék. Statikus frontend, GitHub Pages kompatibilis, Firebase Realtime Database szinkronnal.
 
-## Fő funkciók
+## Mi változott ebben a verzióban?
 
-- Magyar UI
-- 1v1 párbaj mód
-- Party kooperatív mód két játékossal
-- Szobakódos csatlakozás
-- Egyszerű név alapú profil, email és jelszó nélkül
-- Helyi `userId` mentés localStorage-ban
-- XP, szint, statisztikák
-- Host beállítások: mód, szóhossz, próbák, körök, célpontszám, időlimit
-- Host gyors szó hozzáadás aktív meccs közben
-- Firebase dinamikus szólista
-- Admin oldal szólista kezeléshez
-- GitHub API mentés admin használatra
-- Magyar ékezetes betűk támogatása
-- Hosszú szavak egy sorban, dinamikus tile mérettel
-- Hangkezelés, némítás, SFX, zene, hangerő
-- Programmal generált placeholder hangok
+- Egyetlen közös szólista van: `data/words.json`.
+- Nincs külön `starter-words.json` és `accepted-words.json` kezelés.
+- Minden aktív szó egyszerre tippelhető és későbbi megfejtésként is kisorsolható.
+- Host által bedobott szó azonnal tippelhető mindkét játékosnak.
+- Host szó nem cseréli le az aktuális megfejtést, csak a következő köröktől kerülhet sorsolásba.
+- Ha egy játékos kifogy a tippekből, elindul az állítható végjáték-idő.
+- Ha mindkét játékos kifogyott vagy a végjáték-idő lejár, a kör véget ér és megjelenik a megfejtés.
+- Az ellenfél panel már betű nélküli mini táblát mutat, nem csak szöveges zöld/sárga darabszámot.
+- A tile animációk vissza vannak fogva, hogy ne mozogjanak folyamatosan minden Firebase frissítésnél.
 
 ## Fájlstruktúra
 
@@ -29,14 +22,13 @@ wordle-multiplayer/
 ├─ admin.html
 ├─ README.md
 ├─ data/
-│  ├─ words.json              # fő, egyesített szólista
-│  ├─ starter-words.json      # kompatibilitási másolat
-│  └─ accepted-words.json     # kompatibilitási másolat
+│  └─ words.json
 ├─ assets/
 │  ├─ css/
 │  │  └─ style.css
 │  ├─ js/
 │  │  ├─ config.example.js
+│  │  ├─ config.js
 │  │  ├─ firebase-client.js
 │  │  ├─ app.js
 │  │  ├─ game-engine.js
@@ -47,67 +39,16 @@ wordle-multiplayer/
 │  │  ├─ audio.js
 │  │  └─ admin.js
 │  └─ sounds/
-│     ├─ README.txt
-│     ├─ key.wav
-│     ├─ reveal.wav
-│     ├─ invalid.wav
-│     ├─ correct.wav
-│     ├─ win.wav
-│     ├─ lose.wav
-│     ├─ level-up.wav
-│     ├─ next-round.wav
-│     └─ music-loop.wav
 ```
 
-## Helyi futtatás
+## Firebase beállítás
 
-A Firebase nélküli megnyitásnál az oldal betölt, de multiplayer szoba nem hozható létre. A teljes működéshez Firebase config kell.
+A játék Firebase Realtime Database-t használ.
 
-Egyszerű helyi teszt:
-
-```bash
-cd wordle-multiplayer
-python -m http.server 8080
-```
-
-Majd nyisd meg:
-
-```text
-http://localhost:8080/index.html
-http://localhost:8080/admin.html
-```
-
-A `file://` megnyitás nem ajánlott, mert a JSON fájlok `fetch()` betöltése böngészőtől függően tiltva lehet.
-
-## Firebase free tier beállítás
-
-1. Menj a Firebase Console-ba.
-2. Hozz létre új projektet.
-3. Add hozzá a Web appot.
-4. Másold ki a Firebase web configot.
-5. Engedélyezd a **Realtime Database** szolgáltatást.
-6. Hozd létre az adatbázist teszt módban vagy saját szabályokkal.
-7. A csomagban van egy üres `assets/js/config.js` placeholder, illetve egy `assets/js/config.example.js` minta. Töltsd ki a `config.js` fájlt:
-
-```js
-window.APP_CONFIG = {
-  firebase: {
-    apiKey: "...",
-    authDomain: "...",
-    databaseURL: "...",
-    projectId: "...",
-    storageBucket: "...",
-    messagingSenderId: "...",
-    appId: "..."
-  }
-};
-```
-
-Fontos: a Firebase web config önmagában nem titkos kulcs, de a biztonságot a Firebase rules adják.
-
-## Realtime Database teszt rules
-
-Fejlesztéshez, gyors tesztre használható, de élesben túl nyitott:
+1. Hozz létre Firebase projektet.
+2. Adj hozzá Web appot.
+3. Kapcsold be a Realtime Database-t.
+4. Teszthez a Rules fülre:
 
 ```json
 {
@@ -118,28 +59,48 @@ Fejlesztéshez, gyors tesztre használható, de élesben túl nyitott:
 }
 ```
 
-Élesítés előtt szigorítani kell. Mivel ez v1-ben email/jelszó nélküli, localStorage alapú azonosítást használ, nem nyújt erős felhasználói hitelesítést. Nyilvános, versenyszerű, csalásbiztos játékhoz később Firebase Auth és komolyabb rules kellenek.
-
-## GitHub Pages deploy
-
-1. Hozz létre egy GitHub repót.
-2. Másold fel a projekt fájljait.
-3. Commitold a fájlokat.
-4. A repo Settings → Pages menüben válaszd ki a branch-et, például `main`, root mappával.
-5. Pár perc után elérhető lesz a GitHub Pages URL.
+5. Másold ki a Firebase config értékeit az `assets/js/config.js` fájlba.
 
 Példa:
 
-```bash
-git init
-git add .
-git commit -m "Initial SzóPárbaj game"
-git branch -M main
-git remote add origin https://github.com/USER/REPO.git
-git push -u origin main
+```js
+window.APP_CONFIG = {
+  firebase: {
+    apiKey: "",
+    authDomain: "",
+    databaseURL: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: ""
+  }
+};
 ```
 
-## Admin oldal használata
+## Helyi futtatás
+
+A böngésző fetch miatt ne dupla kattintással nyisd, hanem kis helyi szerverrel:
+
+```bash
+cd wordle-multiplayer
+python -m http.server 8080
+```
+
+Majd:
+
+```text
+http://localhost:8080/index.html
+```
+
+## GitHub Pages deploy
+
+1. Töltsd fel a teljes `wordle-multiplayer` mappát egy GitHub repóba.
+2. GitHub repo Settings -> Pages.
+3. Source: Deploy from branch.
+4. Branch: `main`.
+5. Folder: `/root`.
+
+## Admin oldal
 
 Nyisd meg:
 
@@ -147,146 +108,72 @@ Nyisd meg:
 admin.html
 ```
 
-Itt tudsz:
+Az admin oldal a `data/words.json` fájlt kezeli. Importálhatsz új szavakat, tilthatsz szavakat, exportálhatod a JSON-t, és opcionálisan mentheted GitHubra.
 
-- helyi starter szólistát betölteni
-- egy szót hozzáadni
-- tömegesen importálni szavakat
-- válasz szóként jelölni
-- csak elfogadott tippként jelölni
-- tiltani szavakat
-- JSON-t exportálni
-- Firebase-be küldeni a szavakat azonnali használatra
-- GitHubra menteni, ha megadod a tokenedet és repo adataidat
+A GitHub token csak böngészőben van használva. Ez nem teljesen biztonságos, ezért csak saját admin használatra ajánlott. Ne hardcode-old a tokenedet a fájlokba.
 
-## GitHub token figyelmeztetés
+## Szólista szabály
 
-A GitHub token böngészőben történő használata nem teljesen biztonságos. Csak saját admin használatra ajánlott, lehetőleg lokálisan vagy privát környezetben.
-
-Ne hardcode-old a tokent a projektbe.
-Ne commitold a tokenedet.
-Ha lehet, használj korlátozott jogosultságú, csak az adott repóra érvényes fine-grained tokent.
-
-Admin mentéshez szükséges mezők:
-
-- Owner
-- Repo
-- Branch
-- JSON path, alapból `data/words.json`
-- GitHub token
-
-## Szólisták
-
-Két fő JSON fájl van:
+A canonical fájl:
 
 ```text
-data/starter-words.json
+data/words.json
 ```
 
-Ez a jó, tiszta válasz szavakat tartalmazza.
+Formátum:
 
-```text
-data/accepted-words.json
+```json
+{
+  "version": 3,
+  "language": "hu",
+  "policy": "single-list-all-enabled-words-are-guesses-and-answers",
+  "words": [
+    { "word": "ablak", "length": 5, "enabled": true }
+  ]
+}
 ```
 
-Ez az összes elfogadható tippet tartalmazza, beleértve a válasz szavakat és extra ragozott/toldalékos alakokat.
+Minden `enabled: true` szó:
 
-A játék az ékezeteket nem mossa össze. Az `o` és az `ó` külön betű. Az `u`, `ú`, `ü`, `ű` szintén külön betű.
+- elfogadott tipp,
+- lehetséges megfejtés,
+- megtartja a magyar ékezeteket,
+- nem kezeli az `o` és `ó` betűt azonosként.
 
-## Host gyors szó hozzáadás
+## Host gyors szó bedobás
 
-Aktív játék közben a host kis panelen hozzáadhat új szót.
+Aktív játék közben a host hozzáadhat egy új szót.
 
-Kötelező viselkedés:
+Viselkedés:
 
-- Az új szó azonnal elfogadott tipp lesz az aktuális körben.
-- Nem cseréli le az aktuális megfejtést.
-- Csak következő köröktől lehet válasz szó, ha a host ezt engedélyezi.
+- az új szó azonnal bekerül Firebase-be,
+- mindkét kliens automatikusan frissíti a szó-cache-t,
+- az ellenfél toast értesítést kap,
+- a jelenlegi megfejtés nem változik,
+- következő köröktől a szó megfejtésként is kisorsolható.
 
-Ez Firebase `words/dynamic` alá mentődik.
+## Végjáték timer
 
-## 1v1 adatvédelem játék közben
+Lobbyban állítható: `Végjáték timer, mp`.
 
-Aktív 1v1 körben az ellenfél tippjei nem jelennek meg betű szerint. A játék csak ennyit mutat:
+Alapérték: 300 másodperc.
 
-- ellenfél gépel-e
-- próbálkozásszám
-- eltelt idő
-- legutóbbi tipp zöld/sárga száma
-- megfejtette-e
+Ha az egyik játékos kifogy a próbákból, elindul ez az idő. A másik játékosnak eddig van ideje megfejteni. Ha lejár, a kör lezárul, és a megfejtés megjelenik. Ha mindkét játékos kifogyott, a kör azonnal lezárul.
 
-Statikus frontendnél a kliensoldali kód teljesen nem csalásbiztos. Ez v1 prototípushoz vállalható, de komoly nyilvános versenyhez backend vagy Cloud Functions kellene.
+## Játékmódok
 
-## Pontozás és XP
+### 1v1
 
-A pontozás az `assets/js/scoring.js` fájlban van.
+Két játékos ugyanazt a szót fejti. Az ellenfél tényleges betűi nem jelennek meg aktív körben. A panel csak betű nélküli mini táblát mutat zöld/sárga/szürke mezőkkel.
 
-Alap képlet:
+### Party mód
 
-```text
-basePoints = wordLength * 10
-attemptBonus = basePoints * próbálkozás hatékonyság
-speedBonus = basePoints * gyorsaság
-winnerBonus = 1v1 győztesnek basePoints * 0.5
-XP = totalRoundPoints * difficultyMultiplier
-```
-
-Szorzók:
-
-- 3–5 betű: 1.0
-- 6–8 betű: 1.2
-- 9–12 betű: 1.5
-- 13+ betű: 2.0
-- nagyon kevés próbánál extra nehézségi bónusz
+Két játékos közösen dolgozik. Van saját tábla, másik játékos tábla és közös board.
 
 ## Hangok
 
-A `assets/sounds` mappában egyszerű, generált placeholder WAV hangok vannak.
+A `assets/sounds/` mappában vannak alap wav fájlok. A hangok kikapcsolhatók, a hangerő mentődik localStorage-ba.
 
-Cserélheted őket saját free-to-use / royalty-free hangokra ugyanilyen fájlnévvel.
+## Fontos biztonsági megjegyzés
 
-## Korlátok v1-ben
-
-- Nincs email/jelszó login.
-- Nincs globális leaderboard.
-- Nincs spectator mód.
-- Nincs chat.
-- Nincs host migráció, ha a host kilép.
-- A kliensoldali statikus app nem teljesen csalásbiztos.
-- Komoly élesítéshez Firebase Auth, szigorú rules és esetleg Cloud Functions javasolt.
-
-## Gyors hibakeresés
-
-**Nem tudok szobát létrehozni**
-
-Ellenőrizd, hogy van-e `assets/js/config.js`, és benne van-e a `databaseURL`.
-
-**A Firebase státusz sárga**
-
-A config nincs kitöltve vagy hibás.
-
-**A szavak nem töltődnek be**
-
-Helyi fájlból nyitottad meg. Futtasd HTTP szerverrel:
-
-```bash
-python -m http.server 8080
-```
-
-**GitHub mentés 401/403**
-
-A token hibás, lejárt, vagy nincs repo write jogosultsága.
-
-**Mobilon túl hosszú a szó**
-
-A játék próbálja egy sorban tartani. Nagyon hosszú szavaknál kisebb tile méretre vált, de telefonon a 18+ betű már kényes lehet.
-
-
-## v2 javítások
-
-- A szavak mostantól egy fő fájlban vannak: `data/words.json`.
-- Ha egy játékos elhasználja az összes próbáját, elindul a host által állítható „Végjáték timer”. Alap: 300 mp.
-- Ha mindkét játékos kifogy a próbákból, vagy a végjáték timer lejár, a kör lezárul és megjelenik a megfejtés.
-- 1v1 módban az ellenfél tippjei továbbra sem látszanak betűkkel, viszont a bal panelen megjelenik egy kicsi, betű nélküli ellenfél-tábla zöld/sárga/szürke állapotokkal.
-- A host által gyorsan hozzáadott szó azonnal tippelhető, és erről a másik játékos toast értesítést kap.
-- A tile animációk nem indulnak újra minden Firebase frissítésnél, így a tábla nem „remeg” folyamatosan.
+Ez statikus frontend. Nincs saját szerver. A Firebase szabályokkal lehet szigorítani, hogy ki írhat adatot. A teszt rules nyitott, éles oldalon nem ideális.
