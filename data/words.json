@@ -3,7 +3,7 @@
   "language": "hu",
   "description": "Canonical unified SzóPárbaj word list. Every enabled word is both an accepted guess and a possible answer.",
   "policy": "single-list-all-enabled-words-are-guesses-and-answers",
-  "updatedAt": "2026-05-26T17:56:48.492Z",
+  "updatedAt": "2026-05-26T18:07:07.118Z",
   "words": [
     {
       "word": "abbahagy",
