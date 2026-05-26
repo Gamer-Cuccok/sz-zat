@@ -20,11 +20,11 @@
   function collectEls() {
     [
       "landingView", "lobbyView", "gameView", "resultView", "displayNameInput", "roomCodeInput",
-      "createRoomButton", "joinRoomButton", "copyRoomCodeButton", "playerList", "modeBadge", "startMatchButton",
+      "createRoomButton", "soloGameButton", "joinRoomButton", "copyRoomCodeButton", "playerList", "modeBadge", "startMatchButton",
       "leaveRoomButton", "lobbyMessage", "settingsForm", "settingMode", "settingMinLength", "settingMaxLength",
       "settingAttempts", "settingRounds", "settingTargetScore", "settingTimeLimit", "settingFailoverTimer", "settingLongWords",
       "settingHostWords", "roundLabel", "wordLengthLabel", "timerLabel", "failoverLabel", "attemptsLabel",
-      "scoreLabel", "levelLabel", "xpLabel", "xpBar", "opponentPanel", "hostQuickAdd", "quickWordInput",
+      "scoreLabel", "levelLabel", "xpLabel", "xpBar", "opponentPanelTitle", "opponentPanel", "hostQuickAdd", "quickWordInput",
       "quickAddButton", "wordRequestList", "duelBoardWrap", "gameBoard", "boardTitle", "inputPreview",
       "keyboard", "partyBoards", "partyOwnBoard", "partyOtherBoard", "partyCentralBoard", "roundModal",
       "roundModalEyebrow", "roundModalTitle", "answerReveal", "roundModalText", "backToLobbyButton", "profileButton",
@@ -116,7 +116,7 @@
 
   function renderLobby(room) {
     els.copyRoomCodeButton.textContent = state.roomCode || "----";
-    els.modeBadge.textContent = room.settings && room.settings.mode === "party" ? "Party" : "1v1";
+    els.modeBadge.textContent = room.settings && room.settings.mode === "party" ? "Party" : (room.settings && room.settings.mode === "solo" ? "Solo" : "1v1");
     const players = playersArray(room);
     els.playerList.innerHTML = players.map(p => `
       <div class="player-card">
@@ -129,12 +129,21 @@
     `).join("");
     applySettingsToForm(room.settings);
     setSettingsDisabled(!isHost());
-    els.startMatchButton.disabled = !isHost() || players.length < 2;
-    els.lobbyMessage.textContent = players.length < 2 ? "Várakozás a másik játékosra…" : (isHost() ? "Indíthatod a meccset." : "A host indítja a meccset.");
+    const mode = room.settings && room.settings.mode ? room.settings.mode : "duel";
+    const needsSecondPlayer = mode !== "solo" && players.length < 2;
+    els.startMatchButton.disabled = !isHost() || needsSecondPlayer;
+    if (mode === "solo") els.lobbyMessage.textContent = isHost() ? "Solo módban egyedül is indíthatod a játékot." : "Solo szoba.";
+    else els.lobbyMessage.textContent = players.length < 2 ? "Várakozás a másik játékosra…" : (isHost() ? "Indíthatod a meccset." : "A host indítja a meccset.");
   }
 
   function renderScore(room) {
     const players = playersArray(room);
+    const mode = room && room.settings ? room.settings.mode : "duel";
+    if (mode === "solo") {
+      const me = state.profile && players.find(p => p.userId === state.profile.userId);
+      els.scoreLabel.textContent = `${me ? me.score || 0 : 0} pont`;
+      return;
+    }
     if (players.length < 2) {
       els.scoreLabel.textContent = "0 : 0";
       return;
@@ -145,6 +154,19 @@
   function renderOpponentPanel(room) {
     const opp = opponent();
     const panel = els.opponentPanel;
+    if (room && room.settings && room.settings.mode === "solo") {
+      const round = room.currentRound || {};
+      const myProgress = room.publicProgress && state.profile ? room.publicProgress[state.profile.userId] : null;
+      panel.innerHTML = `
+        <div class="opponent-head solo-head">
+          <div><strong>Solo mód</strong><small>gyakorló kör, ellenfél nélkül</small></div>
+          <span class="mini-status">${myProgress ? myProgress.attemptCount || 0 : 0}/${round.maxAttempts || room.settings.maxAttempts || 0}</span>
+        </div>
+        <div class="opponent-row"><span>Cél</span><strong>Fejtsd meg a szót minél gyorsabban</strong></div>
+        <div class="opponent-row"><span>Pont</span><strong>${(playersArray(room).find(p => p.userId === state.profile.userId) || {}).score || 0}</strong></div>
+      `;
+      return;
+    }
     if (!opp) {
       panel.innerHTML = '<p class="hint">Várakozás a másik játékosra…</p>';
       return;
@@ -183,6 +205,11 @@
 
   function renderWordRequests(room) {
     if (!els.wordRequestList || !state.profile) return;
+    if (room && room.settings && room.settings.mode === "solo") {
+      if (els.hostQuickAdd) els.hostQuickAdd.classList.remove("needs-attention");
+      els.wordRequestList.innerHTML = '<p class="hint tight">Solo módban a beírt szó azonnal bekerül a játék szótárába.</p>';
+      return;
+    }
     const requests = Object.entries((room && room.wordRequests) || {})
       .map(([id, req]) => ({ id, ...req }))
       .filter(req => req && req.word)
@@ -331,6 +358,8 @@
     const round = room.currentRound;
     if (!round) return;
     const mode = room.settings.mode;
+    if (els.boardTitle) els.boardTitle.textContent = mode === "solo" ? "Solo táblád" : "Saját táblád";
+    if (els.opponentPanelTitle) els.opponentPanelTitle.textContent = mode === "solo" ? "Solo állapot" : "Másik játékos";
     els.roundLabel.textContent = `${round.roundNumber}. kör`;
     els.wordLengthLabel.textContent = `${round.answerLength} betű`;
     els.attemptsLabel.textContent = `${round.maxAttempts || room.settings.maxAttempts} próba`;
@@ -436,7 +465,7 @@
   }
 
   function maybeShowPendingWordRequestNotice(room) {
-    if (!room || !state.profile) return;
+    if (!room || !state.profile || (room.settings && room.settings.mode === "solo")) return;
     const pending = Object.entries(room.wordRequests || {})
       .map(([id, req]) => ({ id, ...req }))
       .filter(req => req && req.word && (req.status || "pending") === "pending" && req.requestedBy !== state.profile.userId)
@@ -456,6 +485,20 @@
     state.profile = await window.SPProfile.load(name);
     renderProfile();
     return state.profile;
+  }
+
+  async function startSoloGame() {
+    try {
+      const profile = await ensureProfile();
+      const settings = { ...window.SPRooms.DEFAULT_SETTINGS, mode: "solo", rounds: 5, targetScore: 0 };
+      const code = await window.SPRooms.createRoom(profile);
+      state.roomCode = code;
+      subscribeRoom(code);
+      const answer = window.SPWordService.randomAnswer(settings);
+      await window.SPRooms.startMatch(code, settings, answer);
+      await window.SPProfile.incrementMatches();
+      toast("Solo játék indul!", "ok");
+    } catch (err) { toast(err.message, "error"); }
   }
 
   async function createRoom() {
@@ -488,9 +531,9 @@
   async function startMatch() {
     if (!isHost()) return toast("Csak a host indíthatja el a játékot.", "error");
     const players = playersArray();
-    if (players.length < 2) return toast("Várakozás a másik játékosra…", "error");
     try {
       const settings = getSettingsFromForm();
+      if (settings.mode !== "solo" && players.length < 2) return toast("Várakozás a másik játékosra…", "error");
       const answer = window.SPWordService.randomAnswer(settings);
       await window.SPRooms.startMatch(state.roomCode, settings, answer);
       await window.SPProfile.incrementMatches();
@@ -581,8 +624,8 @@
         timeLimitSeconds: state.room.settings.timeLimitSeconds,
         won: mode === "duel"
       });
-      await window.SPRooms.addScore(state.roomCode, state.profile.userId, score.totalRoundPoints, mode === "duel");
-      await window.SPProfile.applyRoundResult({ solved: true, won: mode === "duel", partySolved: mode === "party", attemptsUsed: attemptNumber, elapsedSeconds: seconds, wordLength: round.answerLength, roundScore: score.totalRoundPoints, xp: score.xp });
+      await window.SPRooms.addScore(state.roomCode, state.profile.userId, score.totalRoundPoints, mode !== "party");
+      await window.SPProfile.applyRoundResult({ solved: true, won: mode !== "party", partySolved: mode === "party", attemptsUsed: attemptNumber, elapsedSeconds: seconds, wordLength: round.answerLength, roundScore: score.totalRoundPoints, xp: score.xp });
       renderProfile();
       await window.SPRooms.endRound(state.roomCode, state.profile.userId, Date.now());
       return;
@@ -643,9 +686,12 @@
     const round = room.currentRound;
     const winner = round.winnerUserId ? (room.players && room.players[round.winnerUserId]) : null;
     const amWinner = round.winnerUserId === state.profile.userId;
+    const isSolo = room.settings && room.settings.mode === "solo";
     els.roundModal.classList.remove("hidden");
-    els.roundModalTitle.textContent = winner ? (amWinner ? "Te nyerted a kört!" : `${winner.displayName} megfejtette!`) : "Kör vége";
-    els.roundModalText.textContent = winner ? "A következő kör mindjárt indul." : "Senki sem találta el. A megfejtés megjelent, jön a következő kör.";
+    els.roundModalTitle.textContent = isSolo
+      ? (winner ? "Megfejtetted!" : "Nem lett meg")
+      : (winner ? (amWinner ? "Te nyerted a kört!" : `${winner.displayName} megfejtette!`) : "Kör vége");
+    els.roundModalText.textContent = winner ? "A következő kör mindjárt indul." : (isSolo ? "A megfejtés megjelent, jön a következő kör." : "Senki sem találta el. A megfejtés megjelent, jön a következő kör.");
     revealAnswer(round.answer, winner && winner.color ? winner.color : "#39d98a");
     window.SPAudio.play(amWinner ? "win" : (winner ? "lose" : "next"));
   }
@@ -669,7 +715,7 @@
       return;
     }
     const winnerExists = !!round.winnerUserId;
-    const shouldAwardLoss = room.settings.mode === "duel" && (winnerExists || room.status === "roundEnd");
+    const shouldAwardLoss = room.settings.mode !== "party" && (winnerExists || room.status === "roundEnd");
     if (!shouldAwardLoss) return;
     state.roundAwardedKey = key;
     await window.SPProfile.applyRoundResult({ solved: false, won: false, partySolved: false, attemptsUsed: myGuesses.length, elapsedSeconds: Math.round(((round.solvedAt || Date.now()) - round.startedAt) / 1000), wordLength: round.answerLength, roundScore: 0, xp: Math.round(round.answerLength * 2) });
@@ -705,9 +751,10 @@
   function renderMatchResult(room) {
     const players = playersArray(room).sort((a, b) => (b.score || 0) - (a.score || 0));
     const winner = players[0];
-    els.matchResultTitle.textContent = winner ? `Győztes: ${winner.displayName}` : "Meccs vége";
+    const isSolo = room.settings && room.settings.mode === "solo";
+    els.matchResultTitle.textContent = isSolo ? "Solo játék vége" : (winner ? `Győztes: ${winner.displayName}` : "Meccs vége");
     els.matchSummary.innerHTML = players.map((p, idx) => `
-      <div class="summary-row"><span>${idx + 1}. ${escapeHTML(p.displayName)}</span><strong>${p.score || 0} pont • ${p.roundWins || 0} kör</strong></div>
+      <div class="summary-row"><span>${idx + 1}. ${escapeHTML(p.displayName)}</span><strong>${p.score || 0} pont • ${p.roundWins || 0} megoldott kör</strong></div>
     `).join("");
   }
 
@@ -722,6 +769,12 @@
       if (window.SPWordService.isAccepted(entry.word)) {
         els.quickWordInput.value = "";
         return toast("Ez a szó már benne van a szótárban.", "ok");
+      }
+      if (state.room.settings.mode === "solo") {
+        await window.SPWordService.addDynamicWord({ word: entry.word, addedBy: state.profile.userId, addedByName: state.profile.displayName, source: "solo-added" });
+        await window.SPRooms.announceWordAdded(state.roomCode, entry, state.profile);
+        els.quickWordInput.value = "";
+        return toast(`Hozzáadva: ${entry.word}.`, "ok");
       }
       const pending = Object.values((state.room && state.room.wordRequests) || {})
         .find(req => req.word === entry.word && req.status === "pending");
@@ -777,6 +830,7 @@
 
   function bindEvents() {
     els.createRoomButton.addEventListener("click", createRoom);
+    if (els.soloGameButton) els.soloGameButton.addEventListener("click", startSoloGame);
     els.joinRoomButton.addEventListener("click", joinRoom);
     els.copyRoomCodeButton.addEventListener("click", async () => {
       await navigator.clipboard.writeText(state.roomCode || "").catch(() => {});

@@ -45,7 +45,7 @@
     merged.failoverTimerSeconds = Math.max(10, Number(merged.failoverTimerSeconds) || DEFAULT_SETTINGS.failoverTimerSeconds);
     merged.allowLongWords = !!merged.allowLongWords;
     merged.allowHostWords = !!merged.allowHostWords;
-    merged.mode = merged.mode === "party" ? "party" : "duel";
+    merged.mode = ["solo", "duel", "party"].includes(merged.mode) ? merged.mode : "duel";
     return merged;
   }
 
@@ -85,6 +85,7 @@
     const room = await window.SPFirebase.get(path);
     if (!room) throw new Error("Nem létező szoba.");
     const players = room.players || {};
+    if (room.settings && room.settings.mode === "solo" && !players[profile.userId]) throw new Error("Solo szobához nem lehet csatlakozni.");
     if (!players[profile.userId] && Object.keys(players).length >= 2) throw new Error("A szoba már tele van.");
     await window.SPFirebase.update(`${path}/players/${profile.userId}`, {
       displayName: profile.displayName,

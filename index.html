@@ -44,6 +44,7 @@
 
           <div class="button-row">
             <button id="createRoomButton" class="primary-btn" type="button">Szoba létrehozása</button>
+            <button id="soloGameButton" class="secondary-btn" type="button">Solo játék</button>
           </div>
 
           <div class="join-code-grid">
@@ -82,7 +83,7 @@
           </div>
           <form id="settingsForm" class="settings-grid">
             <label>Játékmód
-              <select id="settingMode"><option value="duel">1v1 párbaj</option><option value="party">Party mód</option></select>
+              <select id="settingMode"><option value="solo">Solo mód</option><option value="duel">1v1 párbaj</option><option value="party">Party mód</option></select>
             </label>
             <label>Min. szóhossz <input id="settingMinLength" type="number" min="3" max="30" value="5"></label>
             <label>Max. szóhossz <input id="settingMaxLength" type="number" min="3" max="30" value="8"></label>
@@ -119,7 +120,7 @@
           <h3>Profil</h3>
           <div class="xp-row"><span id="levelLabel">1. szint</span><span id="xpLabel">0 XP</span></div>
           <div class="progress"><span id="xpBar"></span></div>
-          <h3>Másik játékos</h3>
+          <h3 id="opponentPanelTitle">Másik játékos</h3>
           <div id="opponentPanel" class="opponent-panel"><p class="hint">Várakozás a másik játékosra…</p></div>
           <div id="hostQuickAdd" class="quick-add hidden">
             <h3>Szó javaslat</h3>

@@ -12,6 +12,7 @@ Magyar, böngészőben futó multiplayer Wordle-stílusú szókirakó játék. S
 - Ha egy játékos kifogy a tippekből, elindul az állítható végjáték-idő.
 - Ha mindkét játékos kifogyott vagy a végjáték-idő lejár, a kör véget ér és megjelenik a megfejtés.
 - Az ellenfél panel már betű nélküli mini táblát mutat, nem csak szöveges zöld/sárga darabszámot.
+- Bekerült a Solo mód: egyedül is indítható játék, pontozással, XP-vel és körváltással.
 - A tile animációk vissza vannak fogva, hogy ne mozogjanak folyamatosan minden Firebase frissítésnél.
 
 ## Fájlstruktúra
@@ -140,17 +141,19 @@ Minden `enabled: true` szó:
 - megtartja a magyar ékezeteket,
 - nem kezeli az `o` és `ó` betűt azonosként.
 
-## Host gyors szó bedobás
+## Játék közbeni szó hozzáadás
 
-Aktív játék közben a host hozzáadhat egy új szót.
+Aktív játék közben lehet új szót javasolni.
 
 Viselkedés:
 
-- az új szó azonnal bekerül Firebase-be,
+- 1v1 és Party módban mindkét játékos javasolhat szót, de az ellenfélnek jóvá kell hagynia,
+- jóváhagyás után az új szó bekerül Firebase-be,
 - mindkét kliens automatikusan frissíti a szó-cache-t,
-- az ellenfél toast értesítést kap,
+- az ellenfél toast értesítést és kiemelt panelt kap, ha jóváhagyás vár rá,
 - a jelenlegi megfejtés nem változik,
-- következő köröktől a szó megfejtésként is kisorsolható.
+- következő köröktől a szó megfejtésként is kisorsolható,
+- Solo módban nincs ellenfél, ezért a szó azonnal bekerül a szótárba.
 
 ## Végjáték timer
 
@@ -161,6 +164,10 @@ Alapérték: 300 másodperc.
 Ha az egyik játékos kifogy a próbákból, elindul ez az idő. A másik játékosnak eddig van ideje megfejteni. Ha lejár, a kör lezárul, és a megfejtés megjelenik. Ha mindkét játékos kifogyott, a kör azonnal lezárul.
 
 ## Játékmódok
+
+### Solo mód
+
+Egyjátékos gyakorló mód. Indítható közvetlenül a kezdőlapról a `Solo játék` gombbal, vagy lobbyban a játékmódnál választható. Ugyanazt a táblát, pontozást, XP-t, időlimitet és körváltást használja, mint a multiplayer módok, csak ellenfél nélkül.
 
 ### 1v1
 
