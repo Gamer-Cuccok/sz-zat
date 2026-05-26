@@ -29,8 +29,9 @@ wordle-multiplayer/
 ├─ admin.html
 ├─ README.md
 ├─ data/
-│  ├─ starter-words.json
-│  └─ accepted-words.json
+│  ├─ words.json              # fő, egyesített szólista
+│  ├─ starter-words.json      # kompatibilitási másolat
+│  └─ accepted-words.json     # kompatibilitási másolat
 ├─ assets/
 │  ├─ css/
 │  │  └─ style.css
@@ -171,7 +172,7 @@ Admin mentéshez szükséges mezők:
 - Owner
 - Repo
 - Branch
-- JSON path, alapból `data/starter-words.json`
+- JSON path, alapból `data/words.json`
 - GitHub token
 
 ## Szólisták
@@ -279,3 +280,13 @@ A token hibás, lejárt, vagy nincs repo write jogosultsága.
 **Mobilon túl hosszú a szó**
 
 A játék próbálja egy sorban tartani. Nagyon hosszú szavaknál kisebb tile méretre vált, de telefonon a 18+ betű már kényes lehet.
+
+
+## v2 javítások
+
+- A szavak mostantól egy fő fájlban vannak: `data/words.json`.
+- Ha egy játékos elhasználja az összes próbáját, elindul a host által állítható „Végjáték timer”. Alap: 300 mp.
+- Ha mindkét játékos kifogy a próbákból, vagy a végjáték timer lejár, a kör lezárul és megjelenik a megfejtés.
+- 1v1 módban az ellenfél tippjei továbbra sem látszanak betűkkel, viszont a bal panelen megjelenik egy kicsi, betű nélküli ellenfél-tábla zöld/sárga/szürke állapotokkal.
+- A host által gyorsan hozzáadott szó azonnal tippelhető, és erről a másik játékos toast értesítést kap.
+- A tile animációk nem indulnak újra minden Firebase frissítésnél, így a tábla nem „remeg” folyamatosan.
