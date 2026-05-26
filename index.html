@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SzóPárbaj – Magyar multiplayer Wordle</title>
+  <meta name="description" content="Magyar multiplayer Wordle-stílusú szókirakó játék Firebase szinkronnal." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="bg-orbs" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="SzóPárbaj kezdőlap">
+      <span class="brand-mark">SZ</span>
+      <span><strong>SzóPárbaj</strong><small>magyar multiplayer Wordle</small></span>
+    </a>
+    <div class="top-actions">
+      <div id="connectionStatus" class="pill warn">Firebase nincs beállítva</div>
+      <button id="audioToggle" class="icon-btn" title="Némítás">🔊</button>
+      <button id="profileButton" class="profile-button">Profil</button>
+      <div id="profileMenu" class="profile-menu hidden"></div>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <section id="toastHost" class="toast-host" aria-live="polite"></section>
+
+    <section id="landingView" class="view landing-view active">
+      <div class="hero-card glass-card">
+        <div class="hero-copy">
+          <p class="eyebrow">1v1 párbaj • party mód • XP • magyar szavak</p>
+          <h1 class="animated-title">Találd ki a szót, mielőtt a másik agytekervény begyújt.</h1>
+          <p class="lead">Hozz létre szobát, hívd be a haverod, és indulhat a magyar Wordle-csata. A host állítja a hosszt, köröket, próbákat és a tempót.</p>
+          <div class="hero-stats">
+            <span><strong id="heroWordCount">0</strong><small>helyi szó</small></span>
+            <span><strong>3–18+</strong><small>betű támogatás</small></span>
+            <span><strong>2</strong><small>játékos max</small></span>
+          </div>
+        </div>
+        <form id="landingForm" class="join-panel" autocomplete="off">
+          <label class="field-label">Játékosnév</label>
+          <input id="displayNameInput" class="text-input" maxlength="24" placeholder="pl. ÁrnyékMester" required />
+
+          <div class="button-row">
+            <button id="createRoomButton" class="primary-btn" type="button">Szoba létrehozása</button>
+          </div>
+
+          <div class="join-code-grid">
+            <input id="roomCodeInput" class="text-input code-input" maxlength="8" placeholder="KÓD" />
+            <button id="joinRoomButton" class="secondary-btn" type="button">Csatlakozás</button>
+          </div>
+          <p class="hint">Nincs regisztráció. A profilod egy helyi azonosítóval mentődik Firebase-be.</p>
+        </form>
+      </div>
+    </section>
+
+    <section id="lobbyView" class="view lobby-view">
+      <div class="grid two-col">
+        <div class="glass-card lobby-card">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Lobby</p>
+              <h2>Szobakód: <button id="copyRoomCodeButton" class="room-code">----</button></h2>
+            </div>
+            <span id="modeBadge" class="mode-badge">1v1</span>
+          </div>
+          <div id="playerList" class="player-list"></div>
+          <div class="lobby-actions">
+            <button id="startMatchButton" class="primary-btn">Meccs indítása</button>
+            <button id="leaveRoomButton" class="ghost-btn">Kilépés</button>
+          </div>
+          <p id="lobbyMessage" class="hint"></p>
+        </div>
+
+        <div class="glass-card settings-card">
+          <div class="section-head compact">
+            <div>
+              <p class="eyebrow">Host beállítások</p>
+              <h2>Játékszabályok</h2>
+            </div>
+          </div>
+          <form id="settingsForm" class="settings-grid">
+            <label>Játékmód
+              <select id="settingMode"><option value="duel">1v1 párbaj</option><option value="party">Party mód</option></select>
+            </label>
+            <label>Min. szóhossz <input id="settingMinLength" type="number" min="3" max="30" value="5"></label>
+            <label>Max. szóhossz <input id="settingMaxLength" type="number" min="3" max="30" value="8"></label>
+            <label>Próbálkozások <input id="settingAttempts" type="number" min="3" max="12" value="6"></label>
+            <label>Körök száma <input id="settingRounds" type="number" min="1" max="20" value="5"></label>
+            <label>Célpontszám <input id="settingTargetScore" type="number" min="0" step="10" value="0"></label>
+            <label>Időlimit / kör, mp <input id="settingTimeLimit" type="number" min="0" step="10" value="0"></label>
+            <label class="check-row"><input id="settingLongWords" type="checkbox"> Hosszú szavak engedélyezése</label>
+            <label class="check-row"><input id="settingHostWords" type="checkbox" checked> Host gyors szó hozzáadás</label>
+            <label class="check-row"><input id="settingAddedAsAnswer" type="checkbox"> Új szavak válaszok lehetnek következő körtől</label>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="gameView" class="view game-view">
+      <div class="game-top glass-card">
+        <div>
+          <p class="eyebrow">Aktív meccs</p>
+          <h2><span id="roundLabel">1. kör</span> <span id="wordLengthLabel">5 betű</span></h2>
+        </div>
+        <div class="score-strip">
+          <span id="timerLabel">00:00</span>
+          <span id="attemptsLabel">6 próba</span>
+          <span id="scoreLabel">0 : 0</span>
+        </div>
+        <button id="backToLobbyButton" class="ghost-btn">Lobby</button>
+      </div>
+
+      <div class="grid game-grid">
+        <aside class="glass-card side-panel">
+          <h3>Profil</h3>
+          <div class="xp-row"><span id="levelLabel">1. szint</span><span id="xpLabel">0 XP</span></div>
+          <div class="progress"><span id="xpBar"></span></div>
+          <h3>Másik játékos</h3>
+          <div id="opponentPanel" class="opponent-panel"><p class="hint">Várakozás a másik játékosra…</p></div>
+          <div id="hostQuickAdd" class="quick-add hidden">
+            <h3>Gyors szó hozzáadás</h3>
+            <input id="quickWordInput" class="text-input" placeholder="új szó" />
+            <label class="check-row"><input id="quickAccepted" type="checkbox" checked> elfogadott tipp</label>
+            <label class="check-row"><input id="quickAnswer" type="checkbox"> válasz lehet később</label>
+            <button id="quickAddButton" class="secondary-btn">Hozzáadás</button>
+          </div>
+          <div class="audio-panel">
+            <h3>Hang</h3>
+            <label class="check-row"><input id="sfxToggle" type="checkbox" checked> Effektek</label>
+            <label class="check-row"><input id="musicToggle" type="checkbox"> Zene</label>
+            <label>Hangerő <input id="volumeSlider" type="range" min="0" max="1" step="0.05" value="0.6"></label>
+          </div>
+        </aside>
+
+        <section class="glass-card board-card">
+          <div id="duelBoardWrap" class="board-wrap">
+            <h3 id="boardTitle">Saját táblád</h3>
+            <div id="gameBoard" class="word-board"></div>
+          </div>
+
+          <div id="partyBoards" class="party-boards hidden">
+            <div><h3>Saját tábla</h3><div id="partyOwnBoard" class="word-board compact-board"></div></div>
+            <div><h3>Másik játékos</h3><div id="partyOtherBoard" class="word-board compact-board"></div></div>
+            <div class="central-board"><h3>Közös tábla</h3><div id="partyCentralBoard" class="word-board compact-board"></div></div>
+          </div>
+
+          <div id="inputPreview" class="input-preview"></div>
+          <div id="keyboard" class="keyboard"></div>
+        </section>
+      </div>
+    </section>
+
+    <section id="resultView" class="view result-view">
+      <div class="glass-card result-card">
+        <p class="eyebrow">Meccs vége</p>
+        <h2 id="matchResultTitle">Eredmény</h2>
+        <div id="matchSummary" class="match-summary"></div>
+        <div class="button-row center">
+          <button id="rematchButton" class="primary-btn">Visszavágó</button>
+          <button id="resultLobbyButton" class="secondary-btn">Vissza a lobbyba</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="roundModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card glass-card">
+      <p id="roundModalEyebrow" class="eyebrow">Kör vége</p>
+      <h2 id="roundModalTitle">Megvan!</h2>
+      <div id="answerReveal" class="answer-reveal"></div>
+      <p id="roundModalText"></p>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-database-compat.js"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/firebase-client.js"></script>
+  <script src="assets/js/scoring.js"></script>
+  <script src="assets/js/audio.js"></script>
+  <script src="assets/js/game-engine.js"></script>
+  <script src="assets/js/word-service.js"></script>
+  <script src="assets/js/profile-service.js"></script>
+  <script src="assets/js/room-service.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

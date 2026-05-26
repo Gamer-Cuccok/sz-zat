@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SzóPárbaj Admin – szólista kezelés</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="admin-body">
+  <div class="bg-orbs" aria-hidden="true"><span></span><span></span><span></span></div>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">SZ</span><span><strong>SzóPárbaj Admin</strong><small>szólista és Firebase export</small></span></a>
+    <div class="top-actions"><div id="connectionStatus" class="pill warn">Firebase nincs beállítva</div><a class="secondary-btn small" href="index.html">Játék</a></div>
+  </header>
+
+  <main class="app-shell admin-shell">
+    <section id="toastHost" class="toast-host" aria-live="polite"></section>
+    <section class="glass-card admin-hero">
+      <p class="eyebrow">Admin word forge</p>
+      <h1>Magyar szólista kezelés</h1>
+      <p class="lead">Tölts be helyi JSON-t, importálj tömegesen, jelöld a válasz/elfogadott szavakat, exportálj JSON-t, vagy küldd Firebase-be azonnal. GitHub mentés csak akkor működik, ha kézzel megadod a tokenedet.</p>
+    </section>
+
+    <section class="grid admin-grid">
+      <div class="glass-card">
+        <h2>GitHub beállítások</h2>
+        <div class="settings-grid single">
+          <label>Owner <input id="ghOwner" placeholder="felhasználó vagy org" /></label>
+          <label>Repo <input id="ghRepo" placeholder="repo neve" /></label>
+          <label>Branch <input id="ghBranch" value="main" /></label>
+          <label>JSON path <input id="ghPath" value="data/starter-words.json" /></label>
+          <label>Token <input id="ghToken" type="password" placeholder="ghp_..." /></label>
+          <label class="check-row"><input id="rememberGh" type="checkbox"> GitHub adatok mentése localStorage-ba</label>
+        </div>
+        <div class="button-row wrap">
+          <button id="loadLocalButton" class="secondary-btn">Helyi starter betöltése</button>
+          <button id="loadGithubButton" class="secondary-btn">Betöltés GitHubról</button>
+          <button id="saveGithubButton" class="primary-btn">Mentés GitHubra</button>
+        </div>
+        <p class="hint">Figyelem: böngészőben használt token nem teljesen biztonságos. Csak saját admin használatra ajánlott.</p>
+      </div>
+
+      <div class="glass-card">
+        <h2>Szó hozzáadás / import</h2>
+        <div class="quick-admin-add">
+          <input id="singleWordInput" class="text-input" placeholder="egy szó" />
+          <label class="check-row"><input id="singleIsAnswer" type="checkbox" checked> válasz szó</label>
+          <label class="check-row"><input id="singleIsAccepted" type="checkbox" checked> elfogadott tipp</label>
+          <button id="addSingleButton" class="primary-btn">Hozzáadás</button>
+        </div>
+        <textarea id="importTextarea" class="import-box" placeholder="Tömeges import: soronként vagy vesszővel elválasztva szavak..."></textarea>
+        <div class="button-row wrap">
+          <button id="importAsBothButton" class="secondary-btn">Import: válasz + elfogadott</button>
+          <button id="importAcceptedButton" class="secondary-btn">Import: csak elfogadott</button>
+          <button id="exportButton" class="secondary-btn">JSON export</button>
+          <button id="pushFirebaseButton" class="primary-btn">Küldés Firebase-be</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="glass-card stats-panel">
+      <h2>Statisztika</h2>
+      <div id="wordStats" class="admin-stats"></div>
+    </section>
+
+    <section class="glass-card word-manager">
+      <div class="section-head compact">
+        <h2>Szavak</h2>
+        <div class="filters">
+          <input id="searchWord" class="text-input" placeholder="keresés" />
+          <select id="filterKind"><option value="all">összes</option><option value="answer">válaszok</option><option value="acceptedOnly">csak elfogadott</option><option value="disabled">tiltott</option></select>
+          <input id="filterLength" class="text-input tiny" type="number" min="1" placeholder="hossz" />
+        </div>
+      </div>
+      <div id="wordTable" class="word-table"></div>
+    </section>
+  </main>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-database-compat.js"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/firebase-client.js"></script>
+  <script src="assets/js/game-engine.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>
