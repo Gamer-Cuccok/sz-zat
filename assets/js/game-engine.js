@@ -2,7 +2,7 @@
   const HUNGARIAN_LETTERS = "aábcdeéfghiíjklmnoóöőpqrstuúüűvwxyz";
   const VALID_WORD_RE = new RegExp(`^[${HUNGARIAN_LETTERS}]+$`, "iu");
   const KEYBOARD_ROWS = [
-    ["q", "w", "e", "é", "r", "t", "z", "u", "ú", "i", "í", "o", "ó", "ö", "ő"],
+    ["q", "w", "e", "é", "r", "t", "z", "u", "ú", "i", "í", "o", "ó", "ö", "ő", "p"],
     ["a", "á", "s", "d", "f", "g", "h", "j", "k", "l"],
     ["Enter", "y", "x", "c", "v", "b", "n", "m", "ü", "ű", "Backspace"]
   ];

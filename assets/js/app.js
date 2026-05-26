@@ -11,7 +11,8 @@
     nextRoundTimerKey: null,
     clockTimer: null,
     typingTimer: null,
-    lastWordNoticeId: null
+    lastWordNoticeId: null,
+    lastPendingWordRequestNoticeId: null
   };
 
   const els = {};
@@ -44,6 +45,7 @@
   function showView(name) {
     [els.landingView, els.lobbyView, els.gameView, els.resultView].forEach(v => v && v.classList.remove("active"));
     if (els[name]) els[name].classList.add("active");
+    document.body.classList.toggle("is-game-screen", name === "gameView");
   }
 
   function isHost() {
@@ -187,6 +189,9 @@
       .sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0))
       .slice(0, 5);
 
+    const pendingForMe = requests.some(req => (req.status || "pending") === "pending" && req.requestedBy !== state.profile.userId);
+    if (els.hostQuickAdd) els.hostQuickAdd.classList.toggle("needs-attention", pendingForMe);
+
     if (!requests.length) {
       els.wordRequestList.innerHTML = '<p class="hint tight">Nincs függő szó. Írj be egyet, az ellenfél pedig jóváhagyja.</p>';
       return;
@@ -206,7 +211,9 @@
         actions = '<span class="request-pill no">Elutasítva</span>';
       }
       const by = mine ? "te" : escapeHTML(req.requestedByName || "ellenfél");
-      return `<div class="word-request ${status}"><div><strong>${escapeHTML(req.word)}</strong><small>${by} javasolta</small></div>${actions}</div>`;
+      const attention = status === "pending" && !mine ? " attention" : "";
+      const helpText = status === "pending" && !mine ? "Jóváhagyásra vár tőled" : `${by} javasolta`;
+      return `<div class="word-request ${status}${attention}"><div><strong>${escapeHTML(req.word)}</strong><small>${helpText}</small></div>${actions}</div>`;
     }).join("");
   }
 
@@ -381,6 +388,7 @@
     const prevRoundId = state.room && state.room.currentRound ? state.room.currentRound.roundNumber : null;
     state.room = room;
     maybeShowWordAddedNotice(room);
+    maybeShowPendingWordRequestNotice(room);
     const currentRoundId = room.currentRound ? room.currentRound.roundNumber : null;
 
     if (prevRoundId !== currentRoundId) resetLocalRoundState();
@@ -425,6 +433,17 @@
     const mine = state.profile && evt.addedBy === state.profile.userId;
     const who = mine ? "A szavad jóvá lett hagyva" : `${evt.addedByName || "A másik játékos"} új szava jóváhagyva`;
     toast(`${who}: ${evt.word}. Mostantól tippelhető, és következő köröktől megfejtés is lehet.`, "ok");
+  }
+
+  function maybeShowPendingWordRequestNotice(room) {
+    if (!room || !state.profile) return;
+    const pending = Object.entries(room.wordRequests || {})
+      .map(([id, req]) => ({ id, ...req }))
+      .filter(req => req && req.word && (req.status || "pending") === "pending" && req.requestedBy !== state.profile.userId)
+      .sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0))[0];
+    if (!pending || state.lastPendingWordRequestNoticeId === pending.id) return;
+    state.lastPendingWordRequestNoticeId = pending.id;
+    toast(`Új szó vár jóváhagyásra: ${pending.word}. Nézd meg a Szó javaslat panelt.`, "ok");
   }
 
   function subscribeRoom(roomCode) {
