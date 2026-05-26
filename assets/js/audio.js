@@ -133,15 +133,36 @@
 
   function startSynthMusic() {
     if (beatTimer || prefs.muted || !prefs.music || !gameActive) return;
-    if (!ensureContext()) return;
-    beatStep = beatStep || 0;
-    stepSynthBeat();
-    beatTimer = setInterval(stepSynthBeat, 105);
+    if (music && !music.paused) return;
+    try {
+      music = music || getAudio("music");
+      music.loop = true;
+      music.volume = Math.max(0, Math.min(1, prefs.volume)) * 0.42;
+      const promise = music.play();
+      if (promise && promise.catch) {
+        promise.catch(() => {
+          if (beatTimer || prefs.muted || !prefs.music || !gameActive) return;
+          if (!ensureContext()) return;
+          beatStep = beatStep || 0;
+          stepSynthBeat();
+          beatTimer = setInterval(stepSynthBeat, 220);
+        });
+      }
+    } catch (err) {
+      if (!ensureContext()) return;
+      beatStep = beatStep || 0;
+      stepSynthBeat();
+      beatTimer = setInterval(stepSynthBeat, 220);
+    }
   }
 
   function stopSynthMusic() {
     if (beatTimer) clearInterval(beatTimer);
     beatTimer = null;
+    if (music) {
+      music.pause();
+      try { music.currentTime = 0; } catch (err) {}
+    }
   }
 
   function getAudio(name) {
@@ -192,6 +213,7 @@
 
   function setPrefs(next) {
     prefs = { ...prefs, ...next };
+    if (music) music.volume = Math.max(0, Math.min(1, prefs.volume)) * 0.42;
     savePrefs();
     updateMusic();
     renderControls();

@@ -189,6 +189,9 @@
   function publicAttemptFromPayload(payload) {
     return {
       attemptNumber: payload.attemptNumber,
+      // Stored so the exhausted player can see the opponent's guesses.
+      // The UI still hides these letters while the viewer can keep guessing.
+      guess: payload.guess,
       states: (payload.feedback || []).map(x => x.state),
       greenCount: payload.greenCount,
       yellowCount: payload.yellowCount,

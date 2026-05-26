@@ -12,7 +12,8 @@
     clockTimer: null,
     typingTimer: null,
     lastWordNoticeId: null,
-    lastPendingWordRequestNoticeId: null
+    lastPendingWordRequestNoticeId: null,
+    localTypingActive: false
   };
 
   const els = {};
@@ -27,7 +28,7 @@
       "scoreLabel", "levelLabel", "xpLabel", "xpBar", "opponentPanelTitle", "opponentPanel", "hostQuickAdd", "quickWordInput",
       "quickAddButton", "wordRequestList", "duelBoardWrap", "gameBoard", "boardTitle", "inputPreview",
       "keyboard", "partyBoards", "partyOwnBoard", "partyOtherBoard", "partyCentralBoard", "roundModal",
-      "roundModalEyebrow", "roundModalTitle", "answerReveal", "roundModalText", "backToLobbyButton", "profileButton",
+      "roundModalEyebrow", "roundModalTitle", "answerReveal", "roundModalText", "wordApprovalDock", "backToLobbyButton", "profileButton",
       "profileMenu", "matchResultTitle", "matchSummary", "rematchButton", "resultLobbyButton"
     ].forEach(id => { els[id] = $(id); });
   }
@@ -176,29 +177,36 @@
     const progress = room.publicProgress && room.publicProgress[opp.userId];
     const attempts = Object.values((room.publicAttempts && room.publicAttempts[opp.userId]) || {})
       .sort((a, b) => (a.attemptNumber || 0) - (b.attemptNumber || 0));
-    const time = progress ? formatTime(Math.round((progress.elapsedMs || 0) / 1000)) : "00:00";
+    const myGuesses = ownGuesses(room);
     const round = room.currentRound || {};
+    const mySolved = myGuesses.some(g => g && g.solved);
+    const myOutOfGuesses = !mySolved && round.status === "active" && myGuesses.length >= (round.maxAttempts || room.settings.maxAttempts || 0);
+    const revealOpponentLetters = myOutOfGuesses || round.status !== "active" || room.status === "roundEnd";
+    const time = progress ? formatTime(Math.round((progress.elapsedMs || 0) / 1000)) : "00:00";
     panel.innerHTML = `
       <div class="opponent-head">
         <div><strong>${escapeHTML(opp.displayName)}</strong><small>${progress && progress.typing ? "gépel" : (opp.connected ? "figyel" : "offline")}</small></div>
         <span class="mini-status">${progress && progress.solved ? "megfejtette" : `${progress ? progress.attemptCount || 0 : 0}/${round.maxAttempts || room.settings.maxAttempts || 0}`}</span>
       </div>
-      <div class="opponent-mini-board" aria-label="Ellenfél táblája betűk nélkül">${renderOpponentMiniBoard(attempts, round.answerLength || 0, round.maxAttempts || room.settings.maxAttempts || 0)}</div>
+      ${myOutOfGuesses ? '<div class="opponent-unlocked">Elfogytak a próbáid, most már láthatod az ellenfél tippjeit.</div>' : ''}
+      <div class="opponent-mini-board ${revealOpponentLetters ? "show-letters" : ""}" aria-label="Ellenfél táblája">${renderOpponentMiniBoard(attempts, round.answerLength || 0, round.maxAttempts || room.settings.maxAttempts || 0, revealOpponentLetters)}</div>
       <div class="opponent-row"><span>Idő</span><strong>${time}</strong></div>
       ${progress && progress.lastGreenCount !== undefined ? `<div class="opponent-row"><span>Utolsó tipp</span><strong>${progress.lastGreenCount || 0} zöld, ${progress.lastYellowCount || 0} sárga</strong></div>` : ""}
     `;
   }
 
-  function renderOpponentMiniBoard(attempts, answerLength, maxAttempts) {
+  function renderOpponentMiniBoard(attempts, answerLength, maxAttempts, revealLetters = false) {
     const rows = [];
     const len = Math.max(0, Number(answerLength) || 0);
     const max = Math.max(0, Number(maxAttempts) || 0);
     for (let r = 0; r < max; r += 1) {
       const attempt = attempts[r];
+      const letters = revealLetters && attempt && attempt.guess ? Array.from(attempt.guess) : [];
       const cells = [];
       for (let c = 0; c < len; c += 1) {
         const stateName = attempt && attempt.states ? attempt.states[c] : "blank";
-        cells.push(`<span class="mini-tile ${stateName || "blank"}"></span>`);
+        const letter = revealLetters ? (letters[c] || "") : "";
+        cells.push(`<span class="mini-tile ${stateName || "blank"}${letter ? " has-letter" : ""}">${escapeHTML(letter)}</span>`);
       }
       rows.push(`<div class="mini-row" data-length="${len}">${cells.join("")}</div>`);
     }
@@ -215,35 +223,66 @@
     const requests = Object.entries((room && room.wordRequests) || {})
       .map(([id, req]) => ({ id, ...req }))
       .filter(req => req && req.word)
-      .sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0))
-      .slice(0, 5);
+      .sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
 
     const pendingForMe = requests.some(req => (req.status || "pending") === "pending" && req.requestedBy !== state.profile.userId);
     if (els.hostQuickAdd) els.hostQuickAdd.classList.toggle("needs-attention", pendingForMe);
 
-    if (!requests.length) {
-      els.wordRequestList.innerHTML = '<p class="hint tight">Nincs függő szó. Írj be egyet, az ellenfél pedig jóváhagyja.</p>';
-      return;
+    const rows = [];
+    const last = room && room.lastWordAdded;
+    if (last && last.word) {
+      rows.push(`<div class="word-request approved latest"><div><strong>${escapeHTML(last.word)}</strong><small>Legutóbb hozzáadva a közös szótárhoz</small></div><span class="request-pill ok">aktív</span></div>`);
     }
 
-    els.wordRequestList.innerHTML = requests.map(req => {
+    requests.slice(0, 6).forEach(req => {
       const mine = req.requestedBy === state.profile.userId;
       const status = req.status || "pending";
-      let actions = "";
-      if (status === "pending" && !mine) {
-        actions = `<div class="request-actions"><button type="button" class="tiny-btn approve-btn" data-word-action="approve" data-request-id="${escapeHTML(req.id)}">Elfogadom</button><button type="button" class="ghost-btn tiny-btn reject-btn" data-word-action="reject" data-request-id="${escapeHTML(req.id)}">Elutasítom</button></div>`;
-      } else if (status === "pending" && mine) {
-        actions = '<span class="request-pill wait">Vár az ellenfélre</span>';
-      } else if (status === "approved") {
-        actions = '<span class="request-pill ok">Elfogadva</span>';
-      } else {
-        actions = '<span class="request-pill no">Elutasítva</span>';
-      }
-      const by = mine ? "te" : escapeHTML(req.requestedByName || "ellenfél");
-      const attention = status === "pending" && !mine ? " attention" : "";
-      const helpText = status === "pending" && !mine ? "Jóváhagyásra vár tőled" : `${by} javasolta`;
-      return `<div class="word-request ${status}${attention}"><div><strong>${escapeHTML(req.word)}</strong><small>${helpText}</small></div>${actions}</div>`;
-    }).join("");
+      let badge = '<span class="request-pill wait">várakozik</span>';
+      let text = mine ? "a te javaslatod" : "ellenfél javaslata";
+      if (status === "pending" && !mine) text = "jobb fent tudod elfogadni vagy elutasítani";
+      else if (status === "pending" && mine) text = "vár az ellenfél jóváhagyására";
+      else if (status === "approved") { badge = '<span class="request-pill ok">elfogadva</span>'; text = "bekerült a játék szótárába"; }
+      else if (status === "rejected") { badge = '<span class="request-pill no">elutasítva</span>'; text = mine ? "az ellenfél elutasította" : "elutasítva"; }
+      rows.push(`<div class="word-request ${status}"><div><strong>${escapeHTML(req.word)}</strong><small>${text}</small></div>${badge}</div>`);
+    });
+
+    if (!rows.length) {
+      els.wordRequestList.innerHTML = '<p class="hint tight">Itt jelenik meg, milyen szavak lettek javasolva vagy hozzáadva.</p>';
+      return;
+    }
+    els.wordRequestList.innerHTML = rows.join("");
+  }
+
+  function renderWordApprovalDock(room) {
+    if (!els.wordApprovalDock || !state.profile) return;
+    if (!room || !room.wordRequests || (room.settings && room.settings.mode === "solo")) {
+      els.wordApprovalDock.innerHTML = "";
+      els.wordApprovalDock.classList.add("hidden");
+      return;
+    }
+    const pending = Object.entries(room.wordRequests)
+      .map(([id, req]) => ({ id, ...req }))
+      .filter(req => req && req.word && (req.status || "pending") === "pending" && req.requestedBy !== state.profile.userId)
+      .sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+    if (!pending.length) {
+      els.wordApprovalDock.innerHTML = "";
+      els.wordApprovalDock.classList.add("hidden");
+      return;
+    }
+    els.wordApprovalDock.classList.remove("hidden");
+    els.wordApprovalDock.innerHTML = pending.slice(0, 3).map(req => `
+      <div class="approval-pop">
+        <div class="approval-copy">
+          <span>Új szó-javaslat</span>
+          <strong>${escapeHTML(req.word)}</strong>
+          <small>${escapeHTML(req.requestedByName || "Ellenfél")} küldte. Nem állítja meg a játékot.</small>
+        </div>
+        <div class="approval-actions">
+          <button type="button" class="tiny-btn approve-btn" data-word-action="approve" data-request-id="${escapeHTML(req.id)}">Elfogadom</button>
+          <button type="button" class="ghost-btn tiny-btn reject-btn" data-word-action="reject" data-request-id="${escapeHTML(req.id)}">Elutasítom</button>
+        </div>
+      </div>
+    `).join("");
   }
 
   function formatTime(seconds) {
@@ -427,6 +466,7 @@
     renderScore(room);
     renderOpponentPanel(room);
     renderWordRequests(room);
+    renderWordApprovalDock(room);
     els.hostQuickAdd.classList.toggle("hidden", !room.settings.allowHostWords);
     els.duelBoardWrap.classList.toggle("hidden", mode === "party");
     els.partyBoards.classList.toggle("hidden", mode !== "party");
@@ -470,6 +510,7 @@
     }
     const prevRoundId = state.room && state.room.currentRound ? state.room.currentRound.roundNumber : null;
     state.room = room;
+    renderWordApprovalDock(room);
     maybeShowWordAddedNotice(room);
     maybeShowPendingWordRequestNotice(room);
     const currentRoundId = room.currentRound ? room.currentRound.roundNumber : null;
@@ -526,7 +567,7 @@
       .sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0))[0];
     if (!pending || state.lastPendingWordRequestNoticeId === pending.id) return;
     state.lastPendingWordRequestNoticeId = pending.id;
-    toast(`Új szó vár jóváhagyásra: ${pending.word}. Nézd meg a Szó javaslat panelt.`, "ok");
+    toast(`Új szó vár jóváhagyásra: ${pending.word}. Jobb fent tudod elfogadni vagy elutasítani.`, "ok");
   }
 
   function subscribeRoom(roomCode) {
@@ -626,9 +667,15 @@
 
   function setTypingSoon() {
     if (!state.roomCode || !state.profile) return;
-    window.SPRooms.setTyping(state.roomCode, state.profile.userId, true);
+    if (!state.localTypingActive) {
+      state.localTypingActive = true;
+      window.SPRooms.setTyping(state.roomCode, state.profile.userId, true);
+    }
     clearTimeout(state.typingTimer);
-    state.typingTimer = setTimeout(() => window.SPRooms.setTyping(state.roomCode, state.profile.userId, false), 900);
+    state.typingTimer = setTimeout(() => {
+      state.localTypingActive = false;
+      window.SPRooms.setTyping(state.roomCode, state.profile.userId, false);
+    }, 1100);
   }
 
   async function submitCurrentGuess() {
@@ -663,6 +710,8 @@
     // Clear local input before the Firebase write can re-render the board.
     // Otherwise the submitted word may briefly appear again in the next row.
     state.currentInput = "";
+    clearTimeout(state.typingTimer);
+    state.localTypingActive = false;
     updateCurrentInputVisuals();
 
     await window.SPRooms.submitGuess(state.roomCode, state.profile.userId, payload);
@@ -913,6 +962,13 @@
       if (!button) return;
       respondToWordRequest(button.dataset.requestId, button.dataset.wordAction === "approve");
     });
+    if (els.wordApprovalDock) {
+      els.wordApprovalDock.addEventListener("click", ev => {
+        const button = ev.target.closest("[data-word-action]");
+        if (!button) return;
+        respondToWordRequest(button.dataset.requestId, button.dataset.wordAction === "approve");
+      });
+    }
     els.profileButton.addEventListener("click", () => els.profileMenu.classList.toggle("hidden"));
     els.settingsForm.querySelectorAll("input, select").forEach(el => el.addEventListener("change", updateSettingsDebounced));
     document.addEventListener("keydown", ev => {
