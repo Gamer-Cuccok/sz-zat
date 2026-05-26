@@ -43,7 +43,10 @@
   }
 
   async function update(path, value) {
-    return ensureDb().ref(path).update(value);
+    // Allow root multi-location updates. Firebase compat rejects ref("") with
+    // "child failed: path argument was an invalid path", so use ref() for root.
+    const target = path ? ensureDb().ref(path) : ensureDb().ref();
+    return target.update(value);
   }
 
   async function remove(path) {

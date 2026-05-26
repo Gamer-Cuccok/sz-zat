@@ -189,12 +189,14 @@
     try {
       const entries = Array.from(state.words.values()).filter(w => w.enabled !== false);
       const updates = {};
+      let skipped = 0;
       entries.forEach(w => {
-        const id = w.word.replace(/[.#$\/\[\]]/g, "_");
+        const id = String(w.word || "").replace(/[.#$\/\[\]]/g, "_");
+        if (!id) { skipped += 1; return; }
         updates[`words/dynamic/${id}`] = { word: w.word, length: w.length, enabled: true, source: "admin", addedAt: Date.now(), addedBy: "admin" };
       });
       await window.SPFirebase.update("", updates);
-      toast(`${entries.length} szó elküldve Firebase-be.`, "ok");
+      toast(`${entries.length - skipped} szó elküldve Firebase-be${skipped ? `, ${skipped} kihagyva` : ""}.`, "ok");
     } catch (err) { toast(err.message, "error"); }
   }
 
