@@ -1698,3 +1698,301 @@ body {
     radial-gradient(circle at top, rgba(255,71,111,0.08), transparent 64%) !important;
   color: var(--text) !important;
 }
+
+
+/* v19: full game-screen review pass.
+   - Keyboard feedback colors are forced at the very end of the cascade.
+   - The useless right blank column is removed on wide screens.
+   - Main board is centered against the whole page, not the leftover grid area.
+   - Game view gets a stronger, less demo-like puzzle table composition. */
+
+/* Keyboard feedback must win over all later key styling. */
+.key.green,
+.key.green:hover,
+body.is-game-screen .key.green,
+body.is-game-screen .keyboard .key.green {
+  background: linear-gradient(180deg, #73f5af 0%, #39df87 100%) !important;
+  color: #06160d !important;
+  border-color: rgba(115, 245, 175, 0.25) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.28),
+    0 6px 0 rgba(5, 66, 36, 0.68),
+    0 12px 24px rgba(57, 223, 135, 0.16) !important;
+}
+.key.yellow,
+.key.yellow:hover,
+body.is-game-screen .key.yellow,
+body.is-game-screen .keyboard .key.yellow {
+  background: linear-gradient(180deg, #ffe891 0%, #ffd45a 100%) !important;
+  color: #241900 !important;
+  border-color: rgba(255, 232, 145, 0.28) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.32),
+    0 6px 0 rgba(99, 73, 10, 0.72),
+    0 12px 24px rgba(255, 212, 90, 0.14) !important;
+}
+.key.gray,
+.key.gray:hover,
+body.is-game-screen .key.gray,
+body.is-game-screen .keyboard .key.gray {
+  background: linear-gradient(180deg, #424757 0%, #2c3140 100%) !important;
+  color: rgba(224, 228, 245, 0.72) !important;
+  border-color: rgba(255,255,255,0.08) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    0 6px 0 rgba(0, 0, 0, 0.34) !important;
+}
+.key.green:active,
+.key.yellow:active,
+.key.gray:active,
+.key.green.pressed,
+.key.yellow.pressed,
+.key.gray.pressed {
+  transform: translateY(3px) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 2px 0 rgba(0,0,0,0.32) !important;
+}
+
+@media (min-width: 1350px) {
+  body.is-game-screen {
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 50% 42%, rgba(255, 212, 90, 0.075), transparent 31rem),
+      radial-gradient(circle at 12% 14%, rgba(255, 71, 111, 0.13), transparent 27rem),
+      radial-gradient(circle at 88% 10%, rgba(114, 255, 216, 0.105), transparent 28rem),
+      linear-gradient(180deg, #080a14 0%, #090b16 47%, #06070e 100%) !important;
+  }
+
+  body.is-game-screen .topbar {
+    min-height: 60px;
+    padding: 10px clamp(18px, 2vw, 34px);
+    background: rgba(5, 7, 15, 0.95) !important;
+    border-bottom: 1px solid rgba(255,255,255,0.065) !important;
+    box-shadow: 0 14px 34px rgba(0,0,0,0.30) !important;
+  }
+  body.is-game-screen .brand-mark {
+    width: 40px;
+    height: 40px;
+    border-radius: 13px;
+  }
+  body.is-game-screen .app-shell {
+    width: min(1720px, calc(100% - 32px));
+    margin: 14px auto 0;
+  }
+
+  body.is-game-screen .game-top {
+    width: min(1500px, 100%);
+    margin: 0 auto 14px;
+    padding: 14px 18px;
+    border-radius: 26px;
+    grid-template-columns: minmax(300px, 1fr) auto minmax(160px, 1fr);
+    background:
+      linear-gradient(180deg, rgba(18, 21, 38, 0.98), rgba(8, 10, 20, 0.98)),
+      radial-gradient(circle at 30% 0%, rgba(255, 212, 90, 0.075), transparent 34%);
+    border: 1px solid rgba(255,255,255,0.075);
+    box-shadow: 0 20px 48px rgba(0,0,0,0.24), inset 0 1px 0 rgba(255,255,255,0.045);
+  }
+  body.is-game-screen .game-top h2 {
+    font-size: clamp(1.35rem, 1.7vw, 1.72rem);
+  }
+  body.is-game-screen .score-strip {
+    background: rgba(0,0,0,0.20);
+    border: 1px solid rgba(255,255,255,0.07);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+  }
+  body.is-game-screen .score-strip span {
+    min-width: 98px;
+  }
+
+  body.is-game-screen .game-grid {
+    display: block !important;
+    position: relative;
+    width: min(1500px, 100%);
+    height: calc(100dvh - 154px);
+    min-height: 650px;
+    margin: 0 auto;
+  }
+  body.is-game-screen .game-grid::after {
+    display: none !important;
+    content: none !important;
+  }
+  body.is-game-screen .side-panel {
+    position: absolute !important;
+    left: 0;
+    top: 0;
+    width: 318px;
+    height: 100%;
+    z-index: 3;
+    padding: 16px;
+    border-radius: 28px;
+    background:
+      linear-gradient(180deg, rgba(18, 21, 38, 0.96), rgba(8, 10, 20, 0.96)),
+      radial-gradient(circle at 0% 0%, rgba(114, 255, 216, 0.055), transparent 36%);
+    border: 1px solid rgba(255,255,255,0.075);
+    box-shadow: 0 22px 52px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.045);
+  }
+  body.is-game-screen .side-panel h3 {
+    color: #f3cb68;
+    letter-spacing: 0.15em;
+    font-size: 0.78rem;
+  }
+  body.is-game-screen .xp-row span,
+  body.is-game-screen .opponent-row,
+  body.is-game-screen .opponent-head,
+  body.is-game-screen .quick-add,
+  body.is-game-screen .audio-panel {
+    background: rgba(255,255,255,0.045) !important;
+    border: 1px solid rgba(255,255,255,0.065) !important;
+  }
+
+  body.is-game-screen .board-card {
+    position: relative;
+    z-index: 2;
+    width: min(920px, calc(100% - 710px));
+    min-width: 720px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 26px 26px 20px;
+    border-radius: 34px;
+    background:
+      radial-gradient(circle at 50% 15%, rgba(255, 212, 90, 0.12), transparent 19rem),
+      radial-gradient(circle at 50% 56%, rgba(114, 255, 216, 0.055), transparent 25rem),
+      linear-gradient(180deg, rgba(16, 19, 35, 0.985), rgba(7, 9, 18, 0.985)) !important;
+    border: 1px solid rgba(255,255,255,0.09);
+    box-shadow:
+      0 28px 80px rgba(0,0,0,0.38),
+      inset 0 1px 0 rgba(255,255,255,0.055),
+      0 0 0 1px rgba(255,212,90,0.035);
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  body.is-game-screen .board-card::before {
+    inset: 16px;
+    border-radius: 26px;
+    background:
+      radial-gradient(circle at 50% 12%, rgba(255,255,255,0.045), transparent 28%),
+      linear-gradient(180deg, rgba(255,255,255,0.018), transparent 36%);
+    border: 1px solid rgba(255,255,255,0.055);
+    box-shadow: inset 0 0 48px rgba(0,0,0,0.30);
+  }
+  body.is-game-screen .board-wrap,
+  body.is-game-screen .party-boards {
+    width: 100%;
+    max-width: 860px;
+  }
+  body.is-game-screen .board-wrap {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+  body.is-game-screen .board-wrap h3,
+  body.is-game-screen .party-boards h3 {
+    margin: 0 0 10px;
+    padding: 8px 15px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.055);
+    border: 1px solid rgba(255,255,255,0.07);
+    color: #f1d788;
+    font-size: 0.72rem;
+    letter-spacing: 0.17em;
+  }
+  body.is-game-screen .word-board {
+    width: 100%;
+    margin: 0 auto;
+  }
+  body.is-game-screen {
+    --tile: clamp(50px, 3.55vw, 62px);
+    --tile-gap: 9px;
+  }
+  body.is-game-screen .tile {
+    border-radius: 17px;
+    font-size: clamp(1rem, 1.45vw, 1.32rem);
+  }
+  body.is-game-screen .keyboard {
+    width: min(100%, 820px);
+    margin-top: 12px;
+    padding: 14px 16px 16px;
+    border-radius: 26px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.052), rgba(255,255,255,0.024)),
+      radial-gradient(circle at 50% 0%, rgba(255,212,90,0.055), transparent 70%);
+    border: 1px solid rgba(255,255,255,0.075);
+  }
+  body.is-game-screen .key-row { gap: 8px; }
+  body.is-game-screen .key {
+    min-width: 38px;
+    height: 47px;
+    border-radius: 14px;
+  }
+  body.is-game-screen .key.wide { min-width: 90px; }
+
+  body.is-game-screen .input-preview {
+    min-height: 22px;
+    margin-top: 8px;
+    color: rgba(230, 220, 243, 0.75);
+  }
+}
+
+@media (min-width: 1350px) and (max-height: 850px) {
+  body.is-game-screen .game-grid {
+    height: calc(100dvh - 136px);
+    min-height: 600px;
+  }
+  body.is-game-screen .game-top {
+    padding: 10px 14px;
+    margin-bottom: 10px;
+  }
+  body.is-game-screen .side-panel {
+    padding: 13px;
+  }
+  body.is-game-screen .board-card {
+    padding: 18px 22px 14px;
+  }
+  body.is-game-screen {
+    --tile: clamp(43px, 3.15vw, 56px);
+    --tile-gap: 7px;
+  }
+  body.is-game-screen .keyboard {
+    margin-top: 8px;
+    padding: 10px 12px 12px;
+  }
+  body.is-game-screen .key {
+    height: 40px;
+    min-width: 34px;
+    border-radius: 12px;
+  }
+  body.is-game-screen .key.wide { min-width: 78px; }
+}
+
+@media (min-width: 981px) and (max-width: 1349px) {
+  body.is-game-screen .game-grid::after {
+    display: none !important;
+    content: none !important;
+  }
+  body.is-game-screen .game-grid {
+    grid-template-columns: minmax(260px, 310px) minmax(620px, 1fr) !important;
+    justify-content: center;
+  }
+  body.is-game-screen .board-card {
+    grid-column: 2 !important;
+  }
+}
+
+/* Keep Party mode aligned with the centered stage. */
+@media (min-width: 1350px) {
+  body.is-game-screen.is-party-mode .party-boards {
+    max-width: 860px;
+    gap: 12px;
+  }
+  body.is-game-screen.is-party-mode .party-main-board {
+    width: min(100%, 700px);
+  }
+  body.is-game-screen.is-party-mode .party-main-board .compact-board {
+    --tile: clamp(36px, 2.65vw, 48px);
+    --tile-gap: 6px;
+  }
+  body.is-game-screen.is-party-mode .party-player-board .compact-board {
+    --tile: clamp(20px, 1.55vw, 28px);
+    --tile-gap: 4px;
+  }
+}
