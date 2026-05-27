@@ -1629,3 +1629,72 @@ body {
     font-size: 0.7rem;
   }
 }
+
+
+/* v18: submitted guesses must always use full Wordle feedback colors.
+   Live hint outlines are only for the currently typed row, never for already submitted rows. */
+.tile.green,
+.tile.reveal.green,
+.word-row.submitted .tile.green,
+.word-row .tile.green:not(.live-filled) {
+  background: linear-gradient(180deg, #66f1a8, var(--green)) !important;
+  color: #06160d !important;
+  border-color: transparent !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.22),
+    0 8px 20px rgba(0,0,0,0.22) !important;
+}
+
+.tile.yellow,
+.tile.reveal.yellow,
+.word-row.submitted .tile.yellow,
+.word-row .tile.yellow:not(.live-filled) {
+  background: linear-gradient(180deg, #ffe082, var(--yellow)) !important;
+  color: #241900 !important;
+  border-color: transparent !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.24),
+    0 8px 20px rgba(0,0,0,0.22) !important;
+}
+
+.tile.gray,
+.tile.reveal.gray,
+.word-row.submitted .tile.gray,
+.word-row .tile.gray:not(.live-filled) {
+  background: linear-gradient(180deg, #44495c, #303444) !important;
+  color: #e0e4f5 !important;
+  border-color: transparent !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.10),
+    0 8px 20px rgba(0,0,0,0.20) !important;
+}
+
+/* If a submitted cell accidentally still has live hint classes, feedback wins. */
+.word-row.submitted .tile.hint-green,
+.word-row.submitted .tile.hint-yellow,
+.word-row.submitted .tile.hint-red {
+  outline: 0 !important;
+}
+
+/* Live hints stay as outlines only on typed, not-yet-submitted cells. */
+.tile.live-filled.hint-green:not(.green):not(.yellow):not(.gray) {
+  border-color: rgba(57,223,135,0.98) !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.11), rgba(255,255,255,0.045)),
+    radial-gradient(circle at top, rgba(57,223,135,0.08), transparent 64%) !important;
+  color: var(--text) !important;
+}
+.tile.live-filled.hint-yellow:not(.green):not(.yellow):not(.gray) {
+  border-color: rgba(255,212,90,0.98) !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.11), rgba(255,255,255,0.045)),
+    radial-gradient(circle at top, rgba(255,212,90,0.10), transparent 64%) !important;
+  color: var(--text) !important;
+}
+.tile.live-filled.hint-red:not(.green):not(.yellow):not(.gray) {
+  border-color: rgba(255,71,111,0.98) !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.11), rgba(255,255,255,0.045)),
+    radial-gradient(circle at top, rgba(255,71,111,0.08), transparent 64%) !important;
+  color: var(--text) !important;
+}
