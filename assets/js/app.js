@@ -15,7 +15,8 @@
     lastWordNoticeId: null,
     lastPendingWordRequestNoticeId: null,
     opponentRevealUnlockedKey: null,
-    localTypingActive: false
+    localTypingActive: false,
+    lastPartyLiveInputPublished: null
   };
 
   const els = {};
@@ -367,7 +368,29 @@
     return "";
   }
 
-  function renderBoard(container, guesses, input, answerLength, maxAttempts, reveal = false) {
+  function keyStatesFromGuesses(guesses) {
+    const states = {};
+    (guesses || []).forEach(guess => {
+      (guess.feedback || []).forEach(item => {
+        if (!item || !item.letter || !item.state) return;
+        states[item.letter] = window.SPGameEngine.mergeKeyState(states[item.letter], item.state);
+      });
+    });
+    return states;
+  }
+
+  function hintGuessesForRoom(room = state.room) {
+    if (!room || !room.settings) return [];
+    if (room.settings.mode === "party") {
+      // Party mode is cooperative: every submitted party guess teaches both
+      // players the same information. Use the shared central board for live
+      // input outlines and keyboard coloring, not only my personal board.
+      return centralPartyGuesses(room);
+    }
+    return ownGuesses(room);
+  }
+
+  function renderBoard(container, guesses, input, answerLength, maxAttempts, reveal = false, hintGuesses = null) {
     if (!container) return;
     const safeGuesses = guesses || [];
     const signature = boardSignature(safeGuesses, answerLength, maxAttempts);
@@ -399,12 +422,12 @@
       container.dataset.boardSignature = signature;
     }
 
-    updateActiveInputRow(container, safeGuesses.length, input, answerLength, maxAttempts, safeGuesses);
+    updateActiveInputRow(container, safeGuesses.length, input, answerLength, maxAttempts, hintGuesses || safeGuesses);
   }
 
-  function updateActiveInputRow(container, activeRowIndex, input, answerLength, maxAttempts, guesses = []) {
+  function updateActiveInputRow(container, activeRowIndex, input, answerLength, maxAttempts, hintGuesses = []) {
     const inputLetters = Array.from(input || "");
-    const hints = buildInputHints(guesses, answerLength);
+    const hints = buildInputHints(hintGuesses, answerLength);
     for (let r = 0; r < maxAttempts; r += 1) {
       const row = container.querySelector(`.word-row[data-row="${r}"]`);
       if (!row) continue;
@@ -429,14 +452,21 @@
     const ownGuessesList = guessesForUser(own, room);
     const otherGuessesList = other ? guessesForUser(other.userId, room) : [];
     const otherProgress = other && room.publicProgress ? room.publicProgress[other.userId] : null;
-    const otherLiveInput = otherProgress ? (otherProgress.currentInput || "") : "";
+    const otherLive = other && room.partyLiveInputs ? room.partyLiveInputs[other.userId] : null;
+    const otherLiveInput = otherLive && typeof otherLive.currentInput === "string"
+      ? otherLive.currentInput
+      : (otherProgress ? (otherProgress.currentInput || "") : "");
     const central = centralPartyGuesses(room);
 
     // Party mode: the central board is the real shared attempt pool.
     // The two small boards below only show who typed/submitted what, including live input.
-    renderBoard(els.partyCentralBoard, central, "", round.answerLength, maxAttempts, true);
-    renderBoard(els.partyOwnBoard, ownGuessesList, state.currentInput, round.answerLength, Math.max(maxAttempts, ownGuessesList.length + 1), true);
-    renderBoard(els.partyOtherBoard, otherGuessesList, otherLiveInput, round.answerLength, Math.max(maxAttempts, otherGuessesList.length + 1), true);
+    renderBoard(els.partyCentralBoard, central, "", round.answerLength, maxAttempts, true, central);
+    renderBoard(els.partyOwnBoard, ownGuessesList, state.currentInput, round.answerLength, Math.max(maxAttempts, ownGuessesList.length + 1), true, central);
+    renderBoard(els.partyOtherBoard, otherGuessesList, otherLiveInput, round.answerLength, Math.max(maxAttempts, otherGuessesList.length + 1), true, central);
+    if (els.partyOtherBoard) {
+      const otherCard = els.partyOtherBoard.closest(".party-player-board");
+      if (otherCard) otherCard.classList.toggle("party-live-active", !!otherLiveInput);
+    }
   }
 
   function renderKeyboard() {
@@ -461,7 +491,15 @@
     const maxAttempts = round.maxAttempts || state.room.settings.maxAttempts;
     els.inputPreview.textContent = state.currentInput.toLocaleUpperCase("hu-HU");
     if (state.room.settings.mode === "party") {
-      renderBoard(els.partyOwnBoard, guessesForUser(state.profile.userId, state.room), state.currentInput, round.answerLength, maxAttempts, true);
+      renderBoard(
+        els.partyOwnBoard,
+        guessesForUser(state.profile.userId, state.room),
+        state.currentInput,
+        round.answerLength,
+        maxAttempts,
+        true,
+        hintGuessesForRoom(state.room)
+      );
     } else {
       renderBoard(els.gameBoard, ownGuesses(state.room), state.currentInput, round.answerLength, maxAttempts, true);
     }
@@ -471,6 +509,7 @@
     state.currentInput = "";
     state.keyStates = {};
     state.opponentRevealUnlockedKey = null;
+    state.lastPartyLiveInputPublished = null;
     els.inputPreview.textContent = "";
     renderKeyboard();
   }
@@ -499,6 +538,7 @@
     els.hostQuickAdd.classList.toggle("hidden", !room.settings.allowHostWords);
     els.duelBoardWrap.classList.toggle("hidden", mode === "party");
     els.partyBoards.classList.toggle("hidden", mode !== "party");
+    state.keyStates = keyStatesFromGuesses(mode === "party" ? centralPartyGuesses(room) : ownGuesses(room));
     if (mode === "party") renderPartyBoards(room);
     else renderBoard(els.gameBoard, ownGuesses(room), state.currentInput, round.answerLength, round.maxAttempts || room.settings.maxAttempts, true);
     renderKeyboard();
@@ -699,7 +739,7 @@
       window.SPAudio.play("key");
     }
     updateCurrentInputVisuals();
-    if (state.room.settings.mode === "party") publishPartyInputSoon();
+    if (state.room.settings.mode === "party") publishPartyInputNow();
     else setTypingSoon();
   }
 
@@ -716,24 +756,41 @@
     }, 1100);
   }
 
-  function publishPartyInputSoon() {
+  function publishPartyInputNow() {
     if (!state.roomCode || !state.profile || !state.room || !state.room.settings || state.room.settings.mode !== "party") return;
-    clearTimeout(state.partyInputTimer);
-    state.partyInputTimer = setTimeout(() => {
-      window.SPRooms.setTyping(state.roomCode, state.profile.userId, true, state.currentInput);
-    }, 70);
+    const value = state.currentInput || "";
+    if (state.lastPartyLiveInputPublished === value) return;
+    state.lastPartyLiveInputPublished = value;
+
+    // Party mode needs true live typing: every letter and every backspace must
+    // appear on the teammate's lower board. This writes only the tiny live-input
+    // branch, not the whole room/game state.
+    if (window.SPRooms.setPartyLiveInput) {
+      window.SPRooms.setPartyLiveInput(state.roomCode, state.profile.userId, value);
+    } else {
+      window.SPRooms.setTyping(state.roomCode, state.profile.userId, true, value);
+    }
+
     clearTimeout(state.typingTimer);
     state.typingTimer = setTimeout(() => {
-      state.localTypingActive = false;
-      window.SPRooms.setTyping(state.roomCode, state.profile.userId, false, state.currentInput);
-    }, 1300);
+      if (state.room && state.room.settings && state.room.settings.mode === "party") {
+        if (window.SPRooms.setPartyLiveInput) window.SPRooms.setPartyLiveInput(state.roomCode, state.profile.userId, state.currentInput || "");
+        else window.SPRooms.setTyping(state.roomCode, state.profile.userId, false, state.currentInput || "");
+      }
+    }, 1200);
   }
 
   function clearLiveInputOnServer() {
     clearTimeout(state.partyInputTimer);
     clearTimeout(state.typingTimer);
     state.localTypingActive = false;
-    if (state.roomCode && state.profile) window.SPRooms.setTyping(state.roomCode, state.profile.userId, false, "");
+    state.lastPartyLiveInputPublished = "";
+    if (state.roomCode && state.profile) {
+      if (state.room && state.room.settings && state.room.settings.mode === "party" && window.SPRooms.setPartyLiveInput) {
+        window.SPRooms.setPartyLiveInput(state.roomCode, state.profile.userId, "");
+      }
+      window.SPRooms.setTyping(state.roomCode, state.profile.userId, false, "");
+    }
   }
 
   async function submitCurrentGuess() {

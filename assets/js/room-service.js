@@ -120,7 +120,7 @@
     return window.SPFirebase.update(roomPath(roomCode), { settings: clean, mode: clean.mode, updatedAt: window.SPFirebase.serverTimestamp() });
   }
   async function leave(roomCode, userId) { if (!window.SPFirebase.configured) return; return window.SPFirebase.remove(`${roomPath(roomCode)}/players/${userId}`); }
-  async function backToLobby(roomCode) { return window.SPFirebase.update(roomPath(roomCode), { status: "lobby", currentRound: null, guesses: null, publicProgress: null, publicAttempts: null, partyBoard: null, updatedAt: window.SPFirebase.serverTimestamp() }); }
+  async function backToLobby(roomCode) { return window.SPFirebase.update(roomPath(roomCode), { status: "lobby", currentRound: null, guesses: null, publicProgress: null, publicAttempts: null, partyBoard: null, partyLiveInputs: null, updatedAt: window.SPFirebase.serverTimestamp() }); }
 
   function newRoundPayload(roundNumber, settings, answer) {
     const now = Date.now();
@@ -160,6 +160,7 @@
       publicProgress: null,
       publicAttempts: null,
       partyBoard: null,
+      partyLiveInputs: null,
       matchHistory: null,
       currentRound: newRoundPayload(1, clean, answer),
       updatedAt: window.SPFirebase.serverTimestamp()
@@ -177,6 +178,7 @@
       publicProgress: null,
       publicAttempts: null,
       partyBoard: null,
+      partyLiveInputs: null,
       currentRound: newRoundPayload(nextRoundNumber, settings, answer),
       updatedAt: window.SPFirebase.serverTimestamp()
     });
@@ -218,6 +220,7 @@
       updatedAt: Date.now()
     };
     if (payload.partyMode) {
+      updates[`partyLiveInputs/${userId}`] = { currentInput: "", typing: false, updatedAt: Date.now() };
       updates[`partyBoard/${Date.now()}_${userId}_${idx}`] = {
         userId,
         displayName: payload.displayName,
@@ -237,6 +240,22 @@
     const payload = { typing: !!typing, updatedAt: Date.now() };
     if (typeof currentInput === "string") payload.currentInput = currentInput;
     await window.SPFirebase.update(`${roomPath(roomCode)}/publicProgress/${userId}`, payload).catch(() => {});
+  }
+
+  async function setPartyLiveInput(roomCode, userId, currentInput) {
+    if (!window.SPFirebase.configured) return;
+    const value = typeof currentInput === "string" ? currentInput : "";
+    const payload = {
+      currentInput: value,
+      typing: value.length > 0,
+      updatedAt: Date.now()
+    };
+    const updates = {};
+    updates[`partyLiveInputs/${userId}`] = payload;
+    updates[`publicProgress/${userId}/typing`] = payload.typing;
+    updates[`publicProgress/${userId}/currentInput`] = value;
+    updates[`publicProgress/${userId}/updatedAt`] = payload.updatedAt;
+    await window.SPFirebase.update(roomPath(roomCode), updates).catch(() => {});
   }
 
   async function startFailureTimer(roomCode, userId) {
@@ -385,6 +404,7 @@
     finishMatch,
     submitGuess,
     setTyping,
+    setPartyLiveInput,
     ensureFailureTimer,
     startFailureTimer,
     endRound,

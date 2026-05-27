@@ -194,3 +194,8 @@ Ez statikus frontend. Nincs saját szerver. A Firebase szabályokkal lehet szigo
   - piros körvonal: a betűről a korábbi tippek alapján tudható, hogy nem jó vagy a pozíció már más betűvel zárva van.
 - A segítő körvonal nem kapcsolható ki, mert a játékmechanika része.
 - Gépeléskor már nem renderelődik újra a teljes játékfelület és billentyűzet, csak az aktív sor frissül.
+
+
+## v16 Party közös segítő jelzések
+
+Party módban a játék most a közös fő táblából tanult betűinformációkat használja mindkét játékosnál. Ha a társad beküld egy tippet, és abból kiderül, hogy egy betű nincs a szóban, akkor nálad is piros jelzést kap az a betű gépelés közben. Ha kiderül, hogy egy betű jó vagy szerepel a szóban, a saját alsó táblád és a billentyűzet is ezt az információt használja.
